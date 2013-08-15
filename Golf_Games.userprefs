@@ -1,0 +1,26 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/Screens/menu3.cs">
+    <Files>
+      <File FileName="Golf_Games/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/menu1.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/menu2.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/menu3.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Golf_Games" expanded="True">
+            <Node name="Screens" expanded="True">
+              <Node name="menu1.xib" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
