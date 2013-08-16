@@ -12,7 +12,11 @@ namespace Golf_Games
 		public menu1 () : base ("menu1", null)
 		{
 			this.Title = "Player Setup";
-			//this.txtPlayer1.ShouldReturn += 0;
+
+			this.txtPlayer1.ShouldReturn += (textField) => {
+				textField.ResignFirstResponder ();
+				return true;
+			};
 		}
 
 		public override void DidReceiveMemoryWarning ()
