@@ -5,14 +5,12 @@ using MonoTouch.UIKit;
 
 namespace Golf_Games
 {
-	public partial class menu1 : UIViewController
+	public partial class start_screen : UIViewController
 	{
+		menu1 menu1Screen;
 
-		menu2 menu2Screen;
-		public menu1 () : base ("menu1", null)
+		public start_screen () : base ("start_screen", null)
 		{
-			this.Title = "Player Setup";
-			//this.txtPlayer1.ShouldReturn += 0;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -27,18 +25,15 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
-			this.btnMenu1Next.TouchUpInside += (sender, e) => {
-				if (this.menu2Screen == null) {
-					this.menu2Screen = new menu2 ();
+			this.btnStart.TouchUpInside += (sender, e) => {
+				if (this.menu1Screen == null) {
+					this.menu1Screen = new menu1 ();
 				}
 
-				this.NavigationController.PushViewController (this.menu2Screen, true);
+				this.NavigationController.PushViewController (this.menu1Screen, true);
 			};
-
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
-
-
 	}
 }
 

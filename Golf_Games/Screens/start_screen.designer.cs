@@ -8,25 +8,17 @@ using MonoTouch.Foundation;
 
 namespace Golf_Games
 {
-	[Register ("menu1")]
-	partial class menu1
+	[Register ("start_screen")]
+	partial class start_screen
 	{
 		[Outlet]
-		MonoTouch.UIKit.UIButton btnMenu1Next { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UITextField txtPlayer1 { get; set; }
+		MonoTouch.UIKit.UIButton btnStart { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (btnMenu1Next != null) {
-				btnMenu1Next.Dispose ();
-				btnMenu1Next = null;
-			}
-
-			if (txtPlayer1 != null) {
-				txtPlayer1.Dispose ();
-				txtPlayer1 = null;
+			if (btnStart != null) {
+				btnStart.Dispose ();
+				btnStart = null;
 			}
 		}
 	}

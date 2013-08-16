@@ -25,7 +25,15 @@ namespace Golf_Games
 		{
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
+
+			var rootNavigationController = new UINavigationController ();
+			start_screen startscreen = new start_screen ();
+
+			rootNavigationController.PushViewController (startscreen, false);
+
+			this.window.RootViewController = rootNavigationController;
+
+
 			// If you have defined a root view controller, set it here:
 			// window.RootViewController = myViewController;
 			
