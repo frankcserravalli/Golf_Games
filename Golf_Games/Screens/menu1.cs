@@ -13,10 +13,10 @@ namespace Golf_Games
 		{
 			this.Title = "Player Setup";
 
-			this.txtPlayer1.ShouldReturn += (textField) => {
-				textField.ResignFirstResponder ();
-				return true;
-			};
+//			this.txtPlayer1.ShouldReturn += (textField) => {
+//				textField.ResignFirstResponder ();
+//				return true;
+//			};
 		}
 
 		public override void DidReceiveMemoryWarning ()
