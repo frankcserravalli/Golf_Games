@@ -115,4 +115,9 @@
     <InterfaceDefinition Include="Screens\menu3.xib" />
     <InterfaceDefinition Include="Screens\start_screen.xib" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
 </Project>
