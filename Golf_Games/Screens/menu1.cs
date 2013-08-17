@@ -55,7 +55,7 @@ namespace Golf_Games
 
 			this.txtPlayerName1.ShouldReturn += (textView) => {
 				//textView.ResignFirstResponder ();
-				textView.NextResponder(
+
 
 				return true;
 			};

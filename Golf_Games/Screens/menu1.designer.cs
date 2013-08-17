@@ -15,6 +15,9 @@ namespace Golf_Games
 		MonoTouch.UIKit.UIButton btnMenu1Next { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UITextField nextField { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UITextField txtPlayerHandi1 { get; set; }
 
 		[Outlet]
@@ -83,6 +86,11 @@ namespace Golf_Games
 			if (txtPlayerHandi4 != null) {
 				txtPlayerHandi4.Dispose ();
 				txtPlayerHandi4 = null;
+			}
+
+			if (nextField != null) {
+				nextField.Dispose ();
+				nextField = null;
 			}
 		}
 	}
