@@ -25,6 +25,7 @@ namespace Golf_Games
 
 		public override void ViewDidLoad ()
 		{
+			UITextView txtPlayer;
 			base.ViewDidLoad ();
 
 			this.btnMenu1Next.TouchUpInside += (sender, e) => {
@@ -51,19 +52,47 @@ namespace Golf_Games
 //			this.txtPlayerHandi2.ReturnKeyType = UIReturnKeyType.Done;
 //			this.txtPlayerHandi3.ReturnKeyType = UIReturnKeyType.Done;
 //			this.txtPlayerHandi4.ReturnKeyType = UIReturnKeyType.Done;
+			this.txtPlayerName1.Tag = 1;
+			this.txtPlayerHandi1.Tag = 2;
+			this.txtPlayerName2.Tag = 3;
+			this.txtPlayerHandi2.Tag = 4;
+			this.txtPlayerName3.Tag = 5;
+			this.txtPlayerHandi3.Tag = 6;
+			this.txtPlayerName4.Tag = 7;
+			this.txtPlayerHandi4.Tag = 8;
 
-
-			this.txtPlayerName1.ShouldReturn += (textView) => {
-				//textView.ResignFirstResponder ();
-
-
-				return true;
-			};
-
+			NextTextField (txtPlayerName1);
+			NextTextField (txtPlayerHandi1);
+			NextTextField (txtPlayerName2);
+			NextTextField (txtPlayerHandi2);
+			NextTextField (txtPlayerName3);
+			NextTextField (txtPlayerHandi3);
+			NextTextField (txtPlayerName4);
+			NextTextField (txtPlayerHandi4);
 
 
 
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		public void NextTextField(UITextField txtPlayer)
+		{
+			txtPlayer.ShouldReturn += (textView) => {
+				//textView.ResignFirstResponder ();
+				//textView.BecomeFirstResponder();
+				textView.BecomeFirstResponder ();
+
+				if (txtPlayer.Tag != txtPlayerHandi4.Tag) {
+					UITextField txtPlayerHandi = (UITextField)this.View.ViewWithTag(txtPlayer.Tag + 1);
+
+					txtPlayerHandi.BecomeFirstResponder ();
+				} else {
+					txtPlayer.ResignFirstResponder ();
+				}
+
+
+				return true;
+			};
 		}
 
 

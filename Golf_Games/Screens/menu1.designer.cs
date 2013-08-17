@@ -15,9 +15,6 @@ namespace Golf_Games
 		MonoTouch.UIKit.UIButton btnMenu1Next { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UITextField nextField { get; set; }
-
-		[Outlet]
 		MonoTouch.UIKit.UITextField txtPlayerHandi1 { get; set; }
 
 		[Outlet]
@@ -48,26 +45,6 @@ namespace Golf_Games
 				btnMenu1Next = null;
 			}
 
-			if (txtPlayerName1 != null) {
-				txtPlayerName1.Dispose ();
-				txtPlayerName1 = null;
-			}
-
-			if (txtPlayerName2 != null) {
-				txtPlayerName2.Dispose ();
-				txtPlayerName2 = null;
-			}
-
-			if (txtPlayerName3 != null) {
-				txtPlayerName3.Dispose ();
-				txtPlayerName3 = null;
-			}
-
-			if (txtPlayerName4 != null) {
-				txtPlayerName4.Dispose ();
-				txtPlayerName4 = null;
-			}
-
 			if (txtPlayerHandi1 != null) {
 				txtPlayerHandi1.Dispose ();
 				txtPlayerHandi1 = null;
@@ -88,9 +65,24 @@ namespace Golf_Games
 				txtPlayerHandi4 = null;
 			}
 
-			if (nextField != null) {
-				nextField.Dispose ();
-				nextField = null;
+			if (txtPlayerName1 != null) {
+				txtPlayerName1.Dispose ();
+				txtPlayerName1 = null;
+			}
+
+			if (txtPlayerName2 != null) {
+				txtPlayerName2.Dispose ();
+				txtPlayerName2 = null;
+			}
+
+			if (txtPlayerName3 != null) {
+				txtPlayerName3.Dispose ();
+				txtPlayerName3 = null;
+			}
+
+			if (txtPlayerName4 != null) {
+				txtPlayerName4.Dispose ();
+				txtPlayerName4 = null;
 			}
 		}
 	}
