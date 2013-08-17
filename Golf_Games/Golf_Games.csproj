@@ -107,6 +107,10 @@
     <Compile Include="Screens\start_screen.designer.cs">
       <DependentUpon>start_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\menu4.cs" />
+    <Compile Include="Screens\menu4.designer.cs">
+      <DependentUpon>menu4.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -114,6 +118,7 @@
     <InterfaceDefinition Include="Screens\menu2.xib" />
     <InterfaceDefinition Include="Screens\menu3.xib" />
     <InterfaceDefinition Include="Screens\start_screen.xib" />
+    <InterfaceDefinition Include="Screens\menu4.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
