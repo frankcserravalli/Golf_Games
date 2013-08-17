@@ -9,15 +9,10 @@ namespace Golf_Games
 	{
 
 		menu2 menu2Screen;
-		UITextField textField;
+
 		public menu1 () : base ("menu1", null)
 		{
 			this.Title = "Player Setup";
-
-//			this.txtPlayer1.ShouldReturn += (textField) => {
-//				textField.ResignFirstResponder ();
-//				return true;
-//			};
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -42,16 +37,35 @@ namespace Golf_Games
 			};
 
 
-			this.txtPlayer1.ShouldReturn += (textField) => {
-				textField.ResignFirstResponder ();
-				return true;
+//			this.txtPlayerName1.ReturnKeyType = UIReturnKeyType.Done;
+//			this.txtPlayerName2.ReturnKeyType = UIReturnKeyType.Done;
+//			this.txtPlayerName3.ReturnKeyType = UIReturnKeyType.Done;
+//			this.txtPlayerName4.ReturnKeyType = UIReturnKeyType.Done;
+//
+//			this.txtPlayerHandi1.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
+//			this.txtPlayerHandi2.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
+//			this.txtPlayerHandi3.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
+//			this.txtPlayerHandi4.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
+//
+//			this.txtPlayerHandi1.ReturnKeyType = UIReturnKeyType.Done;
+//			this.txtPlayerHandi2.ReturnKeyType = UIReturnKeyType.Done;
+//			this.txtPlayerHandi3.ReturnKeyType = UIReturnKeyType.Done;
+//			this.txtPlayerHandi4.ReturnKeyType = UIReturnKeyType.Done;
 
+
+			this.txtPlayerName1.ShouldReturn += (textView) => {
+				//textView.ResignFirstResponder ();
+				textView.NextResponder(
+
+				return true;
 			};
+
 
 
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
+
 
 
 	}
