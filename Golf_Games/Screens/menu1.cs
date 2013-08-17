@@ -9,6 +9,7 @@ namespace Golf_Games
 	{
 
 		menu2 menu2Screen;
+		UITextField textField;
 		public menu1 () : base ("menu1", null)
 		{
 			this.Title = "Player Setup";
@@ -35,9 +36,19 @@ namespace Golf_Games
 				if (this.menu2Screen == null) {
 					this.menu2Screen = new menu2 ();
 				}
+			
 
 				this.NavigationController.PushViewController (this.menu2Screen, true);
 			};
+
+
+			this.txtPlayer1.ShouldReturn += (textField) => {
+				textField.ResignFirstResponder ();
+				return true;
+
+			};
+
+
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
