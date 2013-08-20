@@ -2,12 +2,17 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.IO;
+
+
 
 namespace Golf_Games
 {
 	public partial class start_screen : UIViewController
 	{
 		menu1 menu1Screen;
+		GameInfo gameInfo = new GameInfo();
+
 
 		public start_screen () : base ("start_screen", null)
 		{
@@ -30,8 +35,15 @@ namespace Golf_Games
 					this.menu1Screen = new menu1 ();
 				}
 
+				this.menu1Screen.gameInfo = this.gameInfo;
 				this.NavigationController.PushViewController (this.menu1Screen, true);
 			};
+
+			//Need to create directories to store our data
+			var documents = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
+			var directoryname = Path.Combine (documents, "Players");
+			Directory.CreateDirectory (directoryname);
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 	}

@@ -7,6 +7,7 @@ namespace Golf_Games
 {
 	public partial class menu2 : UIViewController
 	{
+		public GameInfo gameInfo;
 		public menu2 () : base ("menu2", null)
 		{
 			this.Title = "Pick a Course";

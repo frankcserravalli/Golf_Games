@@ -9,6 +9,10 @@ namespace Golf_Games
 	{
 
 		menu2 menu2Screen;
+		public GameInfo gameInfo;
+
+		//TODO: Will need a way to find out how many players there are.
+		int numPlayers = 4;
 
 		public menu1 () : base ("menu1", null)
 		{
@@ -32,26 +36,14 @@ namespace Golf_Games
 				if (this.menu2Screen == null) {
 					this.menu2Screen = new menu2 ();
 				}
-			
 
+				//Right here is where we set the GameInfo values before moving to the next menu
+				SetGameInfoValues();
+				menu2Screen.gameInfo = this.gameInfo;
 				this.NavigationController.PushViewController (this.menu2Screen, true);
 			};
 
 
-//			this.txtPlayerName1.ReturnKeyType = UIReturnKeyType.Done;
-//			this.txtPlayerName2.ReturnKeyType = UIReturnKeyType.Done;
-//			this.txtPlayerName3.ReturnKeyType = UIReturnKeyType.Done;
-//			this.txtPlayerName4.ReturnKeyType = UIReturnKeyType.Done;
-//
-//			this.txtPlayerHandi1.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
-//			this.txtPlayerHandi2.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
-//			this.txtPlayerHandi3.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
-//			this.txtPlayerHandi4.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
-//
-//			this.txtPlayerHandi1.ReturnKeyType = UIReturnKeyType.Done;
-//			this.txtPlayerHandi2.ReturnKeyType = UIReturnKeyType.Done;
-//			this.txtPlayerHandi3.ReturnKeyType = UIReturnKeyType.Done;
-//			this.txtPlayerHandi4.ReturnKeyType = UIReturnKeyType.Done;
 			this.txtPlayerName1.Tag = 1;
 			this.txtPlayerHandi1.Tag = 2;
 			this.txtPlayerName2.Tag = 3;
@@ -93,6 +85,23 @@ namespace Golf_Games
 
 				return true;
 			};
+		}
+
+
+		//This function is intended to set all the gameInfo values before moving to the next menu.
+		private void SetGameInfoValues()
+		{
+			this.gameInfo.player1 = this.txtPlayerName1;
+			this.gameInfo.player2 = this.txtPlayerName2;
+			this.gameInfo.player3 = this.txtPlayerName3;
+			this.gameInfo.player4 = this.txtPlayerName4;
+
+			this.gameInfo.player1Handi = this.txtPlayerHandi1;
+			this.gameInfo.player2Handi = this.txtPlayerHandi2;
+			this.gameInfo.player3Handi = this.txtPlayerHandi3;
+			this.gameInfo.player4Handi = this.txtPlayerHandi4;
+
+			this.gameInfo.numPlayers = numPlayers;
 		}
 
 

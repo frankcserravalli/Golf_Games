@@ -111,6 +111,7 @@
     <Compile Include="Screens\menu4.designer.cs">
       <DependentUpon>menu4.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
