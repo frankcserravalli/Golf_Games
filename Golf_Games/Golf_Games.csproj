@@ -112,6 +112,8 @@
       <DependentUpon>menu4.cs</DependentUpon>
     </Compile>
     <Compile Include="GameInfo.cs" />
+    <Compile Include="CurrentCourseInfo.cs" />
+    <Compile Include="CurrentHole.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

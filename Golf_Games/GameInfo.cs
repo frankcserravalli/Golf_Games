@@ -7,6 +7,9 @@ namespace Golf_Games
 	{
 		//--Data members--
 
+		//Current course info
+		public CurrentCourseInfo courseInfo;
+
 		//Player Names and handicaps
 		public UITextField player1;
 		public UITextField player2;
