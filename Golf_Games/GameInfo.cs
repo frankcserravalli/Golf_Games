@@ -27,6 +27,7 @@ namespace Golf_Games
 		//--Methods--
 		public GameInfo ()
 		{
+
 		}
 
 

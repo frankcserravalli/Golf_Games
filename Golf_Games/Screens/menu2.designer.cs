@@ -13,12 +13,20 @@ namespace Golf_Games
 	{
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnMenu2Next { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UITableView tableCourses { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (btnMenu2Next != null) {
 				btnMenu2Next.Dispose ();
 				btnMenu2Next = null;
+			}
+
+			if (tableCourses != null) {
+				tableCourses.Dispose ();
+				tableCourses = null;
 			}
 		}
 	}

@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="Courses.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="GameInfo.cs" />
     <Compile Include="CurrentCourseInfo.cs" />
     <Compile Include="CurrentHole.cs" />
+    <Compile Include="TableSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
