@@ -7,6 +7,8 @@ namespace Golf_Games
 {
 	public partial class menu4 : UIViewController
 	{
+		public GameInfo gameInfo;
+
 		public menu4 () : base ("menu4", null)
 		{
 		}

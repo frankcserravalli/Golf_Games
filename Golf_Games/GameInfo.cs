@@ -3,6 +3,13 @@ using MonoTouch.UIKit;
 
 namespace Golf_Games
 {
+	public enum GameMode
+	{
+		Strokes = 0,
+		Skins = 1,
+		Wolf = 2
+	};
+
 	public class GameInfo
 	{
 		//--Data members--
@@ -23,10 +30,15 @@ namespace Golf_Games
 		//Number of players
 		public int numPlayers;
 
+		//Game Mode
+		public GameMode gameMode;	//A finite range between 0 and some value.
+
 
 		//--Methods--
 		public GameInfo ()
 		{
+			numPlayers = 1;
+			gameMode = GameMode.Strokes;
 
 		}
 
