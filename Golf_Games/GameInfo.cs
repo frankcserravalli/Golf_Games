@@ -33,13 +33,16 @@ namespace Golf_Games
 		//Game Mode
 		public GameMode gameMode;	//A finite range between 0 and some value.
 
+		//Side bets
+		public bool sideBets;
+
 
 		//--Methods--
 		public GameInfo ()
 		{
 			numPlayers = 1;
 			gameMode = GameMode.Strokes;
-
+			sideBets = false;
 		}
 
 

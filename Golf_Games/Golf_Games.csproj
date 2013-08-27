@@ -116,6 +116,14 @@
     <Compile Include="CurrentCourseInfo.cs" />
     <Compile Include="CurrentHole.cs" />
     <Compile Include="TableSource.cs" />
+    <Compile Include="Screens\portrait.cs" />
+    <Compile Include="Screens\portrait.designer.cs">
+      <DependentUpon>portrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\landscape.cs" />
+    <Compile Include="Screens\landscape.designer.cs">
+      <DependentUpon>landscape.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -124,6 +132,8 @@
     <InterfaceDefinition Include="Screens\menu3.xib" />
     <InterfaceDefinition Include="Screens\start_screen.xib" />
     <InterfaceDefinition Include="Screens\menu4.xib" />
+    <InterfaceDefinition Include="Screens\portrait.xib" />
+    <InterfaceDefinition Include="Screens\landscape.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />

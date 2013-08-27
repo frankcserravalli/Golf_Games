@@ -63,7 +63,7 @@ namespace Golf_Games
 			this.btnMenu3Next.TouchUpInside += (sender, e) => {
 				if (this.menu4Screen == null) {
 					this.menu4Screen = new menu4 ();
-
+				}
 					NSIndexPath selectedIndex = this.gameTypesTable.IndexPathForSelectedRow;
 
 					//mode = 
@@ -72,7 +72,7 @@ namespace Golf_Games
 					//Set the gameinfo for the next menu
 					menu4Screen.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menu4Screen, true);
-				}
+				
 
 
 				// Perform any additional setup after loading the view, typically from a nib.
