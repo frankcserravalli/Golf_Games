@@ -30,6 +30,8 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
+		
+
 			this.btnStart.TouchUpInside += (sender, e) => {
 				if (this.menu1Screen == null) {
 					this.menu1Screen = new menu1 ();
@@ -46,6 +48,27 @@ namespace Golf_Games
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
+
+
+		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)
+		{
+			return (toInterfaceOrientation == UIInterfaceOrientation.Portrait);
+		}
+
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			//Sets the orientation to be only Portrait
+			return UIInterfaceOrientationMask.Portrait;
+		}
+
+		//public override UIInterfaceOrientationMask SupportedInterfaceOrientations()
+		//{
+
+		//	return UIInterfaceOrientationMask.All;
+
+		//}
+		                                                              
+
 	}
 }
 

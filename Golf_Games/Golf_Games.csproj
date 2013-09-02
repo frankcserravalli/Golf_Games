@@ -124,6 +124,7 @@
     <Compile Include="Screens\landscape.designer.cs">
       <DependentUpon>landscape.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomNavigationController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

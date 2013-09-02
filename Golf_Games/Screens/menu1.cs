@@ -32,6 +32,9 @@ namespace Golf_Games
 			UITextView txtPlayer;
 			base.ViewDidLoad ();
 
+			//Turn off autorotate and keep it fix to portrait
+
+
 			this.btnMenu1Next.TouchUpInside += (sender, e) => {
 				if (this.menu2Screen == null) {
 					this.menu2Screen = new menu2 ();
@@ -104,8 +107,25 @@ namespace Golf_Games
 			this.gameInfo.numPlayers = numPlayers;
 		}
 
+		public override bool ShouldAutorotate ()
+		{
+			return true;
+
+		}
+
+		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)
+		{
+			return (toInterfaceOrientation == UIInterfaceOrientation.Portrait);
+		}
+
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			return UIInterfaceOrientationMask.Portrait;
+
+		}
 
 
 	}
+
 }
 
