@@ -9,6 +9,7 @@ namespace Golf_Games
 	{
 		string[] oddNums;
 		string[] evenNums;
+		landscape landscape_screen;
 
 		public portrait () : base ("portrait", null)
 		{
@@ -37,6 +38,27 @@ namespace Golf_Games
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
+
+		//We need a way to move to Landscape view when the screen is rotated
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			return UIInterfaceOrientationMask.AllButUpsideDown;
+
+		}
+
+		public override void WillRotate(UIInterfaceOrientation toInterfaceOrientation, double duration)
+		{
+			base.WillRotate (toInterfaceOrientation, duration);
+
+			if (this.landscape_screen == null) {
+				this.landscape_screen = new landscape ();
+			}
+
+			this.NavigationController.PushViewController (this.landscape_screen, true);
+
+
+		}
+
 	}
 }
 

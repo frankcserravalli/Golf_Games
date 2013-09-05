@@ -25,6 +25,16 @@ namespace Golf_Games
 			
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
+
+		public override void WillRotate(UIInterfaceOrientation toInterfaceOrientation, double duration)
+		{
+			base.WillRotate (toInterfaceOrientation, duration);
+
+
+			this.NavigationController.PopViewControllerAnimated (true);
+
+
+		}
 	}
 }
 

@@ -27,8 +27,8 @@ namespace Golf_Games
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
 			//Testing CustomNavigationController
-			CustomNavigationController customNavController;
-			customNavController = new CustomNavigationController ();
+			//CustomNavigationController customNavController;
+			//customNavController = new CustomNavigationController ();
 
 
 			//var rootNavigationController = new UINavigationController ();
