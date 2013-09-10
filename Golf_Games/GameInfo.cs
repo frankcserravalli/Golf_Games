@@ -33,6 +33,8 @@ namespace Golf_Games
 		//Game Mode
 		public GameMode gameMode;	//A finite range between 0 and some value.
 
+
+
 		//Side bets
 		public bool sideBets;
 

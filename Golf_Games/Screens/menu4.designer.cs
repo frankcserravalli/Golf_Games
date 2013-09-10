@@ -13,12 +13,20 @@ namespace Golf_Games
 	{
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnMenu4Start { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UISwitch switchSideBets { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (btnMenu4Start != null) {
 				btnMenu4Start.Dispose ();
 				btnMenu4Start = null;
+			}
+
+			if (switchSideBets != null) {
+				switchSideBets.Dispose ();
+				switchSideBets = null;
 			}
 		}
 	}

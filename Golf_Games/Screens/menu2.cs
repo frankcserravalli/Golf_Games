@@ -31,7 +31,7 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
-			string[] tableItems = new string[] { "Shield Crest", "Running Y", "Bethpage" };
+			string[] tableItems = new string[] { "Bethpage","Shield Crest", "Running Y" };
 			table.Source = new TableSource (tableItems);
 			tableCourses.Source = new TableSource (tableItems);
 
@@ -44,6 +44,8 @@ namespace Golf_Games
 				NSIndexPath selectedIndex = this.tableCourses.IndexPathForSelectedRow;
 
 				gameInfo.courseInfo = courses[selectedIndex.Row];
+
+
 
 				menu3Screen.gameInfo = this.gameInfo;
 

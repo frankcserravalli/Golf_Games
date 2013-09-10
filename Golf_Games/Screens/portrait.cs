@@ -11,6 +11,9 @@ namespace Golf_Games
 		string[] evenNums;
 		landscape landscape_screen;
 
+		public GameInfo gameInfo;
+
+
 		public portrait () : base ("portrait", null)
 		{
 

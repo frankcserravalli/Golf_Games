@@ -33,7 +33,19 @@ namespace Golf_Games
 				if (this.portraitScreen == null) {
 					this.portraitScreen = new portrait ();
 				}
-					this.NavigationController.PushViewController (this.portraitScreen, true);
+
+				//Set if side bets are on or off
+				this.gameInfo.sideBets = switchSideBets.On;
+
+				//Build course info based on the selection in menu2
+				this.gameInfo.courseInfo.FindCourseByID(gameInfo.courseInfo.courseIndex);
+
+				//Copy gameinfo to the portrait object
+				portraitScreen.gameInfo = this.gameInfo;
+					
+
+
+				this.NavigationController.PushViewController (this.portraitScreen, true);
 
 				
 
@@ -41,6 +53,8 @@ namespace Golf_Games
 				// Perform any additional setup after loading the view, typically from a nib.
 			};
 		}
+
+
 	}
 }
 
