@@ -30,7 +30,8 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
-		
+			//Hide the nav bar
+			NavigationController.SetNavigationBarHidden (true, false);
 
 			this.btnStart.TouchUpInside += (sender, e) => {
 				if (this.menu1Screen == null) {

@@ -125,6 +125,14 @@
       <DependentUpon>landscape.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomNavigationController.cs" />
+    <Compile Include="Screens\landscape_score_view.cs" />
+    <Compile Include="Screens\landscape_score_view.designer.cs">
+      <DependentUpon>landscape_score_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\landscape_points_chart.cs" />
+    <Compile Include="Screens\landscape_points_chart.designer.cs">
+      <DependentUpon>landscape_points_chart.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -135,6 +143,8 @@
     <InterfaceDefinition Include="Screens\menu4.xib" />
     <InterfaceDefinition Include="Screens\portrait.xib" />
     <InterfaceDefinition Include="Screens\landscape.xib" />
+    <InterfaceDefinition Include="Screens\landscape_score_view.xib" />
+    <InterfaceDefinition Include="Screens\landscape_points_chart.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />

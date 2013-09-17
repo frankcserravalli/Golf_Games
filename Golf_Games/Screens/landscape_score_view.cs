@@ -5,11 +5,9 @@ using MonoTouch.UIKit;
 
 namespace Golf_Games
 {
-	public partial class landscape : UIViewController
+	public partial class landscape_score_view : UIViewController
 	{
-
-
-		public landscape () : base ("landscape", null)
+		public landscape_score_view () : base ("landscape_score_view", null)
 		{
 		}
 

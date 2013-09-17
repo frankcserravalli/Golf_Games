@@ -9,13 +9,29 @@ namespace Golf_Games
 	{
 		string[] oddNums;
 		string[] evenNums;
-		landscape landscape_screen;
+
+		landscape l_scorecard = new landscape();
+		landscape_points_chart l_pts_chart = new landscape_points_chart();
+		landscape_score_view l_score_view = new landscape_score_view();
 
 		public GameInfo gameInfo;
-
+		public UITabBarController tabController;
 
 		public portrait () : base ("portrait", null)
 		{
+			//This code is for setting up a tab for landscape mode.
+			tabController = new UITabBarController();
+
+
+			tabController.ViewControllers = new UIViewController[] 
+			{
+				l_scorecard, l_score_view, l_pts_chart
+			};
+
+			tabController.ViewControllers [0].Title = "Scorecard";
+			tabController.ViewControllers [1].Title = "Bets";
+			tabController.ViewControllers [2].Title = "Points Chart";
+
 
 		}
 
@@ -39,6 +55,9 @@ namespace Golf_Games
 			//Hide the nav bar
 			NavigationController.SetNavigationBarHidden (true, false);
 
+		
+
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
@@ -53,11 +72,13 @@ namespace Golf_Games
 		{
 			base.WillRotate (toInterfaceOrientation, duration);
 
-			if (this.landscape_screen == null) {
-				this.landscape_screen = new landscape ();
+			if (this.tabController == null) {
+				this.tabController = new UITabBarController ();
 			}
 
-			this.NavigationController.PushViewController (this.landscape_screen, true);
+			//this.NavigationController.PushViewController (this.landscape_screen, true);
+			this.NavigationController.PushViewController (this.tabController, true);
+			//this.PresentViewController (tabController, true, null);
 
 
 		}

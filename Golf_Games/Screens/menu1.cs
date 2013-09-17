@@ -32,6 +32,9 @@ namespace Golf_Games
 			UITextView txtPlayer;
 			base.ViewDidLoad ();
 
+			//Show the nav bar
+			NavigationController.SetNavigationBarHidden (false, false);
+
 			//Turn off autorotate and keep it fix to portrait
 
 
