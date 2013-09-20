@@ -46,11 +46,12 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			oddNums = new string[] { "1", "3", "5", "7", "9", "11" };
-			evenNums = new string[] {"2", "4", "6", "8", "10", "12"};
+			//oddNums = new string[] { "1", "3", "5", "7", "9", "11" };
+			//evenNums = new string[] {"2", "4", "6", "8", "10", "12"};
 
-			tableInputScoreLeft.Source = new TableSource (oddNums);
-			tableInputScoreRight.Source = new TableSource (evenNums);
+
+			//tableInputScoreLeft.Source = new TableSource (oddNums);
+			//tableInputScoreRight.Source = new TableSource (evenNums);
 
 			//Hide the nav bar
 			NavigationController.SetNavigationBarHidden (true, false);
@@ -82,6 +83,7 @@ namespace Golf_Games
 
 
 		}
+
 
 	}
 }

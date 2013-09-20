@@ -7,6 +7,7 @@ namespace Golf_Games
 	public class TableSource : UITableViewSource {
 		protected string[] tableItems;
 		protected string cellIdentifier = "TableCell";
+		protected bool multiColumn = false;
 
 		public TableSource (string[] items)
 		{

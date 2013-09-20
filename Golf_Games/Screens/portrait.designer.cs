@@ -11,23 +11,9 @@ namespace Golf_Games
 	[Register ("portrait")]
 	partial class portrait
 	{
-		[Outlet]
-		MonoTouch.UIKit.UITableView tableInputScoreLeft { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UITableView tableInputScoreRight { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (tableInputScoreLeft != null) {
-				tableInputScoreLeft.Dispose ();
-				tableInputScoreLeft = null;
-			}
-
-			if (tableInputScoreRight != null) {
-				tableInputScoreRight.Dispose ();
-				tableInputScoreRight = null;
-			}
 		}
 	}
 }
