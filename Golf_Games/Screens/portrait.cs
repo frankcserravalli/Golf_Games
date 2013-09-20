@@ -7,12 +7,14 @@ namespace Golf_Games
 {
 	public partial class portrait : UIViewController
 	{
-		string[] oddNums;
-		string[] evenNums;
+		//string[] oddNums;
+		//string[] evenNums;
 
 		landscape l_scorecard = new landscape();
 		landscape_points_chart l_pts_chart = new landscape_points_chart();
 		landscape_score_view l_score_view = new landscape_score_view();
+		UITableView table = new UITableView();
+
 
 		public GameInfo gameInfo;
 		public UITabBarController tabController;
@@ -46,16 +48,23 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			//oddNums = new string[] { "1", "3", "5", "7", "9", "11" };
-			//evenNums = new string[] {"2", "4", "6", "8", "10", "12"};
 
+			//Populate the table
+			string[] tableItems = new string[] { gameInfo.player1.Text, gameInfo.player2.Text, gameInfo.player3.Text, gameInfo.player4.Text };
+			table.Source = new TableSource (tableItems);
+			tablePlayers.Source = new TableSource (tableItems);
 
-			//tableInputScoreLeft.Source = new TableSource (oddNums);
-			//tableInputScoreRight.Source = new TableSource (evenNums);
 
 			//Hide the nav bar
 			NavigationController.SetNavigationBarHidden (true, false);
 
+
+			//Add a border to the playerInfo and holeInfo view
+			viewPlayerInfo.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			viewPlayerInfo.Layer.BorderWidth = 3.0f;
+
+			//viewHoleInfo.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			//viewHoleInfo.Layer.BorderWidth = 3.0f;
 		
 
 
