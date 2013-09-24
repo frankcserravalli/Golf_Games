@@ -12,6 +12,33 @@ namespace Golf_Games
 	partial class portrait
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton btnNextHole { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnPrevHole { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblHandicap { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblHoleNum { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblPar { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblPlayer1Score { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblPlayer2Score { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblPlayer3Score { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel lblPlayer4Score { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UITableView tablePlayers { get; set; }
 
 		[Outlet]
@@ -19,6 +46,9 @@ namespace Golf_Games
 
 		[Outlet]
 		MonoTouch.UIKit.UIView viewPlayerInfo { get; set; }
+
+		[Action ("actnBtnScore:")]
+		partial void actnBtnScore (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -27,14 +57,59 @@ namespace Golf_Games
 				tablePlayers = null;
 			}
 
+			if (viewHoleInfo != null) {
+				viewHoleInfo.Dispose ();
+				viewHoleInfo = null;
+			}
+
 			if (viewPlayerInfo != null) {
 				viewPlayerInfo.Dispose ();
 				viewPlayerInfo = null;
 			}
 
-			if (viewHoleInfo != null) {
-				viewHoleInfo.Dispose ();
-				viewHoleInfo = null;
+			if (lblHoleNum != null) {
+				lblHoleNum.Dispose ();
+				lblHoleNum = null;
+			}
+
+			if (btnNextHole != null) {
+				btnNextHole.Dispose ();
+				btnNextHole = null;
+			}
+
+			if (btnPrevHole != null) {
+				btnPrevHole.Dispose ();
+				btnPrevHole = null;
+			}
+
+			if (lblPar != null) {
+				lblPar.Dispose ();
+				lblPar = null;
+			}
+
+			if (lblHandicap != null) {
+				lblHandicap.Dispose ();
+				lblHandicap = null;
+			}
+
+			if (lblPlayer1Score != null) {
+				lblPlayer1Score.Dispose ();
+				lblPlayer1Score = null;
+			}
+
+			if (lblPlayer2Score != null) {
+				lblPlayer2Score.Dispose ();
+				lblPlayer2Score = null;
+			}
+
+			if (lblPlayer3Score != null) {
+				lblPlayer3Score.Dispose ();
+				lblPlayer3Score = null;
+			}
+
+			if (lblPlayer4Score != null) {
+				lblPlayer4Score.Dispose ();
+				lblPlayer4Score = null;
 			}
 		}
 	}

@@ -52,6 +52,15 @@ namespace Golf_Games
 				this.NavigationController.PushViewController (this.menu3Screen, true);
 			};
 
+
+			NSIndexPath defaultRow = new NSIndexPath();
+
+			//Row 0 is the first Course on the table
+			defaultRow = NSIndexPath.FromRowSection (0, 0);
+			tableCourses.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
+
+
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
