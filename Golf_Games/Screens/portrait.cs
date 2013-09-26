@@ -74,24 +74,14 @@ namespace Golf_Games
 
 			//Button Next hole hit
 			this.btnNextHole.TouchUpInside += (sender, e) => {
-				if(this.currentHoleNum < 18)
-					this.currentHoleNum++;
-
-				this.lblHoleNum.Text = this.currentHoleNum.ToString ();
-				//Set the Par and handicap for current hole
-				this.lblPar.Text = this.gameInfo.courseInfo.holes[currentHoleNum - 1].par.ToString();
-				this.lblHandicap.Text = this.gameInfo.courseInfo.holes[currentHoleNum - 1].hole_handicap.ToString();
+				//UpdateInfo with the Next Hole flag set.
+				UpdateInfo(0);
 			};
 
 			//Button Previous hole hit
 			this.btnPrevHole.TouchUpInside += (sender, e) => {
-				if(this.currentHoleNum > 1)
-					this.currentHoleNum--;
-
-				this.lblHoleNum.Text = this.currentHoleNum.ToString ();
-				//Set the Par and handicap for current hole
-				this.lblPar.Text = this.gameInfo.courseInfo.holes[currentHoleNum - 1].par.ToString();
-				this.lblHandicap.Text = this.gameInfo.courseInfo.holes[currentHoleNum - 1].hole_handicap.ToString();
+				//UpdateInfo with the Previous Hole flag set.
+				UpdateInfo(1);
 			};
 
 			//Select the first player by default
@@ -147,19 +137,19 @@ namespace Golf_Games
 			switch(selectedPlayer)
 			{
 			case 0:
-				this.gameInfo.scores.strokeCountP1[currentHoleNum] = selectedScore;
+				this.gameInfo.scores.strokeCountP1[currentHoleNum - 1] = selectedScore;
 				break;
 
 			case 1:
-				this.gameInfo.scores.strokeCountP2[currentHoleNum] = selectedScore;
+				this.gameInfo.scores.strokeCountP2[currentHoleNum - 1] = selectedScore;
 				break;
 
 			case 2:
-				this.gameInfo.scores.strokeCountP3[currentHoleNum] = selectedScore;
+				this.gameInfo.scores.strokeCountP3[currentHoleNum - 1] = selectedScore;
 				break;
 
 			case 3 :
-				this.gameInfo.scores.strokeCountP4[currentHoleNum] = selectedScore;
+				this.gameInfo.scores.strokeCountP4[currentHoleNum - 1] = selectedScore;
 				break;
 
 			default:
@@ -198,6 +188,89 @@ namespace Golf_Games
 			default:
 				break;
 			}
+		}
+
+		public void UpdateInfo(int holeDirection)
+		{
+			int hIndex = 0;
+			switch (holeDirection) 
+			{
+			//Next Hole
+			case 0:
+				if(this.currentHoleNum < 18)
+					this.currentHoleNum++;
+				break;
+
+			//Previous Hole
+			case 1:
+				if(this.currentHoleNum > 1)
+					this.currentHoleNum--;
+				break;
+
+			//Regular Update
+			case 2:
+				break;
+
+			default:
+				break;
+
+			}
+
+			hIndex = currentHoleNum - 1;
+
+			int currentPar = gameInfo.courseInfo.holes[hIndex].par;
+			int strokeP1 = this.gameInfo.scores.strokeCountP1 [hIndex];
+			int strokeP2 = this.gameInfo.scores.strokeCountP2 [hIndex];
+			int strokeP3 = this.gameInfo.scores.strokeCountP3 [hIndex];
+			int strokeP4 = this.gameInfo.scores.strokeCountP4 [hIndex];
+
+			this.lblHoleNum.Text = this.currentHoleNum.ToString ();
+			//Set the Par and handicap for current hole
+			this.lblPar.Text = this.gameInfo.courseInfo.holes[hIndex].par.ToString();
+			this.lblHandicap.Text = this.gameInfo.courseInfo.holes[hIndex].hole_handicap.ToString();
+
+
+			//TODO: Optimization - A function could be made to handle these statements.
+			//Update player 1.
+			if (this.gameInfo.scores.strokeCountP1 [hIndex] == 0)
+				lblPlayer1Score.Text = "--";
+			else
+				lblPlayer1Score.Text = CalculateScore(strokeP1, currentPar).ToString ("+#;-#;0");
+
+			//Update player 2.
+			if (this.gameInfo.scores.strokeCountP2 [hIndex] == 0)
+				lblPlayer2Score.Text = "--";
+			else
+				lblPlayer2Score.Text = CalculateScore(strokeP2, currentPar).ToString ("+#;-#;0");
+
+			//Update player 3.
+			if (this.gameInfo.scores.strokeCountP3 [hIndex] == 0)
+				lblPlayer3Score.Text = "--";
+			else
+				lblPlayer3Score.Text = CalculateScore(strokeP3, currentPar).ToString ("+#;-#;0");
+
+			//Update player 4.
+			if (this.gameInfo.scores.strokeCountP4 [hIndex] == 0)
+				lblPlayer4Score.Text = "--";
+			else
+				lblPlayer4Score.Text = CalculateScore(strokeP4, currentPar).ToString ("+#;-#;0");
+
+
+		}
+
+
+		//Calculates how to display the score based on strokes.
+		public int CalculateScore(int stroke, int currentPar)
+		{
+			int displayScore = 0;
+
+			//Calculate how to display the score
+			displayScore = currentPar - stroke;
+
+			//Needs to be flipped
+			displayScore = displayScore * -1;
+
+			return displayScore;
 		}
 
 
