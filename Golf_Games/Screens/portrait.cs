@@ -19,6 +19,14 @@ namespace Golf_Games
 		public GameInfo gameInfo;
 		public UITabBarController tabController;
 
+		//These are bool values to indicate if we have a button selected
+		private bool selectedSandyPar = false;
+		private bool selectedBirdie = false;
+		private bool selectedGreenie = false;
+		private bool selectedEagle = false;
+		private bool selectedCTP = false;
+		private bool selectedHOFF = false;
+
 		public portrait () : base ("portrait", null)
 		{
 			//This code is for setting up a tab for landscape mode.
@@ -76,6 +84,7 @@ namespace Golf_Games
 			this.btnNextHole.TouchUpInside += (sender, e) => {
 				//UpdateInfo with the Next Hole flag set.
 				UpdateInfo(0);
+
 			};
 
 			//Button Previous hole hit
@@ -86,6 +95,11 @@ namespace Golf_Games
 
 			//Select the first player by default
 			tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
+
+			//The done button for the betting view
+			this.btnDone.TouchUpInside += (sender, e) => {
+				viewSideBets.Hidden = true;
+			};
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -166,7 +180,6 @@ namespace Golf_Games
 
 			//Decide which label to change based upon the which player was selected
 
-
 			switch(selectedPlayer)
 			{
 			case 0:
@@ -187,6 +200,11 @@ namespace Golf_Games
 
 			default:
 				break;
+			}
+
+			if(gameInfo.sideBets == true)
+			{
+				viewSideBets.Hidden = false;
 			}
 		}
 
@@ -271,6 +289,61 @@ namespace Golf_Games
 			displayScore = displayScore * -1;
 
 			return displayScore;
+		}
+
+		partial void actnBtnBets(MonoTouch.Foundation.NSObject sender)
+		{
+			//Determine which button was pressed
+			int buttonTag = ((UIButton)sender).Tag;
+			UIImage highlighted = new UIImage("gg_greenbutton_highlighted.png");
+			UIImage normal = new UIImage("gg_greenbutton.png");
+			bool selectedButton = false;
+
+			switch(buttonTag)
+			{
+			case 1:
+				selectedSandyPar = !selectedSandyPar;
+				selectedButton = selectedSandyPar;
+				break;
+
+			case 2:
+				selectedBirdie = !selectedBirdie;
+				selectedButton = selectedBirdie;
+				break;
+
+			case 3:
+				selectedGreenie = !selectedGreenie;
+				selectedButton = selectedGreenie;
+				break;
+
+			case 4:
+				selectedEagle = !selectedEagle;
+				selectedButton = selectedEagle;
+
+				break;
+
+			case 5:
+				selectedCTP = !selectedCTP;
+				selectedButton = selectedCTP;
+				break;
+
+			case 6:
+				selectedHOFF = !selectedHOFF;
+				selectedButton = selectedHOFF;
+				break;
+
+			}
+
+			if(selectedButton == true)
+			{
+				((UIButton)sender).SetBackgroundImage(highlighted, UIControlState.Normal);
+			}
+			else
+			{
+				((UIButton)sender).SetBackgroundImage(normal, UIControlState.Normal);
+			}
+
+
 		}
 
 

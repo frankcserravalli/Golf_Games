@@ -1,22 +1,31 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/CurrentCourseInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/Screens/portrait.cs">
     <Files>
-      <File FileName="Golf_Games/Screens/menu2.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/menu2.cs" Line="60" Column="79" />
       <File FileName="Golf_Games/Screens/menu3.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Screens/start_screen.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Screens/menu1.cs" Line="103" Column="4" />
-      <File FileName="Golf_Games/GameInfo.cs" Line="16" Column="30" />
-      <File FileName="Golf_Games/CurrentCourseInfo.cs" Line="24" Column="4" />
-      <File FileName="Golf_Games/CurrentHole.cs" Line="18" Column="4" />
+      <File FileName="Golf_Games/GameInfo.cs" Line="33" Column="14" />
+      <File FileName="Golf_Games/CurrentCourseInfo.cs" Line="30" Column="22" />
+      <File FileName="Golf_Games/CurrentHole.cs" Line="15" Column="16" />
+      <File FileName="Golf_Games/Screens/portrait.cs" Line="294" Column="4" />
+      <File FileName="Golf_Games/Courses/Courses.xml" Line="63" Column="11" />
+      <File FileName="Golf_Games/Scores.cs" Line="26" Column="44" />
+      <File FileName="Golf_Games/Screens/menu4.cs" Line="38" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Golf_Games" expanded="True">
-            <Node name="Screens" expanded="True" />
-            <Node name="CurrentCourseInfo.cs" selected="True" />
+            <Node name="Courses" expanded="True" />
+            <Node name="Resources" expanded="True" />
+            <Node name="Screens" expanded="True">
+              <Node name="menu2.cs" selected="True" />
+              <Node name="menu4.cs" expanded="True" />
+              <Node name="portrait.cs" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

@@ -12,6 +12,9 @@ namespace Golf_Games
 	partial class portrait
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton btnDone { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton btnNextHole { get; set; }
 
 		[Outlet]
@@ -47,31 +50,17 @@ namespace Golf_Games
 		[Outlet]
 		MonoTouch.UIKit.UIView viewPlayerInfo { get; set; }
 
+		[Outlet]
+		MonoTouch.UIKit.UIView viewSideBets { get; set; }
+
+		[Action ("actnBtnBets:")]
+		partial void actnBtnBets (MonoTouch.Foundation.NSObject sender);
+
 		[Action ("actnBtnScore:")]
 		partial void actnBtnScore (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (tablePlayers != null) {
-				tablePlayers.Dispose ();
-				tablePlayers = null;
-			}
-
-			if (viewHoleInfo != null) {
-				viewHoleInfo.Dispose ();
-				viewHoleInfo = null;
-			}
-
-			if (viewPlayerInfo != null) {
-				viewPlayerInfo.Dispose ();
-				viewPlayerInfo = null;
-			}
-
-			if (lblHoleNum != null) {
-				lblHoleNum.Dispose ();
-				lblHoleNum = null;
-			}
-
 			if (btnNextHole != null) {
 				btnNextHole.Dispose ();
 				btnNextHole = null;
@@ -82,14 +71,19 @@ namespace Golf_Games
 				btnPrevHole = null;
 			}
 
-			if (lblPar != null) {
-				lblPar.Dispose ();
-				lblPar = null;
-			}
-
 			if (lblHandicap != null) {
 				lblHandicap.Dispose ();
 				lblHandicap = null;
+			}
+
+			if (lblHoleNum != null) {
+				lblHoleNum.Dispose ();
+				lblHoleNum = null;
+			}
+
+			if (lblPar != null) {
+				lblPar.Dispose ();
+				lblPar = null;
 			}
 
 			if (lblPlayer1Score != null) {
@@ -110,6 +104,31 @@ namespace Golf_Games
 			if (lblPlayer4Score != null) {
 				lblPlayer4Score.Dispose ();
 				lblPlayer4Score = null;
+			}
+
+			if (tablePlayers != null) {
+				tablePlayers.Dispose ();
+				tablePlayers = null;
+			}
+
+			if (viewHoleInfo != null) {
+				viewHoleInfo.Dispose ();
+				viewHoleInfo = null;
+			}
+
+			if (viewPlayerInfo != null) {
+				viewPlayerInfo.Dispose ();
+				viewPlayerInfo = null;
+			}
+
+			if (viewSideBets != null) {
+				viewSideBets.Dispose ();
+				viewSideBets = null;
+			}
+
+			if (btnDone != null) {
+				btnDone.Dispose ();
+				btnDone = null;
 			}
 		}
 	}

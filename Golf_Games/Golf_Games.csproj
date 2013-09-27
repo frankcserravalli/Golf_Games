@@ -138,14 +138,14 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <InterfaceDefinition Include="Screens\menu1.xib" />
+    <InterfaceDefinition Include="Screens\landscape_points_chart.xib" />
+    <InterfaceDefinition Include="Screens\landscape_score_view.xib" />
+    <InterfaceDefinition Include="Screens\landscape.xib" />
     <InterfaceDefinition Include="Screens\menu2.xib" />
     <InterfaceDefinition Include="Screens\menu3.xib" />
-    <InterfaceDefinition Include="Screens\start_screen.xib" />
     <InterfaceDefinition Include="Screens\menu4.xib" />
     <InterfaceDefinition Include="Screens\portrait.xib" />
-    <InterfaceDefinition Include="Screens\landscape.xib" />
-    <InterfaceDefinition Include="Screens\landscape_score_view.xib" />
-    <InterfaceDefinition Include="Screens\landscape_points_chart.xib" />
+    <InterfaceDefinition Include="Screens\start_screen.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
@@ -154,6 +154,7 @@
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\Icon%402x.png" />
     <BundleResource Include="Resources\gg_greenbutton.png" />
+    <BundleResource Include="Resources\gg_greenbutton_highlighted.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Courses\Courses.xml" />
