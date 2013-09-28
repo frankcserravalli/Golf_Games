@@ -1016,6 +1016,54 @@
 					<int key="connectionID">95</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnSandyPar</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="355069081"/>
+					</object>
+					<int key="connectionID">96</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnBirdie</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1032649170"/>
+					</object>
+					<int key="connectionID">97</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnGreenie</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="396677004"/>
+					</object>
+					<int key="connectionID">98</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnEagle</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="288927559"/>
+					</object>
+					<int key="connectionID">99</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnCTP</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="335604553"/>
+					</object>
+					<int key="connectionID">100</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnHOFF</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1071805744"/>
+					</object>
+					<int key="connectionID">101</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">actnBtnScore:</string>
 						<reference key="source" ref="164824205"/>
@@ -1508,7 +1556,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">95</int>
+			<int key="maxID">101</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1530,9 +1578,15 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="btnBirdie">UIButton</string>
+						<string key="btnCTP">UIButton</string>
 						<string key="btnDone">UIButton</string>
+						<string key="btnEagle">UIButton</string>
+						<string key="btnGreenie">UIButton</string>
+						<string key="btnHOFF">UIButton</string>
 						<string key="btnNextHole">UIButton</string>
 						<string key="btnPrevHole">UIButton</string>
+						<string key="btnSandyPar">UIButton</string>
 						<string key="lblHandicap">UILabel</string>
 						<string key="lblHoleNum">UILabel</string>
 						<string key="lblPar">UILabel</string>
@@ -1546,8 +1600,28 @@
 						<string key="viewSideBets">UIView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="btnBirdie">
+							<string key="name">btnBirdie</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="btnCTP">
+							<string key="name">btnCTP</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="btnDone">
 							<string key="name">btnDone</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="btnEagle">
+							<string key="name">btnEagle</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="btnGreenie">
+							<string key="name">btnGreenie</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="btnHOFF">
+							<string key="name">btnHOFF</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="btnNextHole">
@@ -1556,6 +1630,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="btnPrevHole">
 							<string key="name">btnPrevHole</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="btnSandyPar">
+							<string key="name">btnSandyPar</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="lblHandicap">

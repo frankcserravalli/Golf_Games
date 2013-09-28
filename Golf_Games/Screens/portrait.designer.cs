@@ -12,13 +12,31 @@ namespace Golf_Games
 	partial class portrait
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton btnBirdie { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnCTP { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton btnDone { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnEagle { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnGreenie { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnHOFF { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnNextHole { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnPrevHole { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnSandyPar { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel lblHandicap { get; set; }
@@ -124,6 +142,36 @@ namespace Golf_Games
 			if (viewSideBets != null) {
 				viewSideBets.Dispose ();
 				viewSideBets = null;
+			}
+
+			if (btnSandyPar != null) {
+				btnSandyPar.Dispose ();
+				btnSandyPar = null;
+			}
+
+			if (btnBirdie != null) {
+				btnBirdie.Dispose ();
+				btnBirdie = null;
+			}
+
+			if (btnGreenie != null) {
+				btnGreenie.Dispose ();
+				btnGreenie = null;
+			}
+
+			if (btnEagle != null) {
+				btnEagle.Dispose ();
+				btnEagle = null;
+			}
+
+			if (btnCTP != null) {
+				btnCTP.Dispose ();
+				btnCTP = null;
+			}
+
+			if (btnHOFF != null) {
+				btnHOFF.Dispose ();
+				btnHOFF = null;
 			}
 
 			if (btnDone != null) {

@@ -77,6 +77,12 @@ namespace Golf_Games
 
 				// Perform any additional setup after loading the view, typically from a nib.
 			};
+
+			NSIndexPath defaultRow = new NSIndexPath();
+
+			//Row 0 is the first Course on the table
+			defaultRow = NSIndexPath.FromRowSection (0, 0);
+			gameTypesTable.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
 		}
 	}
 }

@@ -58,6 +58,13 @@ namespace Golf_Games
 			base.ViewDidLoad ();
 			NSIndexPath defaultRow = new NSIndexPath();
 
+			string p1NameAndHandi = gameInfo.player1.Text + " (" + gameInfo.player1Handi.Text + ")";
+			string p2NameAndHandi = gameInfo.player2.Text + " (" + gameInfo.player2Handi.Text + ")";
+			string p3NameAndHandi = gameInfo.player3.Text + " (" + gameInfo.player3Handi.Text + ")";
+			string p4NameAndHandi = gameInfo.player4.Text + " (" + gameInfo.player4Handi.Text + ")";
+
+
+
 			//Row 0 is player 1
 			defaultRow = NSIndexPath.FromRowSection (0, 0);
 
@@ -69,7 +76,7 @@ namespace Golf_Games
 			this.lblHandicap.Text = this.gameInfo.courseInfo.holes [0].hole_handicap.ToString ();
 
 			//Populate the table
-			string[] tableItems = new string[] { gameInfo.player1.Text, gameInfo.player2.Text, gameInfo.player3.Text, gameInfo.player4.Text };
+			string[] tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi, p4NameAndHandi };
 			table.Source = new TableSource (tableItems);
 			tablePlayers.Source = new TableSource (tableItems);
 
@@ -98,8 +105,15 @@ namespace Golf_Games
 
 			//The done button for the betting view
 			this.btnDone.TouchUpInside += (sender, e) => {
+				//Hide the betting view
 				viewSideBets.Hidden = true;
+
+				//Reset the the betting buttom images
+				ResetBetButtons();
+
+
 			};
+
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -337,6 +351,7 @@ namespace Golf_Games
 			if(selectedButton == true)
 			{
 				((UIButton)sender).SetBackgroundImage(highlighted, UIControlState.Normal);
+
 			}
 			else
 			{
@@ -344,6 +359,26 @@ namespace Golf_Games
 			}
 
 
+		}
+
+		//Reset the betting buttons back to their original state
+		private void ResetBetButtons()
+		{
+			UIImage normal = new UIImage("gg_greenbutton.png");
+
+			btnSandyPar.SetBackgroundImage(normal, UIControlState.Normal);
+			btnCTP.SetBackgroundImage(normal, UIControlState.Normal);
+			btnBirdie.SetBackgroundImage(normal, UIControlState.Normal);
+			btnEagle.SetBackgroundImage(normal, UIControlState.Normal);
+			btnGreenie.SetBackgroundImage(normal, UIControlState.Normal);
+			btnHOFF.SetBackgroundImage(normal, UIControlState.Normal);
+
+			selectedSandyPar = false;
+			selectedBirdie = false;
+			selectedGreenie = false;
+			selectedEagle = false;
+			selectedCTP = false;
+			selectedHOFF = false;
 		}
 
 
