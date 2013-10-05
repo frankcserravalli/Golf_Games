@@ -10,6 +10,12 @@
 
 
 @interface menu4 : UIViewController {
+	UIButton *_btnMenu4Start;
+	UISwitch *_switchSideBets;
 }
+
+@property (nonatomic, retain) IBOutlet UIButton *btnMenu4Start;
+
+@property (nonatomic, retain) IBOutlet UISwitch *switchSideBets;
 
 @end

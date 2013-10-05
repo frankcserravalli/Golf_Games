@@ -9,8 +9,10 @@
 
 @implementation menu3
 
-- (void)dealloc {
-    [_gameTypesTable release];
-    [super dealloc];
-}
+@synthesize btnInfo1 = _btnInfo1;
+@synthesize btnInfo2 = _btnInfo2;
+@synthesize btnInfo3 = _btnInfo3;
+@synthesize btnMenu3Next = _btnMenu3Next;
+@synthesize gameTypesTable = _gameTypesTable;
+
 @end

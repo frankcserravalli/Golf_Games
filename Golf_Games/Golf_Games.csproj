@@ -155,6 +155,7 @@
     <BundleResource Include="Resources\Icon%402x.png" />
     <BundleResource Include="Resources\gg_greenbutton.png" />
     <BundleResource Include="Resources\gg_greenbutton_highlighted.png" />
+    <BundleResource Include="Resources\rounded_button.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Courses\Courses.xml" />

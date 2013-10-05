@@ -9,4 +9,7 @@
 
 @implementation menu4
 
+@synthesize btnMenu4Start = _btnMenu4Start;
+@synthesize switchSideBets = _switchSideBets;
+
 @end
