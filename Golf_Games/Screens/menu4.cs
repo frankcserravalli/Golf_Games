@@ -3,6 +3,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+//The Menu Before portrait mode.
 namespace Golf_Games
 {
 	public partial class menu4 : UIViewController
