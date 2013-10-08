@@ -81,7 +81,7 @@ namespace Golf_Games
 			tablePlayers.Source = new TableSource (tableItems);
 
 			//Hide the nav bar
-			NavigationController.SetNavigationBarHidden (true, false);
+			//NavigationController.SetNavigationBarHidden (true, false);
 
 			//Add a border to the playerInfo and holeInfo view
 			viewPlayerInfo.Layer.BorderColor = UIColor.DarkGray.CGColor;
@@ -98,6 +98,14 @@ namespace Golf_Games
 			this.btnPrevHole.TouchUpInside += (sender, e) => {
 				//UpdateInfo with the Previous Hole flag set.
 				UpdateInfo(1);
+			};
+
+			//Button Go back to setup is pressed
+			this.btnGoBack.TouchUpInside += (sender, e) => {
+
+				//Show the nav bar
+				NavigationController.SetNavigationBarHidden (false, false);
+				NavigationController.PopViewControllerAnimated(true);
 			};
 
 			//Select the first player by default
@@ -305,6 +313,8 @@ namespace Golf_Games
 			return displayScore;
 		}
 
+
+
 		partial void actnBtnBets(MonoTouch.Foundation.NSObject sender)
 		{
 			//Determine which button was pressed
@@ -380,6 +390,8 @@ namespace Golf_Games
 			selectedCTP = false;
 			selectedHOFF = false;
 		}
+
+
 
 
 	}

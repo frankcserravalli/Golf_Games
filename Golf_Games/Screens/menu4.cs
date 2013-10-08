@@ -27,12 +27,28 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
-
+			this.switchSideBets.TouchUpInside += (sender, e) =>
+			{
+				//If the switch was turned to on
+				if(switchSideBets.On == true)
+				{
+					//Show the point values view
+					viewPointValues.Hidden = false;
+				}
+				else
+				{
+					viewPointValues.Hidden = true;
+				}
+			};
 
 			this.btnMenu4Start.TouchUpInside += (sender, e) => {
 				if (this.portraitScreen == null) {
 					this.portraitScreen = new portrait ();
-				}
+				}//endif
+
+
+				//Hide the nav bar
+				NavigationController.SetNavigationBarHidden (true, false);
 
 				//Set if side bets are on or off
 				this.gameInfo.sideBets = switchSideBets.On;
@@ -51,6 +67,49 @@ namespace Golf_Games
 
 			
 				// Perform any additional setup after loading the view, typically from a nib.
+			};
+
+			//ShouldReturns for the textentries
+			txtBirdie.ShouldReturn += (textView) =>
+			{
+				textView.ResignFirstResponder ();
+
+				return true;
+			};
+
+			txtSandyPar.ShouldReturn += (textView) =>
+			{
+				textView.ResignFirstResponder ();
+
+				return true;
+			};
+
+			txtGreenie.ShouldReturn += (textView) =>
+			{
+				textView.ResignFirstResponder ();
+
+				return true;
+			};
+
+			txtCTP.ShouldReturn += (textView) =>
+			{
+				textView.ResignFirstResponder ();
+
+				return true;
+			};
+
+			txtEagle.ShouldReturn += (textView) =>
+			{
+				textView.ResignFirstResponder ();
+
+				return true;
+			};
+
+			txtHOFF.ShouldReturn += (textView) =>
+			{
+				textView.ResignFirstResponder ();
+
+				return true;
 			};
 		}
 

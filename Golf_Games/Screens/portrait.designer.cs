@@ -1,10 +1,11 @@
 // WARNING
 //
 // This file has been generated automatically by Xamarin Studio to store outlets and
-// actions made in the Xcode designer. If it is removed, they will be lost.
+// actions made in the UI designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
 using MonoTouch.Foundation;
+using System.CodeDom.Compiler;
 
 namespace Golf_Games
 {
@@ -22,6 +23,9 @@ namespace Golf_Games
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnEagle { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnGoBack { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnGreenie { get; set; }
@@ -79,6 +83,36 @@ namespace Golf_Games
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnBirdie != null) {
+				btnBirdie.Dispose ();
+				btnBirdie = null;
+			}
+
+			if (btnCTP != null) {
+				btnCTP.Dispose ();
+				btnCTP = null;
+			}
+
+			if (btnDone != null) {
+				btnDone.Dispose ();
+				btnDone = null;
+			}
+
+			if (btnEagle != null) {
+				btnEagle.Dispose ();
+				btnEagle = null;
+			}
+
+			if (btnGreenie != null) {
+				btnGreenie.Dispose ();
+				btnGreenie = null;
+			}
+
+			if (btnHOFF != null) {
+				btnHOFF.Dispose ();
+				btnHOFF = null;
+			}
+
 			if (btnNextHole != null) {
 				btnNextHole.Dispose ();
 				btnNextHole = null;
@@ -87,6 +121,11 @@ namespace Golf_Games
 			if (btnPrevHole != null) {
 				btnPrevHole.Dispose ();
 				btnPrevHole = null;
+			}
+
+			if (btnSandyPar != null) {
+				btnSandyPar.Dispose ();
+				btnSandyPar = null;
 			}
 
 			if (lblHandicap != null) {
@@ -144,39 +183,9 @@ namespace Golf_Games
 				viewSideBets = null;
 			}
 
-			if (btnSandyPar != null) {
-				btnSandyPar.Dispose ();
-				btnSandyPar = null;
-			}
-
-			if (btnBirdie != null) {
-				btnBirdie.Dispose ();
-				btnBirdie = null;
-			}
-
-			if (btnGreenie != null) {
-				btnGreenie.Dispose ();
-				btnGreenie = null;
-			}
-
-			if (btnEagle != null) {
-				btnEagle.Dispose ();
-				btnEagle = null;
-			}
-
-			if (btnCTP != null) {
-				btnCTP.Dispose ();
-				btnCTP = null;
-			}
-
-			if (btnHOFF != null) {
-				btnHOFF.Dispose ();
-				btnHOFF = null;
-			}
-
-			if (btnDone != null) {
-				btnDone.Dispose ();
-				btnDone = null;
+			if (btnGoBack != null) {
+				btnGoBack.Dispose ();
+				btnGoBack = null;
 			}
 		}
 	}
