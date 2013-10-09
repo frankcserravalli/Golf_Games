@@ -57,9 +57,13 @@ namespace Golf_Games
 				//Build course info based on the selection in menu2
 				this.gameInfo.courseInfo.FindCourseByID(gameInfo.courseInfo.courseIndex);
 
+				//Copy over to gameInfo
+				CopyOverToGameInfo();
+
+
 				//Copy gameinfo to the portrait object
 				portraitScreen.gameInfo = this.gameInfo;
-					
+
 
 
 				this.NavigationController.PushViewController (this.portraitScreen, true);
@@ -114,7 +118,41 @@ namespace Golf_Games
 			};
 		}
 
+		private void CopyOverToGameInfo()
+		{
+			//The range for acceptable values will be 1 to 0
+			if(txtBirdie.Text == "")
+				this.gameInfo.betBirdie = 0;
+			else
+				this.gameInfo.betBirdie = System.Convert.ToInt32(txtBirdie.Text);
 
+			if (txtCTP.Text == "")
+				this.gameInfo.betCTP = 0;
+			else
+				this.gameInfo.betCTP = System.Convert.ToInt32(txtCTP.Text);
+
+			if (txtEagle.Text == "")
+				this.gameInfo.betEagle = 0;
+			else
+				this.gameInfo.betEagle = System.Convert.ToInt32(txtEagle.Text);
+
+			if (txtGreenie.Text == "")
+				this.gameInfo.betGreenie = 0;
+			else
+				this.gameInfo.betGreenie = System.Convert.ToInt32(txtGreenie.Text);
+
+			if (txtHOFF.Text == "")
+				this.gameInfo.betHOFF = 0;
+			else
+				this.gameInfo.betHOFF = System.Convert.ToInt32(txtHOFF.Text);
+
+			if (txtSandyPar.Text == "")
+				this.gameInfo.betSandyPar = 0;
+			else
+				this.gameInfo.betSandyPar = System.Convert.ToInt32(txtSandyPar.Text);
+		}
 	}
+
+
 }
 

@@ -27,6 +27,14 @@ namespace Golf_Games
 		public UITextField player3Handi;
 		public UITextField player4Handi;
 
+		//Point values for betting
+		public int betSandyPar;
+		public int betBirdie;
+		public int betGreenie;
+		public int betEagle;
+		public int betCTP;
+		public int betHOFF;
+
 		//Number of players
 		public int numPlayers;
 
@@ -48,6 +56,13 @@ namespace Golf_Games
 			sideBets = false;
 
 			scores = new Scores ();
+
+			betSandyPar = 0;
+			betBirdie = 0;
+			betGreenie = 0;
+			betEagle = 0;
+			betCTP = 0;
+			betHOFF = 0;
 		}
 
 

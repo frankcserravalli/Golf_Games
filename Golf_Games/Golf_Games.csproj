@@ -134,6 +134,7 @@
       <DependentUpon>landscape_points_chart.cs</DependentUpon>
     </Compile>
     <Compile Include="Scores.cs" />
+    <Compile Include="SideBetInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

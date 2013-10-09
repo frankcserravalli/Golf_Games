@@ -115,6 +115,8 @@ namespace Golf_Games
 			this.btnDone.TouchUpInside += (sender, e) => {
 				//Hide the betting view
 				viewSideBets.Hidden = true;
+				//Set the side betting values
+				SaveSideBettingSelections();
 
 				//Reset the the betting buttom images
 				ResetBetButtons();
@@ -391,7 +393,46 @@ namespace Golf_Games
 			selectedHOFF = false;
 		}
 
+		private void SaveSideBettingSelections()
+		{
+			int selectedPlayer = this.tablePlayers.IndexPathForSelectedRow.Row;
+			//int i = 0;
 
+			switch(selectedPlayer)
+			{
+			case 0:
+				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player1);
+				break;
+
+			case 1:
+				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player2);
+				break;
+
+			case 2:
+				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player3);
+				break;
+
+			case 3:
+				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player4);
+				break;
+
+			default:
+				break;
+
+			}
+		}
+
+		private void SaveBettingSelectionForPlayer(bool[] player)
+		{
+			//This function assumes that there is 6 entires in the array
+			player [0] = selectedBirdie;
+			player [1] = selectedCTP;
+			player [2] = selectedEagle;
+			player [3] = selectedGreenie;
+			player [4] = selectedHOFF;
+			player [5] = selectedSandyPar;
+			
+		}
 
 
 	}
