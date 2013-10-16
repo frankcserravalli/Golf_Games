@@ -51,24 +51,9 @@ namespace Golf_Games
 				switchSideBets = null;
 			}
 
-			if (txtSandyPar != null) {
-				txtSandyPar.Dispose ();
-				txtSandyPar = null;
-			}
-
 			if (txtBirdie != null) {
 				txtBirdie.Dispose ();
 				txtBirdie = null;
-			}
-
-			if (txtGreenie != null) {
-				txtGreenie.Dispose ();
-				txtGreenie = null;
-			}
-
-			if (txtEagle != null) {
-				txtEagle.Dispose ();
-				txtEagle = null;
 			}
 
 			if (txtCTP != null) {
@@ -76,9 +61,24 @@ namespace Golf_Games
 				txtCTP = null;
 			}
 
+			if (txtEagle != null) {
+				txtEagle.Dispose ();
+				txtEagle = null;
+			}
+
+			if (txtGreenie != null) {
+				txtGreenie.Dispose ();
+				txtGreenie = null;
+			}
+
 			if (txtHOFF != null) {
 				txtHOFF.Dispose ();
 				txtHOFF = null;
+			}
+
+			if (txtSandyPar != null) {
+				txtSandyPar.Dispose ();
+				txtSandyPar = null;
 			}
 
 			if (viewPointValues != null) {

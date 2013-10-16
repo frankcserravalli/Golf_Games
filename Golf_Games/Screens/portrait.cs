@@ -64,11 +64,8 @@ namespace Golf_Games
 			string p4NameAndHandi = gameInfo.player4.Text + " (" + gameInfo.player4Handi.Text + ")";
 
 
-
 			//Row 0 is player 1
 			defaultRow = NSIndexPath.FromRowSection (0, 0);
-
-
 
 
 			//Set the par and handicap for the first hole

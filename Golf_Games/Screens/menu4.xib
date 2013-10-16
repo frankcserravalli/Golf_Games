@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="btnMenu4Start" destination="6" id="7"/>
                 <outlet property="switchSideBets" destination="5" id="8"/>
-                <outlet property="txtBirdie" destination="ekT-xX-3Ea" id="CNk-JA-IQQ"/>
+                <outlet property="txtBirdie" destination="ekT-xX-3Ea" id="VHP-JJ-5hy"/>
                 <outlet property="txtCTP" destination="5Pw-yL-hYe" id="q3d-Br-D4p"/>
                 <outlet property="txtEagle" destination="gVC-dM-7vm" id="xzU-Lx-d7K"/>
                 <outlet property="txtGreenie" destination="mqY-pM-Gux" id="97S-MV-Rgl"/>

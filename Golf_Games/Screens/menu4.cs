@@ -3,6 +3,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+
 //The Menu Before portrait mode.
 namespace Golf_Games
 {
@@ -10,10 +11,12 @@ namespace Golf_Games
 	{
 		public GameInfo gameInfo;
 		public portrait portraitScreen;
+		//CustomKeyboardInput customTxtBirdie;
 
 		public menu4 () : base ("menu4", null)
 		{
 			this.Title = "Final Settings";
+			//this.txtBirdie = new CustomKeyboardInput ();
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -27,6 +30,10 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			//CustomKeyboardInput customTxtBirdie = (CustomKeyboardInput)txtBirdie;
+
+
 
 			this.switchSideBets.TouchUpInside += (sender, e) =>
 			{
@@ -47,7 +54,6 @@ namespace Golf_Games
 					this.portraitScreen = new portrait ();
 				}//endif
 
-
 				//Hide the nav bar
 				NavigationController.SetNavigationBarHidden (true, false);
 
@@ -60,17 +66,11 @@ namespace Golf_Games
 				//Copy over to gameInfo
 				CopyOverToGameInfo();
 
-
 				//Copy gameinfo to the portrait object
 				portraitScreen.gameInfo = this.gameInfo;
 
-
-
 				this.NavigationController.PushViewController (this.portraitScreen, true);
 
-				
-
-			
 				// Perform any additional setup after loading the view, typically from a nib.
 			};
 
@@ -116,6 +116,57 @@ namespace Golf_Games
 
 				return true;
 			};
+
+
+
+			//Possible way to limit what text is entered
+			txtBirdie.ShouldChangeCharacters += (text, r, str) =>
+			{
+				if((text.Text.Length + str.Length) > 2)
+					return false;
+
+				return true;
+			};
+
+			txtCTP.ShouldChangeCharacters += (text, r, str) =>
+			{
+				if((text.Text.Length + str.Length) > 2)
+					return false;
+
+				return true;
+			};
+
+			txtEagle.ShouldChangeCharacters += (text, r, str) =>
+			{
+				if((text.Text.Length + str.Length) > 2)
+					return false;
+
+				return true;
+			};
+
+			txtGreenie.ShouldChangeCharacters += (text, r, str) =>
+			{
+				if((text.Text.Length + str.Length) > 2)
+					return false;
+
+				return true;
+			};
+
+			txtHOFF.ShouldChangeCharacters += (text, r, str) =>
+			{
+				if((text.Text.Length + str.Length) > 2)
+					return false;
+
+				return true;
+			};
+
+			txtSandyPar.ShouldChangeCharacters += (text, r, str) =>
+			{
+				if((text.Text.Length + str.Length) > 2)
+					return false;
+
+				return true;
+			};
 		}
 
 		private void CopyOverToGameInfo()
@@ -151,6 +202,12 @@ namespace Golf_Games
 			else
 				this.gameInfo.betSandyPar = System.Convert.ToInt32(txtSandyPar.Text);
 		}
+
+		private void ShouldReturns()
+		{
+
+		}
+
 	}
 
 

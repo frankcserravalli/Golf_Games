@@ -36,37 +36,11 @@ namespace Golf_Games
 			NavigationController.SetNavigationBarHidden (false, false);
 
 			//Turn off autorotate and keep it fix to portrait
-
-
 			this.btnMenu1Next.TouchUpInside += (sender, e) => {
-				if (this.menu2Screen == null) {
-					this.menu2Screen = new menu2 ();
-				}
-
-				//Right here is where we set the GameInfo values before moving to the next menu
-				SetGameInfoValues();
-				menu2Screen.gameInfo = this.gameInfo;
-				this.NavigationController.PushViewController (this.menu2Screen, true);
+				NextBtnHit();
 			};
 
-
-			this.txtPlayerName1.Tag = 1;
-			this.txtPlayerHandi1.Tag = 2;
-			this.txtPlayerName2.Tag = 3;
-			this.txtPlayerHandi2.Tag = 4;
-			this.txtPlayerName3.Tag = 5;
-			this.txtPlayerHandi3.Tag = 6;
-			this.txtPlayerName4.Tag = 7;
-			this.txtPlayerHandi4.Tag = 8;
-
-			NextTextField (txtPlayerName1);
-			NextTextField (txtPlayerHandi1);
-			NextTextField (txtPlayerName2);
-			NextTextField (txtPlayerHandi2);
-			NextTextField (txtPlayerName3);
-			NextTextField (txtPlayerHandi3);
-			NextTextField (txtPlayerName4);
-			NextTextField (txtPlayerHandi4);
+			SetTextTags();
 
 
 
@@ -126,6 +100,40 @@ namespace Golf_Games
 			return UIInterfaceOrientationMask.Portrait;
 
 		}
+
+		private void SetTextTags()
+		{
+			this.txtPlayerName1.Tag = 1;
+			this.txtPlayerHandi1.Tag = 2;
+			this.txtPlayerName2.Tag = 3;
+			this.txtPlayerHandi2.Tag = 4;
+			this.txtPlayerName3.Tag = 5;
+			this.txtPlayerHandi3.Tag = 6;
+			this.txtPlayerName4.Tag = 7;
+			this.txtPlayerHandi4.Tag = 8;
+
+			NextTextField (txtPlayerName1);
+			NextTextField (txtPlayerHandi1);
+			NextTextField (txtPlayerName2);
+			NextTextField (txtPlayerHandi2);
+			NextTextField (txtPlayerName3);
+			NextTextField (txtPlayerHandi3);
+			NextTextField (txtPlayerName4);
+			NextTextField (txtPlayerHandi4);
+		}
+
+		private void NextBtnHit()
+		{
+			if (this.menu2Screen == null) {
+				this.menu2Screen = new menu2 ();
+			}
+
+			//Right here is where we set the GameInfo values before moving to the next menu
+			SetGameInfoValues();
+			menu2Screen.gameInfo = this.gameInfo;
+			this.NavigationController.PushViewController (this.menu2Screen, true);
+		}
+
 
 
 	}
