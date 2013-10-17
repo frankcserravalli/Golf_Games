@@ -119,53 +119,35 @@ namespace Golf_Games
 
 
 
-			//Possible way to limit what text is entered
+			//Keep all input for the score fields numbers.
 			txtBirdie.ShouldChangeCharacters += (text, r, str) =>
 			{
-				if((text.Text.Length + str.Length) > 2)
-					return false;
-
-				return true;
+				return ScoreInputCheck(text, r, str);
 			};
 
 			txtCTP.ShouldChangeCharacters += (text, r, str) =>
 			{
-				if((text.Text.Length + str.Length) > 2)
-					return false;
-
-				return true;
+				return ScoreInputCheck(text, r, str);
 			};
 
 			txtEagle.ShouldChangeCharacters += (text, r, str) =>
 			{
-				if((text.Text.Length + str.Length) > 2)
-					return false;
-
-				return true;
+				return ScoreInputCheck(text, r, str);
 			};
 
 			txtGreenie.ShouldChangeCharacters += (text, r, str) =>
 			{
-				if((text.Text.Length + str.Length) > 2)
-					return false;
-
-				return true;
+				return ScoreInputCheck(text, r, str);
 			};
 
 			txtHOFF.ShouldChangeCharacters += (text, r, str) =>
 			{
-				if((text.Text.Length + str.Length) > 2)
-					return false;
-
-				return true;
+				return ScoreInputCheck(text, r, str);
 			};
 
 			txtSandyPar.ShouldChangeCharacters += (text, r, str) =>
 			{
-				if((text.Text.Length + str.Length) > 2)
-					return false;
-
-				return true;
+				return ScoreInputCheck(text, r, str);
 			};
 		}
 
@@ -203,9 +185,20 @@ namespace Golf_Games
 				this.gameInfo.betSandyPar = System.Convert.ToInt32(txtSandyPar.Text);
 		}
 
-		private void ShouldReturns()
+		private bool ScoreInputCheck(UITextField text, NSRange range, string str)
 		{
+			char character = 'a';
+			if(str.Length == 0)
+				return true;
 
+			character = str[0];
+
+			//Check if the length is longer than 2 characters and make sure it is a number
+			if((text.Text.Length + str.Length) <= 2 && character >= 48 && character <= 57)
+				return true;
+
+			//If all vaild checks fail, then return false
+			return false;
 		}
 
 	}

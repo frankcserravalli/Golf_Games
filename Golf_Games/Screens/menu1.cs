@@ -42,8 +42,23 @@ namespace Golf_Games
 
 			SetTextTags();
 
-
-
+			//Make sure all values for the handicaps are numbers
+			txtPlayerHandi1.ShouldChangeCharacters += (text, r, str) =>
+			{
+				return HandicapInputCheck(text, r, str);
+			};
+			txtPlayerHandi2.ShouldChangeCharacters += (text, r, str) =>
+			{
+				return HandicapInputCheck(text, r, str);
+			};
+			txtPlayerHandi3.ShouldChangeCharacters += (text, r, str) =>
+			{
+				return HandicapInputCheck(text, r, str);
+			};
+			txtPlayerHandi4.ShouldChangeCharacters += (text, r, str) =>
+			{
+				return HandicapInputCheck(text, r, str);
+			};
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
@@ -134,7 +149,21 @@ namespace Golf_Games
 			this.NavigationController.PushViewController (this.menu2Screen, true);
 		}
 
+		private bool HandicapInputCheck(UITextField text, NSRange range, string str)
+		{
+			char character = 'a';
+			if(str.Length == 0)
+				return true;
 
+			character = str[0];
+
+			//Check if the length is longer than 2 characters and make sure it is a number
+			if((text.Text.Length + str.Length) <= 2 && character >= 48 && character <= 57)
+				return true;
+
+			//If all vaild checks fail, then return false
+			return false;
+		}
 
 	}
 
