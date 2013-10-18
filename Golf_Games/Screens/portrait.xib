@@ -426,27 +426,6 @@
     </objects>
     <resources>
         <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="gg_greenbutton.png" width="155" height="29"/>
-        <image name="rounded_button.png" width="512" height="256"/>
-        <image name="rounded_button.png" width="512" height="256"/>
-        <image name="rounded_button.png" width="512" height="256"/>
         <image name="rounded_button.png" width="512" height="256"/>
     </resources>
 </document>

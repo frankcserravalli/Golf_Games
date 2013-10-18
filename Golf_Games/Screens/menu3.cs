@@ -29,6 +29,15 @@ namespace Golf_Games
 			"Played for prize money on the professional level or as a means of a wager for amateurs, a skin, " +
 			"or the prize money assigned to each hole, carries over to subsequent holes if the hole is tied.";
 
+		string nassauInfo = "The Nassau is a type of bet in golf that is essentially three separate bets. " +
+			"Money is wagered on the best match play score in the front nine (holes 1–9), back nine (holes 10–18)," +
+			"and total 18 holes. The Nassau is one of golf's most classic and most popular wagers.";
+
+		string matchPlay = "Match play is a scoring system for golf in which a player, or team, earns a point for each hole" +
+			"in which they have bested their opponents; this is as opposed to stroke play, in which the total number of strokes" +
+			"is counted over one or more rounds of 18 holes. In professional golf, a small number of notable tournaments use the" +
+			"match play scoring system.";
+
 		public menu3 () : base ("menu3", null)
 		{
 			this.Title = "Select Game Type";
@@ -45,11 +54,11 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			gameTypes = new string[] { "Strokes", "Skins", "Wolf" };
+			gameTypes = new string[] { "Strokes", "Skins", "Wolf", "Nassau", "Match Play" };
 			gameTypesTable.Source = new TableSource (gameTypes);
 
 			this.btnInfo1.TouchUpInside += (sender, e) => {
-				new UIAlertView ("Strokes", strokeInfo, null, "Close", null).Show ();
+				new UIAlertView ("Stroke (Medal)", strokeInfo, null, "Close", null).Show ();
 			};
 
 			this.btnInfo2.TouchUpInside += (sender, e) => {
@@ -59,6 +68,15 @@ namespace Golf_Games
 			this.btnInfo3.TouchUpInside += (sender, e) => {
 				new UIAlertView ("Wolf", wolfInfo, null, "Close", null).Show ();
 			};
+
+			this.btnInfo4.TouchUpInside += (sender, e) => {
+				new UIAlertView ("Nassau", nassauInfo, null, "Close", null).Show();
+			};
+
+			this.btnInfo5.TouchUpInside += (sender, e) => {
+				new UIAlertView ("Match Play", matchPlay, null, "Close", null).Show();
+			};
+
 
 			this.btnMenu3Next.TouchUpInside += (sender, e) => {
 				if (this.menu4Screen == null) {
