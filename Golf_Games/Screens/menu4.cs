@@ -77,43 +77,43 @@ namespace Golf_Games
 			//ShouldReturns for the textentries
 			txtBirdie.ShouldReturn += (textView) =>
 			{
+				switchSideBets.Enabled = true;
 				textView.ResignFirstResponder ();
-
 				return true;
 			};
 
 			txtSandyPar.ShouldReturn += (textView) =>
 			{
+				switchSideBets.Enabled = true;
 				textView.ResignFirstResponder ();
-
 				return true;
 			};
 
 			txtGreenie.ShouldReturn += (textView) =>
 			{
+				switchSideBets.Enabled = true;
 				textView.ResignFirstResponder ();
-
 				return true;
 			};
 
 			txtCTP.ShouldReturn += (textView) =>
 			{
+				switchSideBets.Enabled = true;
 				textView.ResignFirstResponder ();
-
 				return true;
 			};
 
 			txtEagle.ShouldReturn += (textView) =>
 			{
+				switchSideBets.Enabled = true;
 				textView.ResignFirstResponder ();
-
 				return true;
 			};
 
 			txtHOFF.ShouldReturn += (textView) =>
 			{
+				switchSideBets.Enabled = true;
 				textView.ResignFirstResponder ();
-
 				return true;
 			};
 
@@ -149,6 +149,103 @@ namespace Golf_Games
 			{
 				return ScoreInputCheck(text, r, str);
 			};
+
+
+			//The view shifting when a textbox is hit.
+
+			txtBirdie.ShouldBeginEditing += (textField) =>
+			{
+				switchSideBets.Enabled = false;
+				return true;
+			};
+
+			txtBirdie.ShouldEndEditing += (textField) =>
+			{
+				return true;
+			};
+
+			txtSandyPar.ShouldBeginEditing += (textField) =>
+			{
+				switchSideBets.Enabled = false;
+				return true;
+			};
+
+			txtBirdie.ShouldEndEditing += (textField) =>
+			{
+				return true;
+			};
+
+			txtGreenie.ShouldBeginEditing += (textField) =>
+			{
+				switchSideBets.Enabled = false;
+				//Push screen upwards 90 pixels
+				MoveViewPointValues(true, 25);
+
+				return true;
+			};
+
+			txtGreenie.ShouldEndEditing += (textField) =>
+			{
+				//Push screen downwards 90 pixels
+				MoveViewPointValues (false, 25);
+
+				return true;
+			};
+
+			txtEagle.ShouldBeginEditing += (textField) =>
+			{
+				switchSideBets.Enabled = false;
+				//Push screen upwards 60 pixels
+				MoveViewPointValues(true, 60);
+	
+				return true;
+			};
+
+			txtEagle.ShouldEndEditing += (textField) =>
+			{
+				//Push screen downwards 60 pixels
+				MoveViewPointValues (false, 60);
+
+				return true;
+			};
+
+
+			txtCTP.ShouldBeginEditing += (textField) =>
+			{
+				switchSideBets.Enabled = false;
+				//Push screen upwards 90 pixels
+				MoveViewPointValues(true, 95);
+
+				return true;
+			};
+
+			txtCTP.ShouldEndEditing += (textField) =>
+			{
+				//Push screen downwards 90 pixels
+				MoveViewPointValues (false, 95);
+
+				return true;
+			};
+
+			txtHOFF.ShouldBeginEditing += (textField) =>
+			{
+				switchSideBets.Enabled = false;
+				//Push screen upwards 50 pixels
+				MoveViewPointValues(true, 135);
+
+				return true;
+			};
+
+			txtHOFF.ShouldEndEditing += (textField) =>
+			{
+				//Push screen downwards 50 pixels
+				MoveViewPointValues (false, 135);
+
+				return true;
+			};
+
+
+
 		}
 
 		private void CopyOverToGameInfo()
@@ -201,6 +298,27 @@ namespace Golf_Games
 			return false;
 		}
 
+		private void MoveViewPointValues(bool keyboardActive, int movementDistance)
+		{
+			const float movementDuration = 0.3f;
+
+			if (keyboardActive == false)
+				movementDistance = movementDistance * -1;
+
+			UIView.Animate (movementDuration, 0, UIViewAnimationOptions.CurveLinear, () => 
+			{
+				this.View.Center = new PointF (this.View.Center.X,
+            	this.View.Center.Y - movementDistance);
+			}, () => 
+			                
+			{
+				//viewPointValues.Center = pt;
+			}
+			                
+			);
+
+
+		}
 	}
 
 

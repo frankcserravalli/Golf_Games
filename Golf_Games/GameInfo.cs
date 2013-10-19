@@ -7,7 +7,9 @@ namespace Golf_Games
 	{
 		Strokes = 0,
 		Skins = 1,
-		Wolf = 2
+		Wolf = 2,
+		Nassau = 3,
+		Match = 4
 	};
 
 	public class GameInfo
