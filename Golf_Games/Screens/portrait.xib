@@ -57,7 +57,7 @@
                     </state>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="25">
-                    <rect key="frame" x="0.0" y="315" width="160" height="29"/>
+                    <rect key="frame" x="0.0" y="322" width="106" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="1" backgroundImage="gg_greenbutton.png">
@@ -71,8 +71,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="27">
-                    <rect key="frame" x="0.0" y="343" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="214" y="322" width="106" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="3" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,8 +85,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="28">
-                    <rect key="frame" x="0.0" y="371" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="106" y="361" width="108" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="5" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +99,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="29">
-                    <rect key="frame" x="0.0" y="399" width="160" height="29"/>
+                    <rect key="frame" x="0.0" y="400" width="106" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="7" backgroundImage="gg_greenbutton.png">
@@ -113,8 +113,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="30">
-                    <rect key="frame" x="0.0" y="425" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="214" y="400" width="106" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="9" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,8 +127,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="31">
-                    <rect key="frame" x="160" y="315" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="106" y="322" width="108" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="2" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,8 +141,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="32">
-                    <rect key="frame" x="160" y="343" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="0.0" y="361" width="106" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="4" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,7 +155,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="33">
-                    <rect key="frame" x="160" y="371" width="160" height="29"/>
+                    <rect key="frame" x="214" y="361" width="106" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="6" backgroundImage="gg_greenbutton.png">
@@ -169,8 +169,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="34">
-                    <rect key="frame" x="160" y="399" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="106" y="400" width="108" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="8" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,8 +183,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="35">
-                    <rect key="frame" x="160" y="425" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="0.0" y="439" width="106" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="10" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -197,8 +197,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="36">
-                    <rect key="frame" x="0.0" y="451" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="106" y="439" width="108" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="11" backgroundImage="gg_greenbutton.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,7 +211,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="37">
-                    <rect key="frame" x="160" y="451" width="160" height="29"/>
+                    <rect key="frame" x="214" y="439" width="106" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="12" backgroundImage="gg_greenbutton.png">
@@ -331,11 +331,11 @@
                     </state>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" id="78">
-                    <rect key="frame" x="0.0" y="315" width="320" height="165"/>
+                    <rect key="frame" x="0.0" y="322" width="320" height="160"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="79">
-                            <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Sandy Par" backgroundImage="gg_greenbutton.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -346,7 +346,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="80">
-                            <rect key="frame" x="160" y="0.0" width="160" height="44"/>
+                            <rect key="frame" x="160" y="0.0" width="160" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Birdie" backgroundImage="gg_greenbutton.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,7 +357,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="81">
-                            <rect key="frame" x="0.0" y="43" width="160" height="44"/>
+                            <rect key="frame" x="0.0" y="40" width="160" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Greenie" backgroundImage="gg_greenbutton.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -368,7 +368,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="82">
-                            <rect key="frame" x="160" y="43" width="160" height="44"/>
+                            <rect key="frame" x="160" y="40" width="160" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Eagle" backgroundImage="gg_greenbutton.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,7 +379,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="83">
-                            <rect key="frame" x="0.0" y="86" width="160" height="44"/>
+                            <rect key="frame" x="0.0" y="80" width="160" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Closest to Pin" backgroundImage="gg_greenbutton.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -390,7 +390,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="84">
-                            <rect key="frame" x="160" y="86" width="160" height="44"/>
+                            <rect key="frame" x="160" y="80" width="160" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <state key="normal" title="Hole out from Fairway" backgroundImage="gg_greenbutton.png">
@@ -402,7 +402,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="86">
-                            <rect key="frame" x="0.0" y="129" width="320" height="36"/>
+                            <rect key="frame" x="0.0" y="120" width="320" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Done" backgroundImage="gg_greenbutton.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -426,6 +426,27 @@
     </objects>
     <resources>
         <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="rounded_button.png" width="512" height="256"/>
+        <image name="rounded_button.png" width="512" height="256"/>
+        <image name="rounded_button.png" width="512" height="256"/>
         <image name="rounded_button.png" width="512" height="256"/>
     </resources>
 </document>

@@ -114,11 +114,10 @@ namespace Golf_Games
 				viewSideBets.Hidden = true;
 				//Set the side betting values
 				SaveSideBettingSelections();
-
 				//Reset the the betting buttom images
 				ResetBetButtons();
-
-
+				//Select next player
+				SelectNextPlayer();
 			};
 
 
@@ -227,6 +226,8 @@ namespace Golf_Games
 			{
 				viewSideBets.Hidden = false;
 			}
+			else
+				SelectNextPlayer();	//Select the next player after inputting the score
 		}
 
 		public void UpdateInfo(int holeDirection)
@@ -429,6 +430,21 @@ namespace Golf_Games
 			player [4] = selectedHOFF;
 			player [5] = selectedSandyPar;
 			
+		}
+
+		private void SelectNextPlayer()
+		{
+			int currentSelection = tablePlayers.IndexPathForSelectedRow.Row;
+			NSIndexPath selectNewRow = new NSIndexPath();
+
+			//Current selection must never be below 0 or above 3
+			if (currentSelection < 3) 
+				currentSelection++;
+			else
+				currentSelection = 0;
+
+			selectNewRow = NSIndexPath.FromRowSection (currentSelection, 0);
+			tablePlayers.SelectRow (selectNewRow, false, UITableViewScrollPosition.None);
 		}
 
 
