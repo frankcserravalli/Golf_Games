@@ -116,6 +116,8 @@ namespace Golf_Games
 				SaveSideBettingSelections();
 				//Reset the the betting buttom images
 				ResetBetButtons();
+				//Enable the table for user interaction
+				tablePlayers.UserInteractionEnabled = true;
 				//Select next player
 				SelectNextPlayer();
 			};
@@ -224,6 +226,9 @@ namespace Golf_Games
 
 			if(gameInfo.sideBets == true)
 			{
+				//Disable the table for user interaction
+				tablePlayers.UserInteractionEnabled = false;
+				//Show the sidebets menu
 				viewSideBets.Hidden = false;
 			}
 			else
