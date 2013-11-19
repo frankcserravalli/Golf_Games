@@ -2,7 +2,6 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-
 namespace Golf_Games
 {
 	public partial class portrait : UIViewController

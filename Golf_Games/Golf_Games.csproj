@@ -136,6 +136,8 @@
     <Compile Include="Scores.cs" />
     <Compile Include="SideBetInfo.cs" />
     <Compile Include="CustomKeyboardInput.cs" />
+    <Compile Include="LineCollectionView.cs" />
+    <Compile Include="GridCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

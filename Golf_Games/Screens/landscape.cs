@@ -1,7 +1,10 @@
+
 using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.CoreGraphics;
+using System.Collections.Generic;
 
 namespace Golf_Games
 {
@@ -24,7 +27,34 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			string[] holenumbers1 = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+			List<GridCell> cells = new List<GridCell>();
+			for (int i = 0; i < 9; i++) 
+			{
+				GridCell cell = new GridCell ();
+				cell.Label.Text = holenumbers1 [i];
+
+				//Insert cell into the list
+				cells.Add (cell);
+			}
+
+			for (int i = 0; i < 9; i++)
+				gridBottom9.Add (cells [i]);
+
+			//UICollectionViewDataSource dataSource = new CollectionSource (holenumbers1);
 			
+			//gridBottom9 = 
+//			SizeF tableSize = new SizeF ();
+//			PointF pos = new PointF ();
+//
+//			pos = tableHorz1.Center;
+//			//These sizes are used based on the xcode representation of the table.
+//			tableSize.Height = tableHorz1.Frame.Size.Height;
+//			tableSize.Width = tableHorz1.Frame.Size.Width;
+//
+//			tableHorz1.Transform = CGAffineTransform.MakeRotation ((float)(Math.PI * -90 / 180.0));
+//			tableHorz1.Frame = new RectangleF (pos, tableSize);
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
