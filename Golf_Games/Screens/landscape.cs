@@ -27,11 +27,18 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			const int cellWidth = 20;	//This is the size of each cell
+			const int cellHeight = 20;
+
 			string[] holenumbers1 = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 			List<GridCell> cells = new List<GridCell>();
+
+			Rectangle cellFrame = new Rectangle (0, 0, cellWidth, cellHeight);
+
 			for (int i = 0; i < 9; i++) 
 			{
-				GridCell cell = new GridCell ();
+				cellFrame.X = (i * cellWidth);
+				GridCell cell = new GridCell (cellFrame);
 				cell.Label.Text = holenumbers1 [i];
 
 				//Insert cell into the list

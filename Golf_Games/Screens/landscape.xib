@@ -74,6 +74,7 @@
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="HID-XH-v08">
                     <rect key="frame" x="120" y="63" width="161" height="23"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="3" id="YMx-bo-FXf">
                         <size key="itemSize" width="18" height="18"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
