@@ -55,12 +55,13 @@ namespace Golf_Games
 		public GridCell (System.Drawing.RectangleF frame) : base (frame)
 		{
 			BackgroundView = new UIView { BackgroundColor =  UIColor.White };
-			ContentView.BackgroundColor = UIColor.Gray;
-			ContentView.Transform = CGAffineTransform.MakeScale (0.8f, 0.8f);
-
+			ContentView.BackgroundColor = UIColor.White;
+			ContentView.Transform = CGAffineTransform.MakeScale (0.95f, 0.95f);
+			ContentView.Layer.BorderColor = UIColor.Black.CGColor;
+			ContentView.Layer.BorderWidth = 0.5f;
 			//ContentView.AddSubview takes a UIView as a param.
 			label = new UILabel ();
-			//label.Font = UIFont.FromName ("Helvetica-Bold", 10f);
+
 			label.Frame = frame;
 			label.Center = ContentView.Center;
 			label.Transform = CGAffineTransform.MakeScale (0.7f, 0.7f);
