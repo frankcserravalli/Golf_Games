@@ -13,10 +13,10 @@
       <File FileName="Golf_Games/Scores.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Screens/menu4.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Main.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/TableSource.cs" Line="40" Column="55" />
-      <File FileName="Golf_Games/LineCollectionView.cs" Line="59" Column="68" />
-      <File FileName="Golf_Games/Screens/landscape.cs" Line="57" Column="40" />
-      <File FileName="../../Downloads/SimpleCollectionView/SimpleCollectionView/SimpleCollectionViewController.cs" Line="120" Column="9" />
+      <File FileName="Golf_Games/TableSource.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/LineCollectionView.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/landscape.cs" Line="75" Column="4" />
+      <File FileName="../../Downloads/SimpleCollectionView/SimpleCollectionView/SimpleCollectionViewController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,7 +24,7 @@
           <Node name="Golf_Games" expanded="True">
             <Node name="Courses" expanded="True" />
             <Node name="Screens" expanded="True">
-              <Node name="landscape.cs" selected="True" />
+              <Node name="landscape.xib" selected="True" />
             </Node>
           </Node>
         </State>
