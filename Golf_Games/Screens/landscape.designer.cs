@@ -61,10 +61,16 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelP1Out { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP1Total { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelP2In { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP2Out { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelP2Total { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP3In { get; set; }
@@ -73,16 +79,25 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelP3Out { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP3Total { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelP4In { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP4Out { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP4Total { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelParIn { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelParOut { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelParTotal { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIScrollView scrollView { get; set; }
@@ -228,6 +243,31 @@ namespace Golf_Games
 			if (labelP4In != null) {
 				labelP4In.Dispose ();
 				labelP4In = null;
+			}
+
+			if (labelParTotal != null) {
+				labelParTotal.Dispose ();
+				labelParTotal = null;
+			}
+
+			if (labelP1Total != null) {
+				labelP1Total.Dispose ();
+				labelP1Total = null;
+			}
+
+			if (labelP2Total != null) {
+				labelP2Total.Dispose ();
+				labelP2Total = null;
+			}
+
+			if (labelP3Total != null) {
+				labelP3Total.Dispose ();
+				labelP3Total = null;
+			}
+
+			if (labelP4Total != null) {
+				labelP4Total.Dispose ();
+				labelP4Total = null;
 			}
 		}
 	}

@@ -189,6 +189,7 @@ namespace Golf_Games
 			int p2In = 0;
 			int p3In = 0;
 			int p4In = 0;
+			//int total = 0;
 
 			for (int i = 0, j = maxIndex; i < maxIndex; i++, j++) 
 			{
@@ -214,6 +215,12 @@ namespace Golf_Games
 			labelP2Out.Text = p2Out.ToString ();
 			labelP3Out.Text = p3Out.ToString ();
 			labelP4Out.Text = p4Out.ToString ();
+
+			labelParTotal.Text =  (parIn + parOut).ToString();
+			labelP1Total.Text = (p1In + p1Out).ToString ();
+			labelP2Total.Text = (p2In + p2Out).ToString ();
+			labelP3Total.Text = (p3In + p3Out).ToString ();
+			labelP4Total.Text = (p4In + p4Out).ToString ();
 	
 		}
 
