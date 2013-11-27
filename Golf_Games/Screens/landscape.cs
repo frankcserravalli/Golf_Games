@@ -57,6 +57,9 @@ namespace Golf_Games
 			SetupHoleHandiStrings (strHoleHandis, strHoleHandis2);
 
 			SetupPlayerGrids ();
+
+			SetupInOutLabels ();
+
 			SetupRow (strHolenumbers1, gridBottom9);
 			SetupRow (strHoleHandis, gridHoleHandi);
 			SetupRow (strHolePars, gridPar);
@@ -124,19 +127,19 @@ namespace Golf_Games
 		private void SetupGridPlayer(string[] strGrid, int startIndex, int[] playerStrokeCount)
 		{
 			const int maxIndex = 9;
-			int displayScore = 0;
-			int currentPar = 0;
+			//int displayScore = 0;
+			//int currentPar = 0;
 
 			for (int i = 0, j = startIndex; i < maxIndex; i++,j++) 
 			{
-				if (playerStrokeCount [j] > 0) {
-					currentPar = gameInfo.courseInfo.holes [j].par;
-					displayScore = currentPar - playerStrokeCount [j];
-					displayScore = displayScore * -1;
-				} else
-					displayScore = 0;
+				//if (playerStrokeCount [j] > 0) {
+					//currentPar = gameInfo.courseInfo.holes [j].par;
+					//displayScore = currentPar - playerStrokeCount [j];
+					//displayScore = displayScore * -1;
+				//} else
+					//displayScore = 0;
 
-				strGrid [i] = displayScore.ToString ("+#;-#;0");
+				strGrid [i] = playerStrokeCount[j].ToString ();
 			}
 
 		}
@@ -172,6 +175,48 @@ namespace Golf_Games
 			SetupRow (strScoreP3Upper, gridPlayer3Upper);
 			SetupRow (strScoreP4Upper, gridPlayer4Upper);
 		}
+
+		private void SetupInOutLabels()
+		{
+			const int maxIndex = 9;
+			int parOut = 0;
+			int parIn = 0;
+			int p1Out = 0;
+			int p2Out = 0;
+			int p3Out = 0;
+			int p4Out = 0;
+			int p1In = 0;
+			int p2In = 0;
+			int p3In = 0;
+			int p4In = 0;
+
+			for (int i = 0, j = maxIndex; i < maxIndex; i++, j++) 
+			{
+				parOut += gameInfo.courseInfo.holes [i].par;
+				parIn += gameInfo.courseInfo.holes [j].par;
+				p1Out += gameInfo.scores.strokeCountP1 [i];
+				p2Out += gameInfo.scores.strokeCountP2 [i];
+				p3Out += gameInfo.scores.strokeCountP3 [i];
+				p4Out += gameInfo.scores.strokeCountP4 [i];
+				p1In += gameInfo.scores.strokeCountP1 [j];
+				p2In += gameInfo.scores.strokeCountP2 [j];
+				p3In += gameInfo.scores.strokeCountP3 [j];
+				p4In += gameInfo.scores.strokeCountP4 [j];
+			}
+
+			labelParOut.Text = parOut.ToString ();
+			labelParIn.Text = parIn.ToString ();
+			labelP1In.Text = p1In.ToString ();
+			labelP2In.Text = p2In.ToString ();
+			labelP3In.Text = p3In.ToString ();
+			labelP4In.Text = p4In.ToString ();
+			labelP1Out.Text = p1Out.ToString ();
+			labelP2Out.Text = p2Out.ToString ();
+			labelP3Out.Text = p3Out.ToString ();
+			labelP4Out.Text = p4Out.ToString ();
+	
+		}
+
 
 		public override void ViewDidLayoutSubviews ()
 		{

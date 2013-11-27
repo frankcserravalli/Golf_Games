@@ -20,6 +20,16 @@
                 <outlet property="gridPlayer4" destination="97b-Ch-9PE" id="F2q-ZS-Bum"/>
                 <outlet property="gridPlayer4Upper" destination="LqA-fo-Yqg" id="Z2x-fk-OTw"/>
                 <outlet property="gridUpper9" destination="NEM-so-K37" id="vnX-io-Bo1"/>
+                <outlet property="labelP1In" destination="TXG-8Y-Mrk" id="lmP-Nz-lN8"/>
+                <outlet property="labelP1Out" destination="fcs-PM-1YI" id="qan-Am-Q4Y"/>
+                <outlet property="labelP2In" destination="Zw2-bs-ftJ" id="uSO-hn-j4w"/>
+                <outlet property="labelP2Out" destination="ker-Qp-lW7" id="JzH-JT-aln"/>
+                <outlet property="labelP3In" destination="W3b-2j-T7b" id="HM0-Fh-dYP"/>
+                <outlet property="labelP3Out" destination="dj5-Zp-iBw" id="Zy9-g1-nAH"/>
+                <outlet property="labelP4In" destination="eRH-iQ-JKw" id="xDq-P7-7OV"/>
+                <outlet property="labelP4Out" destination="jmP-Y5-Clg" id="JLu-z9-vb2"/>
+                <outlet property="labelParIn" destination="tcQ-Hh-Hj3" id="d4k-KB-pkN"/>
+                <outlet property="labelParOut" destination="KrW-dE-uNy" id="y5F-t9-c8R"/>
                 <outlet property="scrollView" destination="yaL-tH-dpi" id="tEB-nP-wGG"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="viewBottom9" destination="caq-8p-xf3" id="o19-7W-pWU"/>
