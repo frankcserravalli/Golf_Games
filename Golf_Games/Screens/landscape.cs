@@ -27,7 +27,18 @@ namespace Golf_Games
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			string p1NameAndHandi = gameInfo.player1.Text + " (" + gameInfo.player1Handi.Text + ")";
+			string p2NameAndHandi = gameInfo.player2.Text + " (" + gameInfo.player2Handi.Text + ")";
+			string p3NameAndHandi = gameInfo.player3.Text + " (" + gameInfo.player3Handi.Text + ")";
+			string p4NameAndHandi = gameInfo.player4.Text + " (" + gameInfo.player4Handi.Text + ")";
+			labelPlayer1.Text = p1NameAndHandi;
+			labelPlayer2.Text = p2NameAndHandi;
+			labelPlayer3.Text = p3NameAndHandi;
+			labelPlayer4.Text = p4NameAndHandi;
+
 			SetupCollectionViews ();
+
+
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 

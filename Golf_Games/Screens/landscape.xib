@@ -35,6 +35,10 @@
                 <outlet property="labelParIn" destination="tcQ-Hh-Hj3" id="d4k-KB-pkN"/>
                 <outlet property="labelParOut" destination="KrW-dE-uNy" id="y5F-t9-c8R"/>
                 <outlet property="labelParTotal" destination="rfP-OJ-4so" id="nXc-qC-yzH"/>
+                <outlet property="labelPlayer1" destination="iul-h8-i3O" id="ecC-jn-iMG"/>
+                <outlet property="labelPlayer2" destination="d0k-Zu-x0U" id="p0h-Mr-9yO"/>
+                <outlet property="labelPlayer3" destination="egd-OZ-VUA" id="WbQ-0D-tBx"/>
+                <outlet property="labelPlayer4" destination="VQa-Fb-3TL" id="w0l-FO-eae"/>
                 <outlet property="scrollView" destination="yaL-tH-dpi" id="tEB-nP-wGG"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="viewBottom9" destination="caq-8p-xf3" id="o19-7W-pWU"/>

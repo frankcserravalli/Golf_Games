@@ -100,6 +100,18 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelParTotal { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelPlayer1 { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelPlayer2 { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelPlayer3 { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelPlayer4 { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIScrollView scrollView { get; set; }
 
 		[Outlet]
@@ -180,6 +192,101 @@ namespace Golf_Games
 				gridUpper9 = null;
 			}
 
+			if (labelP1In != null) {
+				labelP1In.Dispose ();
+				labelP1In = null;
+			}
+
+			if (labelP1Out != null) {
+				labelP1Out.Dispose ();
+				labelP1Out = null;
+			}
+
+			if (labelP1Total != null) {
+				labelP1Total.Dispose ();
+				labelP1Total = null;
+			}
+
+			if (labelP2In != null) {
+				labelP2In.Dispose ();
+				labelP2In = null;
+			}
+
+			if (labelP2Out != null) {
+				labelP2Out.Dispose ();
+				labelP2Out = null;
+			}
+
+			if (labelP2Total != null) {
+				labelP2Total.Dispose ();
+				labelP2Total = null;
+			}
+
+			if (labelP3In != null) {
+				labelP3In.Dispose ();
+				labelP3In = null;
+			}
+
+			if (labelP3Out != null) {
+				labelP3Out.Dispose ();
+				labelP3Out = null;
+			}
+
+			if (labelP3Total != null) {
+				labelP3Total.Dispose ();
+				labelP3Total = null;
+			}
+
+			if (labelP4In != null) {
+				labelP4In.Dispose ();
+				labelP4In = null;
+			}
+
+			if (labelP4Out != null) {
+				labelP4Out.Dispose ();
+				labelP4Out = null;
+			}
+
+			if (labelP4Total != null) {
+				labelP4Total.Dispose ();
+				labelP4Total = null;
+			}
+
+			if (labelParIn != null) {
+				labelParIn.Dispose ();
+				labelParIn = null;
+			}
+
+			if (labelParOut != null) {
+				labelParOut.Dispose ();
+				labelParOut = null;
+			}
+
+			if (labelParTotal != null) {
+				labelParTotal.Dispose ();
+				labelParTotal = null;
+			}
+
+			if (labelPlayer1 != null) {
+				labelPlayer1.Dispose ();
+				labelPlayer1 = null;
+			}
+
+			if (labelPlayer2 != null) {
+				labelPlayer2.Dispose ();
+				labelPlayer2 = null;
+			}
+
+			if (labelPlayer3 != null) {
+				labelPlayer3.Dispose ();
+				labelPlayer3 = null;
+			}
+
+			if (labelPlayer4 != null) {
+				labelPlayer4.Dispose ();
+				labelPlayer4 = null;
+			}
+
 			if (scrollView != null) {
 				scrollView.Dispose ();
 				scrollView = null;
@@ -193,81 +300,6 @@ namespace Golf_Games
 			if (viewUpper9 != null) {
 				viewUpper9.Dispose ();
 				viewUpper9 = null;
-			}
-
-			if (labelParOut != null) {
-				labelParOut.Dispose ();
-				labelParOut = null;
-			}
-
-			if (labelP1Out != null) {
-				labelP1Out.Dispose ();
-				labelP1Out = null;
-			}
-
-			if (labelP2Out != null) {
-				labelP2Out.Dispose ();
-				labelP2Out = null;
-			}
-
-			if (labelP3Out != null) {
-				labelP3Out.Dispose ();
-				labelP3Out = null;
-			}
-
-			if (labelP4Out != null) {
-				labelP4Out.Dispose ();
-				labelP4Out = null;
-			}
-
-			if (labelParIn != null) {
-				labelParIn.Dispose ();
-				labelParIn = null;
-			}
-
-			if (labelP1In != null) {
-				labelP1In.Dispose ();
-				labelP1In = null;
-			}
-
-			if (labelP2In != null) {
-				labelP2In.Dispose ();
-				labelP2In = null;
-			}
-
-			if (labelP3In != null) {
-				labelP3In.Dispose ();
-				labelP3In = null;
-			}
-
-			if (labelP4In != null) {
-				labelP4In.Dispose ();
-				labelP4In = null;
-			}
-
-			if (labelParTotal != null) {
-				labelParTotal.Dispose ();
-				labelParTotal = null;
-			}
-
-			if (labelP1Total != null) {
-				labelP1Total.Dispose ();
-				labelP1Total = null;
-			}
-
-			if (labelP2Total != null) {
-				labelP2Total.Dispose ();
-				labelP2Total = null;
-			}
-
-			if (labelP3Total != null) {
-				labelP3Total.Dispose ();
-				labelP3Total = null;
-			}
-
-			if (labelP4Total != null) {
-				labelP4Total.Dispose ();
-				labelP4Total = null;
 			}
 		}
 	}
