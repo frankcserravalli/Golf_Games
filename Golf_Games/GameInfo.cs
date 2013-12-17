@@ -68,6 +68,41 @@ namespace Golf_Games
 		}
 
 
+
+		//Properties
+		public int BetSandyPar
+		{
+			get{ return betSandyPar; }
+			set{ betSandyPar = value; }
+		}
+
+		public int BetBirdie
+		{
+			get{ return betBirdie; }
+			set{ betBirdie = value; }
+		}
+
+		public int BetGreenie
+		{
+			get{ return betGreenie; }
+			set{ betGreenie = value; }
+		}
+		public int BetEagle
+		{
+			get{ return betEagle; }
+			set{ betEagle = value; }
+		}
+		public int BetCTP
+		{
+			get{ return betCTP; }
+			set{ betCTP = value; }
+		}
+		public int BetHOFF
+		{
+			get{ return betHOFF; }
+			set{ betHOFF = value; }
+		}
+
 	}
 }
 

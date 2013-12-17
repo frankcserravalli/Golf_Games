@@ -156,6 +156,7 @@ namespace Golf_Games
 			//Copy over the gameinfo to the landscape object. We do this again in the WillRotate function
 			//TODO: This may need to be changed as we are just throwing around copies of the gameInfo object.
 			l_scorecard.gameInfo = this.gameInfo;
+			l_score_view.gameInfo = this.gameInfo;
 
 
 			tabController.ViewControllers = new UIViewController[] 
