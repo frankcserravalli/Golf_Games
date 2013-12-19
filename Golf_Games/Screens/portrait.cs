@@ -428,23 +428,28 @@ namespace Golf_Games
 		{
 			int selectedPlayer = this.tablePlayers.IndexPathForSelectedRow.Row;
 			//int i = 0;
+			int holeIndex = currentHoleNum - 1;
 
 			switch(selectedPlayer)
 			{
 			case 0:
-				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player1);
+				//this.gameInfo.scores.GetBetScoreP1 ()[holeIndex].SetSideBetSwitches (BetSelection ());
+				this.gameInfo.scores.SetBetHoleSwitchesP1(BetSelection(), holeIndex);
 				break;
 
 			case 1:
-				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player2);
+				//this.gameInfo.scores.GetBetScoreP2 ()[holeIndex].SetSideBetSwitches (BetSelection ());
+				this.gameInfo.scores.SetBetHoleSwitchesP2(BetSelection(), holeIndex);
 				break;
 
 			case 2:
-				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player3);
+				this.gameInfo.scores.SetBetHoleSwitchesP3(BetSelection(), holeIndex);
+				//this.gameInfo.scores.GetBetScoreP3 () [holeIndex].SetSideBetSwitches (BetSelection ());
 				break;
 
 			case 3:
-				SaveBettingSelectionForPlayer(this.gameInfo.courseInfo.holes[currentHoleNum - 1].sideBetInfo.player4);
+				this.gameInfo.scores.SetBetHoleSwitchesP4(BetSelection(), holeIndex);
+				//this.gameInfo.scores.GetBetScoreP4 () [holeIndex].SetSideBetSwitches (BetSelection ());
 				break;
 
 			default:
@@ -453,8 +458,10 @@ namespace Golf_Games
 			}
 		}
 
-		private void SaveBettingSelectionForPlayer(bool[] player)
+		private bool[] BetSelection()
 		{
+			bool[] player = new bool[6];
+
 			//This function assumes that there is 6 entires in the array
 			player [0] = selectedBirdie;
 			player [1] = selectedCTP;
@@ -462,6 +469,8 @@ namespace Golf_Games
 			player [3] = selectedGreenie;
 			player [4] = selectedHOFF;
 			player [5] = selectedSandyPar;
+
+			return player;
 			
 		}
 

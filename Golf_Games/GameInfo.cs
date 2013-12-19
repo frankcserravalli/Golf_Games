@@ -46,7 +46,7 @@ namespace Golf_Games
 		//Player scoring information
 		public Scores scores;
 
-		//Side bets
+		//Side bets on or off
 		public bool sideBets;
 
 
