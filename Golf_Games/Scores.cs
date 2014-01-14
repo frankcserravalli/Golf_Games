@@ -16,17 +16,100 @@ namespace Golf_Games
 				strokeCountP4 [element] = 0;
 			}
 			//Create a PlayerHoleSideBetInfo object for each element of the array of all 4 arrays.
-			for (int i = 0; i < betScoreP1.Length; i++) 
-			{
-
-				betScoreP1 [i] = new PlayerHoleSideBetInfo ();
-				betScoreP2 [i] = new PlayerHoleSideBetInfo ();
-				betScoreP3 [i] = new PlayerHoleSideBetInfo ();
-				betScoreP4 [i] = new PlayerHoleSideBetInfo ();
-			}
+//			for (int i = 0; i < betScoreP1.Length; i++) 
+//			{
+//
+//				betScoreP1 [i] = new PlayerHoleSideBetInfo ();
+//				betScoreP2 [i] = new PlayerHoleSideBetInfo ();
+//				betScoreP3 [i] = new PlayerHoleSideBetInfo ();
+//				betScoreP4 [i] = new PlayerHoleSideBetInfo ();
+//			}
 		}
 
 		//Methods
+
+		public void CalculateWinnings(int holeIndex)
+		{
+			List<bool[]> allPlayersSwitches = new List<bool[]> (); 
+			bool[] betSwitchesP1 = betScoreP1 [holeIndex].GetSideBetSwitches ();
+			bool[] betSwitchesP2 = betScoreP2 [holeIndex].GetSideBetSwitches ();
+			bool[] betSwitchesP3 = betScoreP3 [holeIndex].GetSideBetSwitches ();
+			bool[] betSwitchesP4 = betScoreP4 [holeIndex].GetSideBetSwitches ();
+
+			bool[] currentBet = new bool[4];
+
+			int betWinnerCount = 0;
+
+			allPlayersSwitches.Add (betSwitchesP1);
+			allPlayersSwitches.Add (betSwitchesP2);
+			allPlayersSwitches.Add (betSwitchesP3);
+			allPlayersSwitches.Add (betSwitchesP4);
+
+			//Calculate who gets what based on the switches and the point values that were inserted
+
+				//Cycle through all the switches for that player
+				for(int i = 0; i < betSwitchesP1.Length; i++)
+				{
+					//Reset the betwinnercount
+					betWinnerCount = 0;
+
+					for (int j = 0; j < NumPlayers; j ++) 
+					{
+						currentBet [j] = allPlayersSwitches [j] [i];
+						if (currentBet [j] == true) 
+						{
+							//This value can help determine how much a player recieves or loses.
+							betWinnerCount++;
+						}
+						
+					}
+
+					//compare all switches and decide winnings
+					//0 - Birdie
+					//1 - CTP
+					//2 - Eagle
+					//3 - Greenie
+					//4 - HOFF
+					//5 - SandyPar
+					
+					switch (betWinnerCount) 
+					{
+						case 1:
+							break;
+						case 2:
+							break;
+						case 3:
+							if(currentBet[0] == true)
+								betScoreP1[holeIndex].BirdieWinnings = BetBirdie;
+							
+							break;
+						case 4:
+							break;
+					}	
+
+					switch(i)
+					{
+						case 0:
+							
+							break; 
+						case 1:
+							break; 
+						case 2:
+							break; 
+						case 3:
+							break; 
+						case 4:
+							break; 
+						case 5:
+							break; 
+
+						default:
+							break;
+					}
+				}
+			
+
+		}
 
 		//Setters and Getters
 		public PlayerHoleSideBetInfo[] GetBetScoreP1()
@@ -63,6 +146,7 @@ namespace Golf_Games
 			betScoreP4 = score;
 		}
 
+		//These are special setters need to set the switches inside the PlayerHoleSideBetInfo object
 		public void SetBetHoleSwitchesP1(bool[] score, int index)
 		{
 			betScoreP1 [index].SetSideBetSwitches (score);
@@ -84,6 +168,7 @@ namespace Golf_Games
 		}
 
 
+
 		//Data Members
 
 		//Betting information
@@ -101,6 +186,14 @@ namespace Golf_Games
 		public int[] strokeCountP4 = new int[18];
 
 		//Properties
+		public int NumPlayers{ get; set; }
+		public int BetSandyPar{ get; set; }
+		public int BetBirdie{ get; set; }
+		public int BetGreenie{ get; set; }
+		public int BetEagle{ get; set; }
+		public int BetCTP{ get; set; }
+		public int BetHOFF{ get; set; }
+		
 
 	}
 	public class PlayerHoleSideBetInfo

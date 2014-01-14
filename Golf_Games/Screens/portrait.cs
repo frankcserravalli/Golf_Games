@@ -6,9 +6,6 @@ namespace Golf_Games
 {
 	public partial class portrait : UIViewController
 	{
-		//string[] oddNums;
-		//string[] evenNums;
-
 		landscape l_scorecard;
 		landscape_points_chart l_pts_chart;
 		landscape_score_view l_score_view;
@@ -28,26 +25,6 @@ namespace Golf_Games
 
 		public portrait () : base ("portrait", null)
 		{
-//			//This code is for setting up a tab for landscape mode.
-//			tabController = new UITabBarController();
-//			l_scorecard = new landscape ();
-//			l_pts_chart = new landscape_points_chart();
-//			l_score_view = new landscape_score_view();
-//
-//			//Copy over the gameinfo to the landscape object. We do this again in the WillRotate function
-//			//TODO: This may need to be changed as we are just throwing around copies of the gameInfo object.
-//			l_scorecard.gameInfo = this.gameInfo;
-//
-//
-//			tabController.ViewControllers = new UIViewController[] 
-//			{
-//				l_scorecard, l_score_view, l_pts_chart
-//			};
-//
-//			tabController.ViewControllers [0].Title = "Scorecard";
-//			tabController.ViewControllers [1].Title = "Bets";
-//			tabController.ViewControllers [2].Title = "Points Chart";
-
 
 		}
 

@@ -65,6 +65,7 @@ namespace Golf_Games
 			betEagle = 0;
 			betCTP = 0;
 			betHOFF = 0;
+			scores.NumPlayers = numPlayers;
 		}
 
 
