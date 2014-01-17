@@ -36,9 +36,12 @@ namespace Golf_Games
 			bool[] betSwitchesP3 = betScoreP3 [holeIndex].GetSideBetSwitches ();
 			bool[] betSwitchesP4 = betScoreP4 [holeIndex].GetSideBetSwitches ();
 
+			PlayerHoleSideBetInfo playerHSBI = new PlayerHoleSideBetInfo ();
+
 			bool[] currentBet = new bool[4];
 
 			int betWinnerCount = 0;
+			int tempWinnings = 0;
 
 			allPlayersSwitches.Add (betSwitchesP1);
 			allPlayersSwitches.Add (betSwitchesP2);
@@ -46,18 +49,16 @@ namespace Golf_Games
 			allPlayersSwitches.Add (betSwitchesP4);
 
 			//Calculate who gets what based on the switches and the point values that were inserted
-
+			for (int playerIndex = 0; playerIndex < NumPlayers; playerIndex++) 
+			{
 				//Cycle through all the switches for that player
-				for(int i = 0; i < betSwitchesP1.Length; i++)
-				{
+				for (int i = 0; i < betSwitchesP1.Length; i++) {
 					//Reset the betwinnercount
 					betWinnerCount = 0;
 
-					for (int j = 0; j < NumPlayers; j ++) 
-					{
+					for (int j = 0; j < NumPlayers; j ++) {
 						currentBet [j] = allPlayersSwitches [j] [i];
-						if (currentBet [j] == true) 
-						{
+						if (currentBet [j] == true) {
 							//This value can help determine how much a player recieves or loses.
 							betWinnerCount++;
 						}
@@ -71,45 +72,97 @@ namespace Golf_Games
 					//3 - Greenie
 					//4 - HOFF
 					//5 - SandyPar
-					
-					switch (betWinnerCount) 
-					{
-						case 1:
-							break;
-						case 2:
-							break;
-						case 3:
-							if(currentBet[0] == true)
-								betScoreP1[holeIndex].BirdieWinnings = BetBirdie;
-							
-							break;
-						case 4:
-							break;
-					}	
 
-					switch(i)
+
+					switch (i) {
+					case 0:
+						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetBirdie);
+						playerHSBI.BirdieWinnings = tempWinnings;
+						break; 
+					case 1:
+						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetCTP);
+						playerHSBI.CTPWinnings = tempWinnings;
+						break; 
+					case 2:
+						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetEagle);
+						playerHSBI.EagleWinnings = tempWinnings;
+						break; 
+					case 3:
+						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetGreenie);
+						playerHSBI.GreenieWinnings = tempWinnings;
+						break; 
+					case 4:
+						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetHOFF);
+						playerHSBI.HOFFWinnings = tempWinnings;
+						break; 
+					case 5:
+						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetSandyPar);
+						playerHSBI.SandyParWinnings = tempWinnings;
+						break; 
+
+					default:
+						break;
+					}
+
+					switch (playerIndex) 
 					{
 						case 0:
-							
-							break; 
+							betScoreP1[holeIndex] = playerHSBI;
+							break;
+
 						case 1:
-							break; 
+							betScoreP2[holeIndex] = playerHSBI;
+							break;
+
 						case 2:
-							break; 
-						case 3:
-							break; 
-						case 4:
-							break; 
-						case 5:
+							betScoreP3[holeIndex] = playerHSBI;
 							break; 
 
-						default:
+						case 3:
+							betScoreP4[holeIndex] = playerHSBI;
 							break;
 					}
+
+
 				}
+
+			}
 			
 
 		}
+
+		//Methods
+		public int DetermineWinningsForSwitch(int holeIndex, bool currentBet, int betWinnerCount, int pointValue)
+		{
+
+			int winnings = 0;
+
+			if (currentBet == true) 
+			{	//If the player has won the current bet 
+				//if betwinnercount is odd
+				if (betWinnerCount % 2 != 0)
+					winnings = pointValue * (NumPlayers - betWinnerCount);
+				else 
+				{
+					winnings = pointValue;
+				}
+			} 
+			else //If the currentBet is a loss
+			{
+				if (betWinnerCount % 2 != 0)
+					winnings = pointValue * -1;
+				else 
+				{
+					winnings = (pointValue * betWinnerCount) * -1;
+				}
+			} 
+
+			return winnings;
+		}
+
+
+
+
 
 		//Setters and Getters
 		public PlayerHoleSideBetInfo[] GetBetScoreP1()
@@ -219,6 +272,19 @@ namespace Golf_Games
 			HOFFWinnings = 0;
 			BirdieWinnings = 0;
 			EagleWinnings = 0;
+		}
+
+		public void ClearAll()
+		{
+			TotalWinnings = 0;
+			SandyParWinnings = 0;
+			GreenieWinnings = 0;
+			CTPWinnings = 0;
+			HOFFWinnings = 0;
+			BirdieWinnings = 0;
+			EagleWinnings = 0;
+
+			//TODO: May need to reset the switches as well.
 		}
 
 		public bool[] GetSideBetSwitches()
