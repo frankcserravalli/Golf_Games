@@ -15,15 +15,16 @@ namespace Golf_Games
 				strokeCountP3 [element] = 0;
 				strokeCountP4 [element] = 0;
 			}
+
 			//Create a PlayerHoleSideBetInfo object for each element of the array of all 4 arrays.
-//			for (int i = 0; i < betScoreP1.Length; i++) 
-//			{
-//
-//				betScoreP1 [i] = new PlayerHoleSideBetInfo ();
-//				betScoreP2 [i] = new PlayerHoleSideBetInfo ();
-//				betScoreP3 [i] = new PlayerHoleSideBetInfo ();
-//				betScoreP4 [i] = new PlayerHoleSideBetInfo ();
-//			}
+			for (int i = 0; i < betScoreP1.Length; i++) 
+			{
+
+				betScoreP1 [i] = new PlayerHoleSideBetInfo ();
+				betScoreP2 [i] = new PlayerHoleSideBetInfo ();
+				betScoreP3 [i] = new PlayerHoleSideBetInfo ();
+				betScoreP4 [i] = new PlayerHoleSideBetInfo ();
+			}
 		}
 
 		//Methods
@@ -51,6 +52,25 @@ namespace Golf_Games
 			//Calculate who gets what based on the switches and the point values that were inserted
 			for (int playerIndex = 0; playerIndex < NumPlayers; playerIndex++) 
 			{
+				switch (playerIndex) 
+				{
+					case 0:
+					playerHSBI = betScoreP1[holeIndex];
+					break;
+
+					case 1:
+					playerHSBI = betScoreP2[holeIndex];
+					break;
+
+					case 2:
+					playerHSBI = betScoreP3[holeIndex];
+					break; 
+
+					case 3:
+					playerHSBI = betScoreP4[holeIndex];
+					break;
+				}
+
 				//Cycle through all the switches for that player
 				for (int i = 0; i < betSwitchesP1.Length; i++) {
 					//Reset the betwinnercount
@@ -226,10 +246,12 @@ namespace Golf_Games
 
 		//Betting information
 		//These values should end up being positive or negative for every array entry.
-		private PlayerHoleSideBetInfo[] betScoreP1 = new PlayerHoleSideBetInfo[18];
-		private PlayerHoleSideBetInfo[] betScoreP2 = new PlayerHoleSideBetInfo[18];
-		private PlayerHoleSideBetInfo[] betScoreP3 = new PlayerHoleSideBetInfo[18];
-		private PlayerHoleSideBetInfo[] betScoreP4 = new PlayerHoleSideBetInfo[18];
+		public PlayerHoleSideBetInfo[] betScoreP1 = new PlayerHoleSideBetInfo[18];
+		public PlayerHoleSideBetInfo[] betScoreP2 = new PlayerHoleSideBetInfo[18];
+		public PlayerHoleSideBetInfo[] betScoreP3 = new PlayerHoleSideBetInfo[18];
+		public PlayerHoleSideBetInfo[] betScoreP4 = new PlayerHoleSideBetInfo[18];
+
+
 
 
 		//Scoring

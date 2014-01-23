@@ -1,3 +1,6 @@
+//SECOND TAB Landscape Bets View
+
+
 using System;
 using System.Drawing;
 using MonoTouch.Foundation;
@@ -155,6 +158,11 @@ namespace Golf_Games
 
 		private void SetupPlayerGrids()
 		{
+			int[] totalWinningsP1 = new int[18];
+			int[] totalWinningsP2 = new int[18];
+			int[] totalWinningsP3 = new int[18];
+			int[] totalWinningsP4 = new int[18];
+
 			string[] strScoreP1 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 			string[] strScoreP1Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 			string[] strScoreP2 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
@@ -164,15 +172,19 @@ namespace Golf_Games
 			string[] strScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 			string[] strScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 
+			ConvertWinningsToIntArray (gameInfo.scores.betScoreP1, totalWinningsP1);
+			ConvertWinningsToIntArray (gameInfo.scores.betScoreP2, totalWinningsP2);
+			ConvertWinningsToIntArray (gameInfo.scores.betScoreP3, totalWinningsP3);
+			ConvertWinningsToIntArray (gameInfo.scores.betScoreP4, totalWinningsP4);
 
-			SetupGridPlayer (strScoreP1, 0, gameInfo.scores.strokeCountP1);
-			SetupGridPlayer (strScoreP1Upper, 9, gameInfo.scores.strokeCountP1);
-			SetupGridPlayer (strScoreP2, 0, gameInfo.scores.strokeCountP2);
-			SetupGridPlayer (strScoreP2Upper, 9, gameInfo.scores.strokeCountP2);
-			SetupGridPlayer (strScoreP3, 0, gameInfo.scores.strokeCountP3);
-			SetupGridPlayer (strScoreP3Upper, 9, gameInfo.scores.strokeCountP3);
-			SetupGridPlayer (strScoreP4, 0, gameInfo.scores.strokeCountP4);
-			SetupGridPlayer (strScoreP4Upper, 9, gameInfo.scores.strokeCountP4);
+			SetupGridPlayer (strScoreP1, 0, totalWinningsP1);
+			SetupGridPlayer (strScoreP1Upper, 9, totalWinningsP1);
+			SetupGridPlayer (strScoreP2, 0, totalWinningsP2);
+			SetupGridPlayer (strScoreP2Upper, 9, totalWinningsP2);
+			SetupGridPlayer (strScoreP3, 0, totalWinningsP3);
+			SetupGridPlayer (strScoreP3Upper, 9, totalWinningsP3);
+			SetupGridPlayer (strScoreP4, 0, totalWinningsP4);
+			SetupGridPlayer (strScoreP4Upper, 9, totalWinningsP4);
 
 
 			SetupRow (strScoreP1, gridPlayer1Lower);
@@ -183,6 +195,14 @@ namespace Golf_Games
 			SetupRow (strScoreP2Upper, gridPlayer2Upper);
 			SetupRow (strScoreP3Upper, gridPlayer3Upper);
 			SetupRow (strScoreP4Upper, gridPlayer4Upper);
+		}
+
+		private void ConvertWinningsToIntArray(PlayerHoleSideBetInfo[] player, int[] totalWinnings)
+		{
+			for (int i = 0; i < player.Length; i++) 
+			{
+				totalWinnings [i] = player [i].TotalWinnings;
+			}
 		}
 
 		private void SetupInOutLabels()
