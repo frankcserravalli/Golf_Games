@@ -53,7 +53,8 @@ namespace Golf_Games
 		//--Methods--
 		public GameInfo ()
 		{
-			numPlayers = 1;
+			//TODO: The numPlayers variable needs to be handled later
+			numPlayers = 4;
 			gameMode = GameMode.Strokes;
 			sideBets = false;
 

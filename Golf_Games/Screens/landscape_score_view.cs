@@ -172,6 +172,9 @@ namespace Golf_Games
 			string[] strScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 			string[] strScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 
+			//Here is where the betting scores for each hole needs to be calculated
+			UpdateBetScores ();
+
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP1, totalWinningsP1);
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP2, totalWinningsP2);
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP3, totalWinningsP3);
@@ -267,6 +270,22 @@ namespace Golf_Games
 			//scrollView.SetContentOffset (point, true);
 
 
+		}
+
+		public void UpdateBetScores()
+		{
+			const int maxHoles = 18;
+			//TODO: Perhaps max holes needs to be set in the gameinfo object
+
+			gameInfo.scores.BetBirdie = gameInfo.BetBirdie;
+			gameInfo.scores.BetCTP = gameInfo.BetCTP;
+			gameInfo.scores.BetGreenie = gameInfo.BetGreenie;
+			gameInfo.scores.BetHOFF = gameInfo.BetHOFF;
+			gameInfo.scores.BetEagle = gameInfo.BetEagle;
+			gameInfo.scores.BetSandyPar = gameInfo.BetSandyPar;
+
+			for (int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
+				gameInfo.scores.CalculateWinnings (holeIndex);
 		}
 	}
 }

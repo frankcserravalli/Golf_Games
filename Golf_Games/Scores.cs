@@ -7,6 +7,9 @@ namespace Golf_Games
 	{
 		public Scores ()
 		{
+			//Set the number of players
+
+
 			//Set stroke counts to 0
 			foreach (int element in strokeCountP1) 
 			{
@@ -43,6 +46,7 @@ namespace Golf_Games
 
 			int betWinnerCount = 0;
 			int tempWinnings = 0;
+			int tempTotalWinnings = 0;
 
 			allPlayersSwitches.Add (betSwitchesP1);
 			allPlayersSwitches.Add (betSwitchesP2);
@@ -121,8 +125,13 @@ namespace Golf_Games
 						break; 
 
 					default:
+						tempWinnings = 0;
 						break;
 					}
+
+					//The winnings in temp winnings are added to the total winnings for that bet. Total winnings is what should be displayed on screen for that hole.
+					tempTotalWinnings = tempTotalWinnings + tempWinnings;
+
 
 					switch (playerIndex) 
 					{
@@ -145,6 +154,10 @@ namespace Golf_Games
 
 
 				}
+				playerHSBI.TotalWinnings = tempTotalWinnings;
+
+				//Reset tempTotalWinnings
+				tempTotalWinnings = 0;
 
 			}
 			
@@ -157,25 +170,30 @@ namespace Golf_Games
 
 			int winnings = 0;
 
-			if (currentBet == true) 
-			{	//If the player has won the current bet 
-				//if betwinnercount is odd
-				if (betWinnerCount % 2 != 0)
-					winnings = pointValue * (NumPlayers - betWinnerCount);
-				else 
-				{
-					winnings = pointValue;
-				}
-			} 
-			else //If the currentBet is a loss
+			if (betWinnerCount != NumPlayers && betWinnerCount != 0) 
 			{
-				if (betWinnerCount % 2 != 0)
-					winnings = pointValue * -1;
+				if (currentBet == true) 
+				{	//If the player has won the current bet 
+					//if betwinnercount is odd
+					if (betWinnerCount % 2 != 0)
+						winnings = pointValue * (NumPlayers - betWinnerCount);
+					else {
+						winnings = pointValue;
+					}
+				} 
 				else 
-				{
-					winnings = (pointValue * betWinnerCount) * -1;
-				}
-			} 
+				{ //If the currentBet is a loss
+					//if betwinnercount is odd
+					if (betWinnerCount % 2 != 0)
+						winnings = (pointValue * betWinnerCount) * -1;
+					else 
+					{
+						winnings = pointValue * -1;
+					}
+				} 
+			}
+
+
 
 			return winnings;
 		}
