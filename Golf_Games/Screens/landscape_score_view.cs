@@ -139,19 +139,10 @@ namespace Golf_Games
 		private void SetupGridPlayer(string[] strGrid, int startIndex, int[] playerStrokeCount)
 		{
 			const int maxIndex = 9;
-			//int displayScore = 0;
-			//int currentPar = 0;
 
 			for (int i = 0, j = startIndex; i < maxIndex; i++,j++) 
 			{
-				//if (playerStrokeCount [j] > 0) {
-				//currentPar = gameInfo.courseInfo.holes [j].par;
-				//displayScore = currentPar - playerStrokeCount [j];
-				//displayScore = displayScore * -1;
-				//} else
-				//displayScore = 0;
-
-				strGrid [i] = playerStrokeCount[j].ToString ();
+				strGrid [i] = playerStrokeCount[j].ToString ("+#;-#;0");
 			}
 
 		}
