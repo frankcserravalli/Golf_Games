@@ -67,8 +67,8 @@ namespace Golf_Games
 
 			label.Frame = frame;
 			label.Center = ContentView.Center;
-			label.Font = UIFont.FromName ("Helvetica-Bold", 16f);
-
+			label.Font = UIFont.FromName ("Helvetica-Bold", 15f);
+			label.AdjustsFontSizeToFitWidth = true;
 
 
 			//TODO: There needs to be size that fits all. This may need to be dynamic.

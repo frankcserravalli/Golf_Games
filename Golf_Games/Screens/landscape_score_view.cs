@@ -199,6 +199,7 @@ namespace Golf_Games
 			}
 		}
 
+		//This function sets up the totals for the in and out labels for the bottom and upper 9 holes
 		private void SetupInOutLabels()
 		{
 			const int maxIndex = 9;
@@ -218,33 +219,42 @@ namespace Golf_Games
 			{
 				parOut += gameInfo.courseInfo.holes [i].par;
 				parIn += gameInfo.courseInfo.holes [j].par;
-				p1Out += gameInfo.scores.strokeCountP1 [i];
-				p2Out += gameInfo.scores.strokeCountP2 [i];
-				p3Out += gameInfo.scores.strokeCountP3 [i];
-				p4Out += gameInfo.scores.strokeCountP4 [i];
-				p1In += gameInfo.scores.strokeCountP1 [j];
-				p2In += gameInfo.scores.strokeCountP2 [j];
-				p3In += gameInfo.scores.strokeCountP3 [j];
-				p4In += gameInfo.scores.strokeCountP4 [j];
+				p1Out += gameInfo.scores.betScoreP1 [i].TotalWinnings;
+				p2Out += gameInfo.scores.betScoreP2 [i].TotalWinnings;
+				p3Out += gameInfo.scores.betScoreP3 [i].TotalWinnings;
+				p4Out += gameInfo.scores.betScoreP4 [i].TotalWinnings;
+				p1In += gameInfo.scores.betScoreP1 [j].TotalWinnings;
+				p2In += gameInfo.scores.betScoreP2 [j].TotalWinnings;
+				p3In += gameInfo.scores.betScoreP3 [j].TotalWinnings;
+				p4In += gameInfo.scores.betScoreP4 [j].TotalWinnings;
 			}
 
 			labelParOut.Text = parOut.ToString ();
 			labelParIn.Text = parIn.ToString ();
-			labelP1In.Text = p1In.ToString ();
-			labelP2In.Text = p2In.ToString ();
-			labelP3In.Text = p3In.ToString ();
-			labelP4In.Text = p4In.ToString ();
-			labelP1Out.Text = p1Out.ToString ();
-			labelP2Out.Text = p2Out.ToString ();
-			labelP3Out.Text = p3Out.ToString ();
-			labelP4Out.Text = p4Out.ToString ();
+			labelP1In.Text = p1In.ToString ("+#;-#;0");
+			labelP2In.Text = p2In.ToString ("+#;-#;0");
+			labelP3In.Text = p3In.ToString ("+#;-#;0");
+			labelP4In.Text = p4In.ToString ("+#;-#;0");
+			labelP1Out.Text = p1Out.ToString ("+#;-#;0");
+			labelP2Out.Text = p2Out.ToString ("+#;-#;0");
+			labelP3Out.Text = p3Out.ToString ("+#;-#;0");
+			labelP4Out.Text = p4Out.ToString ("+#;-#;0");
 
 			labelParTotal.Text =  (parIn + parOut).ToString();
-			labelP1Total.Text = (p1In + p1Out).ToString ();
-			labelP2Total.Text = (p2In + p2Out).ToString ();
-			labelP3Total.Text = (p3In + p3Out).ToString ();
-			labelP4Total.Text = (p4In + p4Out).ToString ();
+			labelP1Total.Text = (p1In + p1Out).ToString ("+#;-#;0");
+			labelP2Total.Text = (p2In + p2Out).ToString ("+#;-#;0");
+			labelP3Total.Text = (p3In + p3Out).ToString ("+#;-#;0");
+			labelP4Total.Text = (p4In + p4Out).ToString ("+#;-#;0");
 
+			//Set all labels to resize if they dont fit.
+//			labelP1In.AdjustsFontSizeToFitWidth = true;
+//			labelP1Out.AdjustsFontSizeToFitWidth = true;
+//			labelP2In.AdjustsFontSizeToFitWidth = true;
+//			labelP2Out.AdjustsFontSizeToFitWidth = true;
+//			labelP3In.AdjustsFontSizeToFitWidth = true;
+//			labelP3Out.AdjustsFontSizeToFitWidth = true;
+//			labelP4In.AdjustsFontSizeToFitWidth = true;
+//			labelP4Out.AdjustsFontSizeToFitWidth = true;
 		}
 
 
