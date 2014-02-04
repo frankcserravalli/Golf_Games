@@ -278,6 +278,12 @@ namespace Golf_Games
 		public int[] strokeCountP3 = new int[18];
 		public int[] strokeCountP4 = new int[18];
 
+		//Handicap Score
+		public int[] handiStrokeCountP1 = new int[18];
+		public int[] handiStrokeCountP2 = new int[18];
+		public int[] handiStrokeCountP3 = new int[18];
+		public int[] handiStrokeCountP4 = new int[18];
+
 		//Properties
 		public int NumPlayers{ get; set; }
 		public int BetSandyPar{ get; set; }

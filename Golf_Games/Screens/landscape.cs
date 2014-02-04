@@ -110,6 +110,64 @@ namespace Golf_Games
 				gridRow.Add (cells [i]);
 		}
 
+		private void SetupRowWithHandis(string[] rowValues, string[] handiValues, UICollectionView gridRow)
+		{
+			const int cellWidth = 25;	//This is the size of each cell
+			const int cellHeight = 25;
+			int tempRowValueLength = 0;
+			int tempHandiValueLengh = 0;
+
+			string[] appendedValues = new string[18];
+
+
+			//Adjust the label so we can have multiple colors to show other values like handicaps
+			var regularAttributes = new UIStringAttributes {
+				ForegroundColor = UIColor.Black
+			};
+			var handiAttributes = new UIStringAttributes {
+				ForegroundColor = UIColor.Red
+			};
+
+
+
+			//string[] holenumbers1 = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+			List<GridCell> cells = new List<GridCell>();
+
+			Rectangle cellFrame = new Rectangle (0, 0, cellWidth, cellHeight);
+
+
+			for (int i = 0; i < 9; i++) 
+			{
+				cellFrame.X = (i * cellWidth);
+				GridCell cell = new GridCell (cellFrame);
+
+				//Get lengths of the cell value
+				tempRowValueLength = rowValues [i].Length;
+				tempHandiValueLengh = handiValues [i].Length;
+				appendedValues [i] = rowValues [i] + "/" + handiValues [i];
+
+				var attrString = new NSMutableAttributedString (appendedValues[i]);
+				attrString.SetAttributes(regularAttributes.Dictionary, new NSRange (0, tempRowValueLength));	// This should be long enough to account for the slash
+				attrString.SetAttributes(handiAttributes.Dictionary, new NSRange(tempRowValueLength + 1,tempHandiValueLengh ));
+
+
+				//If the the handicap value and the actual stroke value are the same or if the handicap value is 0
+				if (rowValues [i] == handiValues [i] || handiValues[i] == "0")
+					cell.label.Text = rowValues [i];	//Only use the value of the stroke and hide the handicap value
+				else
+					cell.label.AttributedText = attrString;	//Use both stroke and handicap value
+
+				//Insert cell into the list
+				cells.Add (cell);
+			}
+
+			//Add the cells to the grid
+			for (int i = 0; i < 9; i++)
+				gridRow.Add (cells [i]);
+
+
+		}
+
 		private void SetupParStrings(string[] strHolePars, string[] strHolePars2)
 		{
 			for (int i = 0, j = 0; i < gameInfo.courseInfo.holes.Length; i++) 
@@ -137,20 +195,14 @@ namespace Golf_Games
 			}
 		}
 
+		//All this function does is turn the values in from an int over to string values. It is also used to split up 18 hole scoring into 9.
 		private void SetupGridPlayer(string[] strGrid, int startIndex, int[] playerStrokeCount)
 		{
 			const int maxIndex = 9;
-			//int displayScore = 0;
-			//int currentPar = 0;
 
 			for (int i = 0, j = startIndex; i < maxIndex; i++,j++) 
 			{
-				//if (playerStrokeCount [j] > 0) {
-					//currentPar = gameInfo.courseInfo.holes [j].par;
-					//displayScore = currentPar - playerStrokeCount [j];
-					//displayScore = displayScore * -1;
-				//} else
-					//displayScore = 0;
+			
 
 				strGrid [i] = playerStrokeCount[j].ToString ();
 			}
@@ -168,7 +220,19 @@ namespace Golf_Games
 			string[] strScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 			string[] strScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 
+			string[] strHandiScoreP1 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP2 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP3 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP1Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP2Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP3Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 
+			//This will go through all players and determine what the handicap value is for that stroke
+			SetupHandicapScores ();
+
+			//Setup the regular stroke scores
 			SetupGridPlayer (strScoreP1, 0, gameInfo.scores.strokeCountP1);
 			SetupGridPlayer (strScoreP1Upper, 9, gameInfo.scores.strokeCountP1);
 			SetupGridPlayer (strScoreP2, 0, gameInfo.scores.strokeCountP2);
@@ -178,15 +242,39 @@ namespace Golf_Games
 			SetupGridPlayer (strScoreP4, 0, gameInfo.scores.strokeCountP4);
 			SetupGridPlayer (strScoreP4Upper, 9, gameInfo.scores.strokeCountP4);
 
+			//Setup the handicap stroke scores
+			SetupGridPlayer (strHandiScoreP1, 0, gameInfo.scores.handiStrokeCountP1);
+			SetupGridPlayer (strHandiScoreP2, 0, gameInfo.scores.handiStrokeCountP2);
+			SetupGridPlayer (strHandiScoreP3, 0, gameInfo.scores.handiStrokeCountP3);
+			SetupGridPlayer (strHandiScoreP4, 0, gameInfo.scores.handiStrokeCountP4);
+			SetupGridPlayer (strHandiScoreP1Upper, 9, gameInfo.scores.handiStrokeCountP1);
+			SetupGridPlayer (strHandiScoreP2Upper, 9, gameInfo.scores.handiStrokeCountP2);
+			SetupGridPlayer (strHandiScoreP3Upper, 9, gameInfo.scores.handiStrokeCountP3);
+			SetupGridPlayer (strHandiScoreP4Upper, 9, gameInfo.scores.handiStrokeCountP4);
 
-			SetupRow (strScoreP1, gridPlayer1);
-			SetupRow (strScoreP2, gridPlayer2);
-			SetupRow (strScoreP3, gridPlayer3);
-			SetupRow (strScoreP4, gridPlayer4);
-			SetupRow (strScoreP1Upper, gridPlayer1Upper);
-			SetupRow (strScoreP2Upper, gridPlayer2Upper);
-			SetupRow (strScoreP3Upper, gridPlayer3Upper);
-			SetupRow (strScoreP4Upper, gridPlayer4Upper);
+
+
+
+			//This is the old way without players handicaps in red
+//			SetupRow (strScoreP1, gridPlayer1);
+//			SetupRow (strScoreP2, gridPlayer2);
+//			SetupRow (strScoreP3, gridPlayer3);
+//			SetupRow (strScoreP4, gridPlayer4);
+//			SetupRow (strScoreP1Upper, gridPlayer1Upper);
+//			SetupRow (strScoreP2Upper, gridPlayer2Upper);
+//			SetupRow (strScoreP3Upper, gridPlayer3Upper);
+//			SetupRow (strScoreP4Upper, gridPlayer4Upper);
+
+			//This is the new way with players handicaps in red.
+			SetupRowWithHandis (strScoreP1, strHandiScoreP1, gridPlayer1);
+			SetupRowWithHandis (strScoreP2, strHandiScoreP2, gridPlayer2);
+			SetupRowWithHandis (strScoreP3, strHandiScoreP3, gridPlayer3);
+			SetupRowWithHandis (strScoreP4, strHandiScoreP4, gridPlayer4);
+
+			SetupRowWithHandis (strScoreP1Upper, strHandiScoreP1Upper, gridPlayer1Upper);
+			SetupRowWithHandis (strScoreP2Upper, strHandiScoreP2Upper, gridPlayer2Upper);
+			SetupRowWithHandis (strScoreP3Upper, strHandiScoreP3Upper, gridPlayer3Upper);
+			SetupRowWithHandis (strScoreP4Upper, strHandiScoreP4Upper, gridPlayer4Upper);
 		}
 
 		private void SetupInOutLabels()
@@ -234,6 +322,8 @@ namespace Golf_Games
 			labelP2Total.Text = (p2In + p2Out).ToString ();
 			labelP3Total.Text = (p3In + p3Out).ToString ();
 			labelP4Total.Text = (p4In + p4Out).ToString ();
+
+
 	
 		}
 
@@ -251,6 +341,44 @@ namespace Golf_Games
 			//scrollView.SetContentOffset (point, true);
 
 
+		}
+		//TODO: (Refactor) This function and DeterminePlayerHandiScore should probably be moved to the Scores class.
+		public void SetupHandicapScores()
+		{
+			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP1, gameInfo.scores.handiStrokeCountP1, System.Convert.ToInt32(gameInfo.player1Handi.Text));
+			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP2, gameInfo.scores.handiStrokeCountP2, System.Convert.ToInt32(gameInfo.player2Handi.Text));
+			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP3, gameInfo.scores.handiStrokeCountP3, System.Convert.ToInt32(gameInfo.player3Handi.Text));
+			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP4, gameInfo.scores.handiStrokeCountP4, System.Convert.ToInt32(gameInfo.player4Handi.Text));
+		
+		}
+		public void DeterminePlayerHandiScore(int[] score, int[]handiScore, int playerHandi)
+		{
+			for(int i = 0; i < score.Length; i++)	//Score length should be 18
+			{
+				//Check to make sure there is some score in
+				if (score [i] > 0) 
+				{
+					//If the player handicap is greater or equal than the hole handicap
+					if (playerHandi >= gameInfo.courseInfo.holes [i].hole_handicap)
+					{
+						//TODO: This line may not be this simple. More consideration is neccessary
+						handiScore [i] = score [i] - 1;
+					}
+				}
+			}
+		}
+
+		public void SplitStrs(string[] wholeString, string[] lowerHalf, string[] upperHalf)
+		{
+			for (int i = 0; i < (wholeString.Length / 2); i++) 
+			{
+				lowerHalf [i] = wholeString [i];
+			}
+
+			for (int i = (wholeString.Length / 2); i < wholeString.Length; i++) 
+			{
+				upperHalf [i] = wholeString [i];
+			}
 		}
 
 	}
