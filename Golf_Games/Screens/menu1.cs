@@ -32,6 +32,9 @@ namespace Golf_Games
 			UITextView txtPlayer;
 			base.ViewDidLoad ();
 
+			bool screenShifted = false;
+			int activeEdits = 0;
+
 			//Show the nav bar
 			NavigationController.SetNavigationBarHidden (false, false);
 
@@ -58,6 +61,60 @@ namespace Golf_Games
 			txtPlayerHandi4.ShouldChangeCharacters += (text, r, str) =>
 			{
 				return HandicapInputCheck(text, r, str);
+			};
+
+			//When player 4 text box is selected, we need to shift the controls up.
+			txtPlayerName4.ShouldBeginEditing += (textField) => 
+			{
+				activeEdits++;
+				if(activeEdits < 2)
+					MoveViewPointValues(true, 60);
+
+				screenShifted = true;
+
+				return true;
+			};
+
+			txtPlayerName4.ShouldEndEditing += (textField) => 
+			{
+				activeEdits--;
+				if(activeEdits == 0)
+					MoveViewPointValues (false, 60);
+
+				screenShifted = false;
+
+				return true;
+			};
+
+			txtPlayerHandi4.ShouldBeginEditing += (textField) => 
+			{
+				activeEdits++;
+				if(activeEdits < 2)
+					MoveViewPointValues(true, 60);
+
+				screenShifted = true;
+
+				return true;
+			};
+
+			txtPlayerHandi4.ShouldEndEditing += (textField) => 
+			{
+				activeEdits--;
+				if(activeEdits == 0)
+					MoveViewPointValues (false, 60);
+
+				screenShifted = false;
+				return true;
+			};
+
+			//Any time the segment selection changes, it will update the number of players.
+			segNumPlayers.ValueChanged += (sender, e) => 
+			{
+				//The selected segment is zero indexed. So set number of players to that + 1.
+				gameInfo.numPlayers = segNumPlayers.SelectedSegment + 1; 
+
+				HideOrShowPlayerEntries();
+
 			};
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
@@ -143,6 +200,9 @@ namespace Golf_Games
 				this.menu2Screen = new menu2 ();
 			}
 
+			//Perform a check on how many players are playing. We need at least one.
+
+
 			//Right here is where we set the GameInfo values before moving to the next menu
 			SetGameInfoValues();
 			menu2Screen.gameInfo = this.gameInfo;
@@ -163,6 +223,78 @@ namespace Golf_Games
 
 			//If all vaild checks fail, then return false
 			return false;
+		}
+
+		private void HideOrShowPlayerEntries()
+		{
+			int numPlayers = gameInfo.numPlayers;
+
+			switch (numPlayers) 
+			{
+			case 1:
+				//Hide all but player 1.
+				txtPlayerHandi2.Hidden = true;
+				txtPlayerName2.Hidden = true;
+				txtPlayerHandi3.Hidden = true;
+				txtPlayerName3.Hidden = true;
+				txtPlayerHandi4.Hidden = true;
+				txtPlayerName4.Hidden = true;
+				break;
+
+			case 2:
+				//Hide player 3 and 4
+				txtPlayerHandi2.Hidden = false;
+				txtPlayerName2.Hidden = false;
+				txtPlayerHandi3.Hidden = true;
+				txtPlayerName3.Hidden = true;
+				txtPlayerHandi4.Hidden = true;
+				txtPlayerName4.Hidden = true;
+
+				break;
+
+			case 3:
+				//Hide only player 4
+				txtPlayerHandi2.Hidden = false;
+				txtPlayerName2.Hidden = false;
+				txtPlayerHandi3.Hidden = false;
+				txtPlayerName3.Hidden = false;
+				txtPlayerHandi4.Hidden = true;
+				txtPlayerName4.Hidden = true;
+				break;
+
+			case 4:
+				//Show all
+				txtPlayerHandi2.Hidden = false;
+				txtPlayerName2.Hidden = false;
+				txtPlayerHandi3.Hidden = false;
+				txtPlayerName3.Hidden = false;
+				txtPlayerHandi4.Hidden = false;
+				txtPlayerName4.Hidden = false;
+				break;
+			}
+		}
+
+		//TODO: This function also exists in the menu4.cs. It could be moved to another class so we dont have duplicates.
+		private void MoveViewPointValues(bool keyboardActive, int movementDistance)
+		{
+			const float movementDuration = 0.3f;
+
+			if (keyboardActive == false)
+				movementDistance = movementDistance * -1;
+
+			UIView.Animate (movementDuration, 0, UIViewAnimationOptions.CurveLinear, () => 
+			                {
+				this.View.Center = new PointF (this.View.Center.X,
+				                               this.View.Center.Y - movementDistance);
+			}, () => 
+
+			{
+				//viewPointValues.Center = pt;
+			}
+
+			);
+
+
 		}
 
 	}

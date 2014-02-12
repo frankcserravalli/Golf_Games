@@ -1,10 +1,11 @@
 // WARNING
 //
 // This file has been generated automatically by Xamarin Studio to store outlets and
-// actions made in the Xcode designer. If it is removed, they will be lost.
+// actions made in the UI designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
 using MonoTouch.Foundation;
+using System.CodeDom.Compiler;
 
 namespace Golf_Games
 {
@@ -13,6 +14,9 @@ namespace Golf_Games
 	{
 		[Outlet]
 		MonoTouch.UIKit.UIButton btnMenu1Next { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UISegmentedControl segNumPlayers { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UITextField txtPlayerHandi1 { get; set; }
@@ -83,6 +87,11 @@ namespace Golf_Games
 			if (txtPlayerName4 != null) {
 				txtPlayerName4.Dispose ();
 				txtPlayerName4 = null;
+			}
+
+			if (segNumPlayers != null) {
+				segNumPlayers.Dispose ();
+				segNumPlayers = null;
 			}
 		}
 	}

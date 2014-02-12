@@ -254,17 +254,6 @@ namespace Golf_Games
 
 
 
-
-			//This is the old way without players handicaps in red
-//			SetupRow (strScoreP1, gridPlayer1);
-//			SetupRow (strScoreP2, gridPlayer2);
-//			SetupRow (strScoreP3, gridPlayer3);
-//			SetupRow (strScoreP4, gridPlayer4);
-//			SetupRow (strScoreP1Upper, gridPlayer1Upper);
-//			SetupRow (strScoreP2Upper, gridPlayer2Upper);
-//			SetupRow (strScoreP3Upper, gridPlayer3Upper);
-//			SetupRow (strScoreP4Upper, gridPlayer4Upper);
-
 			//This is the new way with players handicaps in red.
 			SetupRowWithHandis (strScoreP1, strHandiScoreP1, gridPlayer1);
 			SetupRowWithHandis (strScoreP2, strHandiScoreP2, gridPlayer2);
