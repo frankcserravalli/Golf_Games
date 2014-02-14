@@ -12,7 +12,7 @@ namespace Golf_Games
 		public GameInfo gameInfo;
 
 		//TODO: Will need a way to find out how many players there are.
-		int numPlayers = 4;
+		//int numPlayers = 4;
 
 		public menu1 () : base ("menu1", null)
 		{
@@ -121,16 +121,26 @@ namespace Golf_Games
 
 		public void NextTextField(UITextField txtPlayer)
 		{
-			txtPlayer.ShouldReturn += (textView) => {
-				//textView.ResignFirstResponder ();
-				//textView.BecomeFirstResponder();
-				textView.BecomeFirstResponder ();
+			int numPlayerIndex = 0;
 
-				if (txtPlayer.Tag != txtPlayerHandi4.Tag) {
+			//Event handler
+			txtPlayer.ShouldReturn += (textView) => {
+			numPlayerIndex = gameInfo.numPlayers * 2;
+			textView.BecomeFirstResponder ();
+
+				//The tags are a labeled 1 through 8 for the player name and its handicap field.
+
+				//If the tag is not the last last text field tag
+				if (txtPlayer.Tag != txtPlayerHandi4.Tag && numPlayerIndex > txtPlayer.Tag) 
+				{
+					//The next text field becomes selected
 					UITextField txtPlayerHandi = (UITextField)this.View.ViewWithTag(txtPlayer.Tag + 1);
 
 					txtPlayerHandi.BecomeFirstResponder ();
-				} else {
+				} 
+				else 
+				{
+					//We are on the last field
 					txtPlayer.ResignFirstResponder ();
 				}
 
@@ -153,7 +163,7 @@ namespace Golf_Games
 			this.gameInfo.player3Handi = this.txtPlayerHandi3;
 			this.gameInfo.player4Handi = this.txtPlayerHandi4;
 
-			this.gameInfo.numPlayers = numPlayers;
+			//this.gameInfo.numPlayers = numPlayers;
 		}
 
 		public override bool ShouldAutorotate ()
