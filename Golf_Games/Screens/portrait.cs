@@ -46,6 +46,8 @@ namespace Golf_Games
 			string p3NameAndHandi = gameInfo.player3.Text + " (" + gameInfo.player3Handi.Text + ")";
 			string p4NameAndHandi = gameInfo.player4.Text + " (" + gameInfo.player4Handi.Text + ")";
 
+			//This is our array of Names and handicaps.
+			string[] tableItems;
 
 			//Row 0 is player 1
 			defaultRow = NSIndexPath.FromRowSection (0, 0);
@@ -55,8 +57,26 @@ namespace Golf_Games
 			this.lblPar.Text = this.gameInfo.courseInfo.holes [0].par.ToString ();
 			this.lblHandicap.Text = this.gameInfo.courseInfo.holes [0].hole_handicap.ToString ();
 
-			//Populate the table
-			string[] tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi, p4NameAndHandi };
+			//Populate the table, but we also need to check on the number of players for this game.
+			switch (gameInfo.numPlayers) 
+			{
+			case 1:
+				tableItems = new string[] { p1NameAndHandi};
+				break;
+			case 2:
+				tableItems = new string[] { p1NameAndHandi, p2NameAndHandi };
+				break;
+			case 3:
+				tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi};
+				break;
+			case 4:
+				tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi, p4NameAndHandi };
+				break;
+			default:
+				break;
+
+			}
+			//string[] tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi, p4NameAndHandi };
 			table.Source = new TableSource (tableItems);
 			tablePlayers.Source = new TableSource (tableItems);
 
@@ -455,9 +475,10 @@ namespace Golf_Games
 		{
 			int currentSelection = tablePlayers.IndexPathForSelectedRow.Row;
 			NSIndexPath selectNewRow = new NSIndexPath();
+			int maxIndex = gameInfo.numPlayers - 1;
 
 			//Current selection must never be below 0 or above 3
-			if (currentSelection < 3) 
+			if (currentSelection < maxIndex) 
 				currentSelection++;
 			else
 				currentSelection = 0;
