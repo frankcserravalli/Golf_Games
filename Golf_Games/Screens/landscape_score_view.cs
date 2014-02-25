@@ -39,8 +39,73 @@ namespace Golf_Games
 			labelPlayer3.Text = p3NameAndHandi;
 			labelPlayer4.Text = p4NameAndHandi;
 
+			HideRows ();
+
 			SetupCollectionViews ();
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		public void HideRows()
+		{
+			switch (gameInfo.numPlayers) 
+			{
+				case 1:
+				//Hide players 2 through 4 infos
+				labelPlayer2.Hidden = true;
+				labelPlayer3.Hidden = true;
+				labelPlayer4.Hidden = true;
+				labelP2In.Hidden = true;
+				labelP3In.Hidden = true;
+				labelP4In.Hidden = true;
+				labelP2Out.Hidden = true;
+				labelP3Out.Hidden = true;
+				labelP4Out.Hidden = true;
+				labelP2Total.Hidden = true;
+				labelP3Total.Hidden = true;
+				labelP4Total.Hidden = true;
+				gridPlayer2Lower.Hidden = true;
+				gridPlayer3Lower.Hidden = true;
+				gridPlayer4Lower.Hidden = true;
+				gridPlayer2Upper.Hidden = true;
+				gridPlayer3Upper.Hidden = true;
+				gridPlayer4Upper.Hidden = true;
+
+
+				break;
+
+				case 2:
+				//hide players 3 and 4 infos.
+				labelPlayer3.Hidden = true;
+				labelPlayer4.Hidden = true;
+				labelP3In.Hidden = true;
+				labelP4In.Hidden = true;
+				labelP3Out.Hidden = true;
+				labelP4Out.Hidden = true;
+				labelP3Total.Hidden = true;
+				labelP4Total.Hidden = true;
+				gridPlayer3Lower.Hidden = true;
+				gridPlayer4Lower.Hidden = true;
+				gridPlayer3Upper.Hidden = true;
+				gridPlayer4Upper.Hidden = true;
+				break;
+
+				case 3:
+				//hide player 4 info
+				labelPlayer4.Hidden = true;
+				labelP4In.Hidden = true;
+				labelP4Out.Hidden = true;
+				labelP4Total.Hidden = true;
+				gridPlayer4Lower.Hidden = true;
+				gridPlayer4Upper.Hidden = true;
+				break;
+
+				case 4:
+				//Hide nothing
+				break;
+
+				default:
+				break;
+			}
 		}
 
 		public override void WillRotate(UIInterfaceOrientation toInterfaceOrientation, double duration)

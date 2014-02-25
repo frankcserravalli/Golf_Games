@@ -38,10 +38,75 @@ namespace Golf_Games
 			labelPlayer3.Text = p3NameAndHandi;
 			labelPlayer4.Text = p4NameAndHandi;
 
+			HideRows ();
+
 			SetupCollectionViews ();
 
 
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		public void HideRows()
+		{
+			switch (gameInfo.numPlayers) 
+			{
+			case 1:
+				//Hide players 2 through 4 infos
+				labelPlayer2.Hidden = true;
+				labelPlayer3.Hidden = true;
+				labelPlayer4.Hidden = true;
+				labelP2In.Hidden = true;
+				labelP3In.Hidden = true;
+				labelP4In.Hidden = true;
+				labelP2Out.Hidden = true;
+				labelP3Out.Hidden = true;
+				labelP4Out.Hidden = true;
+				labelP2Total.Hidden = true;
+				labelP3Total.Hidden = true;
+				labelP4Total.Hidden = true;
+				gridPlayer2.Hidden = true;
+				gridPlayer3.Hidden = true;
+				gridPlayer4.Hidden = true;
+				gridPlayer2Upper.Hidden = true;
+				gridPlayer3Upper.Hidden = true;
+				gridPlayer4Upper.Hidden = true;
+
+
+				break;
+
+			case 2:
+				//hide players 3 and 4 infos.
+				labelPlayer3.Hidden = true;
+				labelPlayer4.Hidden = true;
+				labelP3In.Hidden = true;
+				labelP4In.Hidden = true;
+				labelP3Out.Hidden = true;
+				labelP4Out.Hidden = true;
+				labelP3Total.Hidden = true;
+				labelP4Total.Hidden = true;
+				gridPlayer3.Hidden = true;
+				gridPlayer4.Hidden = true;
+				gridPlayer3Upper.Hidden = true;
+				gridPlayer4Upper.Hidden = true;
+				break;
+
+			case 3:
+				//hide player 4 info
+				labelPlayer4.Hidden = true;
+				labelP4In.Hidden = true;
+				labelP4Out.Hidden = true;
+				labelP4Total.Hidden = true;
+				gridPlayer4.Hidden = true;
+				gridPlayer4Upper.Hidden = true;
+				break;
+
+			case 4:
+				//Hide nothing
+				break;
+
+			default:
+				break;
+			}
 		}
 
 		public override void WillRotate(UIInterfaceOrientation toInterfaceOrientation, double duration)
@@ -211,23 +276,23 @@ namespace Golf_Games
 
 		private void SetupPlayerGrids()
 		{
-			string[] strScoreP1 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP1Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP2 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP2Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP3 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP3Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strScoreP1 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP1Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP2 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP2Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP3 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP3Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP4 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strScoreP4Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
 
-			string[] strHandiScoreP1 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP2 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP3 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP1Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP2Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP3Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
-			string[] strHandiScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
+			string[] strHandiScoreP1 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP2 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP3 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP4 = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP1Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP2Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP3Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
+			string[] strHandiScoreP4Upper = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0" }; //9 entries
 
 			//This will go through all players and determine what the handicap value is for that stroke
 			SetupHandicapScores ();
@@ -235,35 +300,47 @@ namespace Golf_Games
 			//Setup the regular stroke scores
 			SetupGridPlayer (strScoreP1, 0, gameInfo.scores.strokeCountP1);
 			SetupGridPlayer (strScoreP1Upper, 9, gameInfo.scores.strokeCountP1);
-			SetupGridPlayer (strScoreP2, 0, gameInfo.scores.strokeCountP2);
-			SetupGridPlayer (strScoreP2Upper, 9, gameInfo.scores.strokeCountP2);
-			SetupGridPlayer (strScoreP3, 0, gameInfo.scores.strokeCountP3);
-			SetupGridPlayer (strScoreP3Upper, 9, gameInfo.scores.strokeCountP3);
-			SetupGridPlayer (strScoreP4, 0, gameInfo.scores.strokeCountP4);
-			SetupGridPlayer (strScoreP4Upper, 9, gameInfo.scores.strokeCountP4);
 
 			//Setup the handicap stroke scores
 			SetupGridPlayer (strHandiScoreP1, 0, gameInfo.scores.handiStrokeCountP1);
-			SetupGridPlayer (strHandiScoreP2, 0, gameInfo.scores.handiStrokeCountP2);
-			SetupGridPlayer (strHandiScoreP3, 0, gameInfo.scores.handiStrokeCountP3);
-			SetupGridPlayer (strHandiScoreP4, 0, gameInfo.scores.handiStrokeCountP4);
 			SetupGridPlayer (strHandiScoreP1Upper, 9, gameInfo.scores.handiStrokeCountP1);
-			SetupGridPlayer (strHandiScoreP2Upper, 9, gameInfo.scores.handiStrokeCountP2);
-			SetupGridPlayer (strHandiScoreP3Upper, 9, gameInfo.scores.handiStrokeCountP3);
-			SetupGridPlayer (strHandiScoreP4Upper, 9, gameInfo.scores.handiStrokeCountP4);
-
-
 
 			//This is the new way with players handicaps in red.
 			SetupRowWithHandis (strScoreP1, strHandiScoreP1, gridPlayer1);
-			SetupRowWithHandis (strScoreP2, strHandiScoreP2, gridPlayer2);
-			SetupRowWithHandis (strScoreP3, strHandiScoreP3, gridPlayer3);
-			SetupRowWithHandis (strScoreP4, strHandiScoreP4, gridPlayer4);
-
 			SetupRowWithHandis (strScoreP1Upper, strHandiScoreP1Upper, gridPlayer1Upper);
-			SetupRowWithHandis (strScoreP2Upper, strHandiScoreP2Upper, gridPlayer2Upper);
-			SetupRowWithHandis (strScoreP3Upper, strHandiScoreP3Upper, gridPlayer3Upper);
-			SetupRowWithHandis (strScoreP4Upper, strHandiScoreP4Upper, gridPlayer4Upper);
+
+			//This does the same functions for players 2 through 4.
+			if (gameInfo.numPlayers > 1) 
+			{
+				SetupGridPlayer (strScoreP2, 0, gameInfo.scores.strokeCountP2);
+				SetupGridPlayer (strScoreP2Upper, 9, gameInfo.scores.strokeCountP2);
+				SetupGridPlayer (strHandiScoreP2, 0, gameInfo.scores.handiStrokeCountP2);
+				SetupGridPlayer (strHandiScoreP2Upper, 9, gameInfo.scores.handiStrokeCountP2);
+				SetupRowWithHandis (strScoreP2, strHandiScoreP2, gridPlayer2);
+				SetupRowWithHandis (strScoreP2Upper, strHandiScoreP2Upper, gridPlayer2Upper);
+			}
+
+			if (gameInfo.numPlayers > 2) 
+			{
+				SetupGridPlayer (strScoreP3, 0, gameInfo.scores.strokeCountP3);
+				SetupGridPlayer (strScoreP3Upper, 9, gameInfo.scores.strokeCountP3);
+				SetupGridPlayer (strHandiScoreP3, 0, gameInfo.scores.handiStrokeCountP3);
+				SetupGridPlayer (strHandiScoreP3Upper, 9, gameInfo.scores.handiStrokeCountP3);
+				SetupRowWithHandis (strScoreP3, strHandiScoreP3, gridPlayer3);
+				SetupRowWithHandis (strScoreP3Upper, strHandiScoreP3Upper, gridPlayer3Upper);
+			}
+
+			if (gameInfo.numPlayers > 3) 
+			{
+				SetupGridPlayer (strScoreP4, 0, gameInfo.scores.strokeCountP4);
+				SetupGridPlayer (strScoreP4Upper, 9, gameInfo.scores.strokeCountP4);
+				SetupGridPlayer (strHandiScoreP4, 0, gameInfo.scores.handiStrokeCountP4);
+				SetupGridPlayer (strHandiScoreP4Upper, 9, gameInfo.scores.handiStrokeCountP4);
+				SetupRowWithHandis (strScoreP4, strHandiScoreP4, gridPlayer4);
+				SetupRowWithHandis (strScoreP4Upper, strHandiScoreP4Upper, gridPlayer4Upper);
+			}
+
+
 		}
 
 		private void SetupInOutLabels()
@@ -335,9 +412,15 @@ namespace Golf_Games
 		public void SetupHandicapScores()
 		{
 			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP1, gameInfo.scores.handiStrokeCountP1, System.Convert.ToInt32(gameInfo.player1Handi.Text));
-			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP2, gameInfo.scores.handiStrokeCountP2, System.Convert.ToInt32(gameInfo.player2Handi.Text));
-			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP3, gameInfo.scores.handiStrokeCountP3, System.Convert.ToInt32(gameInfo.player3Handi.Text));
-			DeterminePlayerHandiScore (gameInfo.scores.strokeCountP4, gameInfo.scores.handiStrokeCountP4, System.Convert.ToInt32(gameInfo.player4Handi.Text));
+
+			if(gameInfo.numPlayers > 1)
+				DeterminePlayerHandiScore (gameInfo.scores.strokeCountP2, gameInfo.scores.handiStrokeCountP2, System.Convert.ToInt32(gameInfo.player2Handi.Text));
+
+			if(gameInfo.numPlayers > 2)
+				DeterminePlayerHandiScore (gameInfo.scores.strokeCountP3, gameInfo.scores.handiStrokeCountP3, System.Convert.ToInt32(gameInfo.player3Handi.Text));
+
+			if(gameInfo.numPlayers > 3)
+				DeterminePlayerHandiScore (gameInfo.scores.strokeCountP4, gameInfo.scores.handiStrokeCountP4, System.Convert.ToInt32(gameInfo.player4Handi.Text));
 		
 		}
 		public void DeterminePlayerHandiScore(int[] score, int[]handiScore, int playerHandi)
