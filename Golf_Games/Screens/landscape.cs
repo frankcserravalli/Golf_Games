@@ -342,17 +342,27 @@ namespace Golf_Games
 		}
 		public void DeterminePlayerHandiScore(int[] score, int[]handiScore, int playerHandi)
 		{
+			//This is the maximum a handicap can ever be according to golf rules.
+			const int maxHoles = 18;
+			int handicapDeduction = 0;
+
 			for(int i = 0; i < score.Length; i++)	//Score length should be 18
 			{
 				//Check to make sure there is some score in
 				if (score [i] > 0) 
 				{
 					//If the player handicap is greater or equal than the hole handicap
-					if (playerHandi >= gameInfo.courseInfo.holes [i].hole_handicap)
-					{
+					//if (playerHandi >= gameInfo.courseInfo.holes [i].hole_handicap)
+					//{
 						//TODO: This line may not be this simple. More consideration is neccessary
-						handiScore [i] = score [i] - 1;
-					}
+					//	handiScore [i] = score [i] - 1;
+					//}
+
+					//This line should handle handicaps up to 40. Expected values are 1, 2, or 3.
+					handicapDeduction =  playerHandi / (gameInfo.courseInfo.holes [i].hole_handicap + maxHoles) + 1;
+
+					handiScore [i] = score [i] - handicapDeduction;
+
 				}
 			}
 		}
