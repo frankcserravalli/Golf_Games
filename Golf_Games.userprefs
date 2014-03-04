@@ -8,12 +8,12 @@
       <File FileName="Golf_Games/CurrentCourseInfo.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/CurrentHole.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Courses/Courses.xml" Line="1" Column="1" />
-      <File FileName="Golf_Games/Screens/menu4.cs" Line="93" Column="5" />
+      <File FileName="Golf_Games/Screens/menu4.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Main.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/TableSource.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/LineCollectionView.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Screens/landscape.cs" Line="110" Column="4" />
-      <File FileName="Golf_Games/Screens/landscape_score_view.cs" Line="63" Column="32" />
+      <File FileName="Golf_Games/Screens/landscape.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/landscape_score_view.cs" Line="301" Column="47" />
       <File FileName="Golf_Games/Screens/landscape_points_chart.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Screens/portrait.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/GameInfo.cs" Line="1" Column="1" />
@@ -25,7 +25,7 @@
           <Node name="Golf_Games" expanded="True">
             <Node name="Courses" expanded="True" />
             <Node name="Screens" expanded="True">
-              <Node name="landscape_score_view.cs" selected="True" />
+              <Node name="landscape_points_chart.xib" selected="True" />
             </Node>
           </Node>
         </State>

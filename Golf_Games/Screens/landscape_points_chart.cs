@@ -28,6 +28,34 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
+			//Add a border to each points chart box. This is similar to the boarder in Portrait mode.
+			viewPointsBox1.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			viewPointsBox1.Layer.BorderWidth = 3.0f;
+			viewPointsBox2.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			viewPointsBox2.Layer.BorderWidth = 3.0f;
+			viewPointsBox3.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			viewPointsBox3.Layer.BorderWidth = 3.0f;
+			viewPointsBox4.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			viewPointsBox4.Layer.BorderWidth = 3.0f;
+
+			//Set the names of the labels to the player name in gameinfo
+			foreach (UILabel element in labelPlayer1) 
+			{
+				element.Text = gameInfo.player1.Text;
+			}
+			foreach (UILabel element in labelPlayer2) 
+			{
+				element.Text = gameInfo.player2.Text;
+			}
+			foreach (UILabel element in labelPlayer3) 
+			{
+				element.Text = gameInfo.player3.Text;
+			}
+			foreach (UILabel element in labelPlayer4) 
+			{
+				element.Text = gameInfo.player4.Text;
+			}
+
 
 			//Check on the scores of bets and calculate winnings
 

@@ -154,6 +154,7 @@ namespace Golf_Games
 			//TODO: This may need to be changed as we are just throwing around copies of the gameInfo object.
 			l_scorecard.gameInfo = this.gameInfo;
 			l_score_view.gameInfo = this.gameInfo;
+			l_pts_chart.gameInfo = this.gameInfo;
 
 
 			tabController.ViewControllers = new UIViewController[] 
