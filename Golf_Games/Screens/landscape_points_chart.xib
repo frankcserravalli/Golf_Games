@@ -6,6 +6,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="landscape_points_chart">
             <connections>
+                <outlet property="labelP1Total" destination="0EN-mq-MJp" id="alf-b9-eml"/>
+                <outlet property="labelP1toP2" destination="cua-ZC-yu4" id="CxT-Wq-ScC"/>
+                <outlet property="labelP1toP3" destination="20l-hI-gRt" id="09f-5y-gaH"/>
+                <outlet property="labelP1toP4" destination="6Yv-Dl-imf" id="rgT-Px-aBu"/>
+                <outlet property="labelP2Total" destination="e1P-px-IFt" id="4i6-bo-67Q"/>
+                <outlet property="labelP2toP1" destination="r0v-eJ-sis" id="G4R-Xf-8hQ"/>
+                <outlet property="labelP2toP3" destination="FVb-e6-8Iy" id="2Ua-9C-pRm"/>
+                <outlet property="labelP2toP4" destination="y0C-nd-1Lz" id="TYu-si-8U2"/>
+                <outlet property="labelP3Total" destination="R2D-lz-p0E" id="civ-pg-ftu"/>
+                <outlet property="labelP3toP1" destination="llE-BY-ZcR" id="Pub-fx-oWa"/>
+                <outlet property="labelP3toP2" destination="2Te-Zl-5rO" id="H7h-67-s7Q"/>
+                <outlet property="labelP3toP4" destination="7Go-OH-1wh" id="dWz-08-CEa"/>
+                <outlet property="labelP4Total" destination="upv-Vg-OhG" id="rDi-jL-SvU"/>
+                <outlet property="labelP4toP1" destination="HRx-yV-8Qd" id="ZDY-QT-psm"/>
+                <outlet property="labelP4toP2" destination="CR1-rx-xVl" id="UYw-Vp-3uB"/>
+                <outlet property="labelP4toP3" destination="wd1-Tp-3XZ" id="0ya-ha-jXr"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="viewPointsBox1" destination="EEL-B5-shb" id="mkC-7C-1uG"/>
                 <outlet property="viewPointsBox2" destination="mVm-mc-pgG" id="i9R-cm-P1Q"/>

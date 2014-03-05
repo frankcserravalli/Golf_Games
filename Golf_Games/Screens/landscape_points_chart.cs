@@ -38,6 +38,35 @@ namespace Golf_Games
 			viewPointsBox4.Layer.BorderColor = UIColor.DarkGray.CGColor;
 			viewPointsBox4.Layer.BorderWidth = 3.0f;
 
+			//Hide the boxes if theres less than 4 players
+			switch (gameInfo.numPlayers) 
+			{
+			case 1:
+				//Hide boxes 2 through 4
+				viewPointsBox2.Hidden = true;
+				viewPointsBox3.Hidden = true;
+				viewPointsBox4.Hidden = true;
+				break;
+
+			case 2:
+				//Hide boxes 3 and 4
+				viewPointsBox3.Hidden = true;
+				viewPointsBox4.Hidden = true;
+				break;
+
+			case 3:
+				//Hide the 4th box
+				viewPointsBox4.Hidden = true;
+				break;
+
+			case 4:
+				//Hide nothing
+				break;
+
+			default:
+				break;
+			}
+
 			//Set the names of the labels to the player name in gameinfo
 			foreach (UILabel element in labelPlayer1) 
 			{
@@ -55,6 +84,9 @@ namespace Golf_Games
 			{
 				element.Text = gameInfo.player4.Text;
 			}
+
+			//Set the labels of the number values
+
 
 
 			//Check on the scores of bets and calculate winnings

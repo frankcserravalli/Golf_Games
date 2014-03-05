@@ -434,17 +434,19 @@ namespace Golf_Games
 				//Check to make sure there is some score in
 				if (score [i] > 0) 
 				{
-					//If the player handicap is greater or equal than the hole handicap
-					//if (playerHandi >= gameInfo.courseInfo.holes [i].hole_handicap)
-					//{
-						//TODO: This line may not be this simple. More consideration is neccessary
-					//	handiScore [i] = score [i] - 1;
-					//}
 
+
+					//CONTINUE HERE
 					//This line should handle handicaps up to 40. Expected values are 1, 2, or 3.
-					handicapDeduction =  playerHandi / (gameInfo.courseInfo.holes [i].hole_handicap + maxHoles) + 1;
+					if (playerHandi > 18) {
+						handicapDeduction = (playerHandi / (gameInfo.courseInfo.holes [i].hole_handicap + maxHoles)) + 1;
+					} else if (playerHandi >= gameInfo.courseInfo.holes [i].hole_handicap)
+						handicapDeduction = 1;
+
 
 					handiScore [i] = score [i] - handicapDeduction;
+					//reset the handicapDeduction variable
+					handicapDeduction = 0;
 
 				}
 			}
