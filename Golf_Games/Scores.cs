@@ -35,6 +35,8 @@ namespace Golf_Games
 		public void CalculateWinnings(int holeIndex)
 		{
 			List<bool[]> allPlayersSwitches = new List<bool[]> (); 
+			//List<int> allPlayersValues = new List<int> ();
+
 			bool[] betSwitchesP1 = betScoreP1 [holeIndex].GetSideBetSwitches ();
 			bool[] betSwitchesP2 = betScoreP2 [holeIndex].GetSideBetSwitches ();
 			bool[] betSwitchesP3 = betScoreP3 [holeIndex].GetSideBetSwitches ();
@@ -47,6 +49,7 @@ namespace Golf_Games
 			int betWinnerCount = 0;
 			int tempWinnings = 0;
 			int tempTotalWinnings = 0;
+			int[] valuesForSwitch = new int[4];
 
 			allPlayersSwitches.Add (betSwitchesP1);
 			allPlayersSwitches.Add (betSwitchesP2);
@@ -129,6 +132,17 @@ namespace Golf_Games
 						break;
 					}
 
+					//Used to determine who owes what
+					valuesForSwitch = DetermineValuesForSwitch (betWinnerCount, currentBet, tempWinnings);
+
+					//TODO: May want to consider putting the OwesToPlayer members inside a list in the playerHSBI class.
+					//Set the OwesToPlayer members.
+					playerHSBI.OwesToPlayer1 += valuesForSwitch [0];
+					playerHSBI.OwesToPlayer2 += valuesForSwitch [1];
+					playerHSBI.OwesToPlayer3 += valuesForSwitch [2];
+					playerHSBI.OwesToPlayer4 += valuesForSwitch [3];
+
+
 					//The winnings in temp winnings are added to the total winnings for that bet. Total winnings is what should be displayed on screen for that hole.
 					tempTotalWinnings = tempTotalWinnings + tempWinnings;
 
@@ -156,6 +170,8 @@ namespace Golf_Games
 				}
 				playerHSBI.TotalWinnings = tempTotalWinnings;
 
+
+
 				//Reset tempTotalWinnings
 				tempTotalWinnings = 0;
 
@@ -165,7 +181,7 @@ namespace Golf_Games
 		}
 
 		//Methods
-		public int DetermineWinningsForSwitch(int holeIndex, bool currentBet, int betWinnerCount, int pointValue)
+		public int DetermineWinningsForSwitch(int holeIndex,bool currentBet, int betWinnerCount, int pointValue)
 		{
 
 			int winnings = 0;
@@ -177,10 +193,12 @@ namespace Golf_Games
 					//if betwinnercount is odd
 					if (betWinnerCount % 2 != 0)
 						winnings = pointValue * (NumPlayers - betWinnerCount);
-					else {
+					else 
+					{
 						winnings = pointValue;
 					}
-				} 
+
+				}
 				else 
 				{ //If the currentBet is a loss
 					//if betwinnercount is odd
@@ -190,12 +208,47 @@ namespace Golf_Games
 					{
 						winnings = pointValue * -1;
 					}
-				} 
+				}
+
+				 
 			}
 
 
 
 			return winnings;
+		}
+
+		public int[] DetermineValuesForSwitch(int betWinnerCount, bool[] winners, int winnings)
+		{
+//			int p1Winnings = 0;
+//			int p2Winnings = 0;
+//			int p3Winnings = 0;
+//			int p4Winnings = 0;
+			int[] players = new int[4];
+			int betLoserCount = NumPlayers - betWinnerCount;
+
+			//Set all values to 0;
+			foreach (int element in players) 
+			{
+				players[element] = 0;
+			}
+
+			for (int index = 0; index < winners.Length; index++) 
+			{
+				//If current player is a winner in that bet
+				if (winners [index] == true) 
+				{
+					players [index] = winnings / betWinnerCount;
+				} 
+				else
+				{
+					//You are a loser
+					players [index] = (winnings / betLoserCount) * - 1;
+				}
+
+
+			}
+			return players;
 		}
 
 
@@ -258,7 +311,36 @@ namespace Golf_Games
 			betScoreP4 [index].SetSideBetSwitches (score);
 		}
 
+		public int CalculateTotalPointsOwed(int playerNumber)
+		{
+			int playerIndex = playerNumber - 1;
 
+			for (int i = 0; i < NumPlayers; i++) 
+			{
+
+
+				switch (playerIndex) {
+				case 0:
+
+					break;
+
+				case 1:
+					break;
+
+				case 2:
+					break;
+
+				case 3:
+					break;
+
+				default:
+					break;
+				}
+			}
+
+			//TODO: Change this
+			return 0;
+		}
 
 		//Data Members
 
@@ -269,7 +351,11 @@ namespace Golf_Games
 		public PlayerHoleSideBetInfo[] betScoreP3 = new PlayerHoleSideBetInfo[18];
 		public PlayerHoleSideBetInfo[] betScoreP4 = new PlayerHoleSideBetInfo[18];
 
-
+		//These are used for the points chart tab
+		public PointsOwed player1PointsOwed = new PointsOwed();
+		public PointsOwed player2PointsOwed = new PointsOwed();
+		public PointsOwed player3PointsOwed = new PointsOwed();
+		public PointsOwed player4PointsOwed = new PointsOwed();
 
 
 		//Scoring
@@ -305,6 +391,10 @@ namespace Golf_Games
 		public int HOFFWinnings{ get; set;}
 		public int BirdieWinnings{ get; set;}
 		public int EagleWinnings{ get; set;}
+		public int OwesToPlayer1 { get; set; }
+		public int OwesToPlayer2 { get; set; }
+		public int OwesToPlayer3 { get; set; }
+		public int OwesToPlayer4 { get; set; }
 
 		private bool[] sideBetSwitches = new bool[6];
 
@@ -342,6 +432,30 @@ namespace Golf_Games
 		{
 			sideBetSwitches = newSideBetSwitches;
 		}
+
+
+
+	}
+
+	public class PointsOwed
+	{
+		//Constructor
+		public PointsOwed()
+		{
+			OwedToPlayer1 = 0;
+			OwedToPlayer2 = 0;
+			OwedToPlayer3 = 0;
+			OwedToPlayer4 = 0;
+			TotalOwed = 0;
+		}
+
+		//Data members
+		public int OwedToPlayer1{ get; set;}
+		public int OwedToPlayer2{ get; set;}
+		public int OwedToPlayer3{ get; set;}
+		public int OwedToPlayer4{ get; set;}
+		public int TotalOwed{ get; set;}
+
 
 	}
 }
