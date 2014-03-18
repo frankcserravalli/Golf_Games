@@ -28,10 +28,19 @@ namespace Golf_Games
 				betScoreP3 [i] = new PlayerHoleSideBetInfo ();
 				betScoreP4 [i] = new PlayerHoleSideBetInfo ();
 			}
+
+
+
+			//Add the betScores to the betScoreList
+			betScoreList.Add (betScoreP1);
+			betScoreList.Add (betScoreP2);
+			betScoreList.Add (betScoreP3);
+			betScoreList.Add (betScoreP4);
 		}
 
 		//Methods
 
+		//TODO: This has become an obsolete function that has been replaced by BetsCalculationAllHoles(). Consider removing it in the future.
 		public void CalculateWinnings(int holeIndex)
 		{
 			List<bool[]> allPlayersSwitches = new List<bool[]> (); 
@@ -77,6 +86,9 @@ namespace Golf_Games
 					playerHSBI = betScoreP4[holeIndex];
 					break;
 				}
+
+				//Clear the playerHSBI object so it starts fresh
+				playerHSBI.ClearAll ();
 
 				//Cycle through all the switches for that player
 				for (int i = 0; i < betSwitchesP1.Length; i++) {
@@ -143,6 +155,8 @@ namespace Golf_Games
 					playerHSBI.OwesToPlayer4 += valuesForSwitch [3];
 
 
+
+
 					//The winnings in temp winnings are added to the total winnings for that bet. Total winnings is what should be displayed on screen for that hole.
 					tempTotalWinnings = tempTotalWinnings + tempWinnings;
 
@@ -181,6 +195,73 @@ namespace Golf_Games
 		}
 
 		//Methods
+
+		public void BetsCalculationAllHoles()
+		{
+			const int maxHoles = 18;
+			int playerTempValues = 0;
+
+			//Add sideBet point values to the list
+			sideBetList.Add (BetSandyPar);
+			sideBetList.Add (BetBirdie);
+			sideBetList.Add (BetGreenie);
+			sideBetList.Add (BetEagle);
+			sideBetList.Add (BetCTP);
+			sideBetList.Add (BetHOFF);
+
+			//All winnings need to be reset before calculating.
+			for (int i = 0; i < betScoreList.Count; i++) 
+			{
+				for(int j = 0; j < betScoreP1.Length; j++)
+					betScoreList [i] [j].ClearAll ();
+			}
+
+			for(int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
+			{
+				for(int j = 0; j < NumPlayers; j++)
+				{
+					for(int k = 0; k < NumPlayers; k++)
+					{
+						if (j != k) 
+						{
+							playerTempValues = BetsCalculationPerPlayer (j, betScoreList [j], betScoreList [k], holeIndex);
+							betScoreList [j] [holeIndex].TotalWinnings += playerTempValues;
+
+						}
+					}
+
+				}
+			}
+		}
+
+		public int BetsCalculationPerPlayer(int playerIndex, PlayerHoleSideBetInfo[] playerHSBI, PlayerHoleSideBetInfo[] nextPlayerHSBI, int holeIndex)
+		{
+			int playerTempValue = 0;
+
+
+			for(int switchIndex = 0; switchIndex < sideBetList.Count; switchIndex++)
+			{
+				if (playerHSBI [holeIndex].GetSideBetSwitches() [switchIndex] == nextPlayerHSBI [holeIndex].GetSideBetSwitches() [switchIndex]) 
+				{
+					//If both switches are equal, do nothing
+				} 
+				else 
+				{
+					//If both switches are not equal, Determine who is the winner
+					if (playerHSBI [holeIndex].GetSideBetSwitches() [switchIndex] == true) 
+					{
+						playerTempValue += sideBetList [switchIndex];
+					}
+
+				}
+
+			}
+
+			//Need to keep track of who owes who for the points chart.
+
+			return playerTempValue;
+		}
+
 		public int DetermineWinningsForSwitch(int holeIndex,bool currentBet, int betWinnerCount, int pointValue)
 		{
 
@@ -311,35 +392,49 @@ namespace Golf_Games
 			betScoreP4 [index].SetSideBetSwitches (score);
 		}
 
-		public int CalculateTotalPointsOwed(int playerNumber)
+		public void CalculateTotalPointsOwed()
 		{
-			int playerIndex = playerNumber - 1;
+			//int playerIndex = playerNumber - 1;
 
-			for (int i = 0; i < NumPlayers; i++) 
+			for (int i = 0; i < betScoreP1.Length; i++) 
 			{
+				for (int j = 0; j < NumPlayers; j++) 
+				{
+					switch (j) {
+					case 0:
+						player1PointsOwed.OwedToPlayer2 += betScoreP1 [i].OwesToPlayer2;
+						player1PointsOwed.OwedToPlayer3 += betScoreP1 [i].OwesToPlayer3;
+						player1PointsOwed.OwedToPlayer4 += betScoreP1 [i].OwesToPlayer4;
+						player1PointsOwed.TotalOwed += (betScoreP1 [i].OwesToPlayer2 + betScoreP1 [i].OwesToPlayer3 + betScoreP1 [i].OwesToPlayer4);
+						break;
 
+					case 1:
+						player2PointsOwed.OwedToPlayer1 += betScoreP2 [i].OwesToPlayer1;
+						player2PointsOwed.OwedToPlayer3 += betScoreP2 [i].OwesToPlayer3;
+						player2PointsOwed.OwedToPlayer4 += betScoreP2 [i].OwesToPlayer4;
+						player2PointsOwed.TotalOwed += (betScoreP2 [i].OwesToPlayer1 + betScoreP2 [i].OwesToPlayer3 + betScoreP2 [i].OwesToPlayer4);
+						break;
 
-				switch (playerIndex) {
-				case 0:
+					case 2:
+						player3PointsOwed.OwedToPlayer1 += betScoreP3 [i].OwesToPlayer1;
+						player3PointsOwed.OwedToPlayer2 += betScoreP3 [i].OwesToPlayer2;
+						player3PointsOwed.OwedToPlayer4 += betScoreP3 [i].OwesToPlayer4;
+						player3PointsOwed.TotalOwed += (betScoreP3 [i].OwesToPlayer1 + betScoreP3 [i].OwesToPlayer2 + betScoreP3 [i].OwesToPlayer4);
+						break;
 
-					break;
+					case 3:
+						player4PointsOwed.OwedToPlayer1 += betScoreP4 [i].OwesToPlayer1;
+						player4PointsOwed.OwedToPlayer2 += betScoreP4 [i].OwesToPlayer2;
+						player4PointsOwed.OwedToPlayer3 += betScoreP4 [i].OwesToPlayer3;
+						player4PointsOwed.TotalOwed += (betScoreP4 [i].OwesToPlayer1 + betScoreP4 [i].OwesToPlayer2 + betScoreP4 [i].OwesToPlayer3);
+						break;
 
-				case 1:
-					break;
-
-				case 2:
-					break;
-
-				case 3:
-					break;
-
-				default:
-					break;
+					default:
+						break;
+					}
 				}
 			}
 
-			//TODO: Change this
-			return 0;
 		}
 
 		//Data Members
@@ -372,12 +467,19 @@ namespace Golf_Games
 
 		//Properties
 		public int NumPlayers{ get; set; }
+
 		public int BetSandyPar{ get; set; }
 		public int BetBirdie{ get; set; }
 		public int BetGreenie{ get; set; }
 		public int BetEagle{ get; set; }
 		public int BetCTP{ get; set; }
 		public int BetHOFF{ get; set; }
+
+		//List for side bet point values
+		public List<int> sideBetList = new List<int> ();
+
+		//List for betScores
+		public List<PlayerHoleSideBetInfo[]> betScoreList = new List<PlayerHoleSideBetInfo[]> ();
 		
 
 	}
@@ -408,6 +510,10 @@ namespace Golf_Games
 			HOFFWinnings = 0;
 			BirdieWinnings = 0;
 			EagleWinnings = 0;
+			OwesToPlayer1 = 0;
+			OwesToPlayer2 = 0;
+			OwesToPlayer3 = 0;
+			OwesToPlayer4 = 0;
 		}
 
 		public void ClearAll()
@@ -419,6 +525,10 @@ namespace Golf_Games
 			HOFFWinnings = 0;
 			BirdieWinnings = 0;
 			EagleWinnings = 0;
+			OwesToPlayer1 = 0;
+			OwesToPlayer2 = 0;
+			OwesToPlayer3 = 0;
+			OwesToPlayer4 = 0;
 
 			//TODO: May need to reset the switches as well.
 		}
@@ -456,7 +566,15 @@ namespace Golf_Games
 		public int OwedToPlayer4{ get; set;}
 		public int TotalOwed{ get; set;}
 
-
+		//Methods
+		public void ClearAll()
+		{
+			OwedToPlayer1 = 0;
+			OwedToPlayer2 = 0;
+			OwedToPlayer3 = 0;
+			OwedToPlayer4 = 0;
+			TotalOwed = 0;
+		}
 	}
 }
 

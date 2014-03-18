@@ -85,14 +85,61 @@ namespace Golf_Games
 				element.Text = gameInfo.player4.Text;
 			}
 
-			//Set the labels of the number values
-
 
 
 			//Check on the scores of bets and calculate winnings
+			UpdateBetScores ();
 
+			//Set the labels of the number values
+			labelP1toP2.Text = gameInfo.scores.player1PointsOwed.OwedToPlayer2.ToString();
+			labelP1toP3.Text = gameInfo.scores.player1PointsOwed.OwedToPlayer3.ToString();
+			labelP1toP4.Text = gameInfo.scores.player1PointsOwed.OwedToPlayer4.ToString();
+			labelP1Total.Text = gameInfo.scores.player1PointsOwed.TotalOwed.ToString();
+
+			labelP2toP1.Text = gameInfo.scores.player2PointsOwed.OwedToPlayer1.ToString();
+			labelP2toP3.Text = gameInfo.scores.player2PointsOwed.OwedToPlayer3.ToString();
+			labelP2toP4.Text = gameInfo.scores.player2PointsOwed.OwedToPlayer4.ToString();
+			labelP2Total.Text = gameInfo.scores.player2PointsOwed.TotalOwed.ToString();
+
+			labelP3toP1.Text = gameInfo.scores.player3PointsOwed.OwedToPlayer1.ToString();
+			labelP3toP2.Text = gameInfo.scores.player3PointsOwed.OwedToPlayer2.ToString();
+			labelP3toP4.Text = gameInfo.scores.player3PointsOwed.OwedToPlayer4.ToString();
+			labelP3Total.Text = gameInfo.scores.player3PointsOwed.TotalOwed.ToString();
+
+			labelP4toP1.Text = gameInfo.scores.player4PointsOwed.OwedToPlayer1.ToString();
+			labelP4toP2.Text = gameInfo.scores.player4PointsOwed.OwedToPlayer2.ToString();
+			labelP4toP3.Text = gameInfo.scores.player4PointsOwed.OwedToPlayer3.ToString();
+			labelP4Total.Text = gameInfo.scores.player4PointsOwed.TotalOwed.ToString();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
+		}
+
+		//This same function exists in landscape bets view. This could possibly be combined into the scores class
+		private void UpdateBetScores()
+		{
+
+			const int maxHoles = 18;
+			//TODO: Perhaps max holes needs to be set in the gameinfo object
+
+			gameInfo.scores.BetBirdie = gameInfo.BetBirdie;
+			gameInfo.scores.BetCTP = gameInfo.BetCTP;
+			gameInfo.scores.BetGreenie = gameInfo.BetGreenie;
+			gameInfo.scores.BetHOFF = gameInfo.BetHOFF;
+			gameInfo.scores.BetEagle = gameInfo.BetEagle;
+			gameInfo.scores.BetSandyPar = gameInfo.BetSandyPar;
+
+			//This loop calls an important function that calculates the bets and winnings
+			for (int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
+				gameInfo.scores.CalculateWinnings (holeIndex);
+
+			//Clear the PointsOwed objects before recalculating them
+			gameInfo.scores.player1PointsOwed.ClearAll ();
+			gameInfo.scores.player2PointsOwed.ClearAll ();
+			gameInfo.scores.player3PointsOwed.ClearAll ();
+			gameInfo.scores.player4PointsOwed.ClearAll ();
+
+			//Check on total points owed.
+			gameInfo.scores.CalculateTotalPointsOwed ();
 		}
 
 		public override void WillRotate(UIInterfaceOrientation toInterfaceOrientation, double duration)

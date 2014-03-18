@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/Screens/landscape_score_view.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/Scores.cs">
     <Files>
       <File FileName="Golf_Games/Screens/menu2.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Screens/menu3.cs" Line="1" Column="1" />
@@ -9,24 +9,23 @@
       <File FileName="Golf_Games/CurrentHole.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/Courses/Courses.xml" Line="1" Column="1" />
       <File FileName="Golf_Games/Screens/menu4.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Main.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Main.cs" Line="16" Column="1" />
       <File FileName="Golf_Games/TableSource.cs" Line="1" Column="1" />
       <File FileName="Golf_Games/LineCollectionView.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Screens/landscape.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Screens/landscape_score_view.cs" Line="301" Column="47" />
-      <File FileName="Golf_Games/Screens/landscape_points_chart.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Screens/portrait.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/GameInfo.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Scores.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/Screens/landscape.cs" Line="449" Column="28" />
+      <File FileName="Golf_Games/Screens/landscape_score_view.cs" Line="280" Column="17" />
+      <File FileName="Golf_Games/Screens/landscape_points_chart.cs" Line="86" Column="5" />
+      <File FileName="Golf_Games/Screens/portrait.cs" Line="157" Column="41" />
+      <File FileName="Golf_Games/GameInfo.cs" Line="69" Column="35" />
+      <File FileName="Golf_Games/Scores.cs" Line="341" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Golf_Games" expanded="True">
             <Node name="Courses" expanded="True" />
-            <Node name="Screens" expanded="True">
-              <Node name="landscape_points_chart.xib" selected="True" />
-            </Node>
+            <Node name="Screens" expanded="True" />
+            <Node name="Scores.cs" selected="True" />
           </Node>
         </State>
       </Pad>
