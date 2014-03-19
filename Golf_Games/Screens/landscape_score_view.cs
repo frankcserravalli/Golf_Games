@@ -350,11 +350,14 @@ namespace Golf_Games
 			gameInfo.scores.BetEagle = gameInfo.BetEagle;
 			gameInfo.scores.BetSandyPar = gameInfo.BetSandyPar;
 
+			gameInfo.scores.AddSideBetPointsToList();
+
 			//This loop calls an important function that calculates the bets and winnings
 			//for (int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
 				//gameInfo.scores.CalculateWinnings (holeIndex);
 
 			//TESTING: This is the new way of calculating the bets
+
 			gameInfo.scores.BetsCalculationAllHoles ();
 		}
 	}
