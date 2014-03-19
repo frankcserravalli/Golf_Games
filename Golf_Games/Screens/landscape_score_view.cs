@@ -356,8 +356,7 @@ namespace Golf_Games
 			//for (int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
 				//gameInfo.scores.CalculateWinnings (holeIndex);
 
-			//TESTING: This is the new way of calculating the bets
-
+			//This is the new way of calculating the bets
 			gameInfo.scores.BetsCalculationAllHoles ();
 		}
 	}

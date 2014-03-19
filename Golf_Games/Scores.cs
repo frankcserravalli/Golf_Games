@@ -471,6 +471,10 @@ namespace Golf_Games
 		public void CalculateTotalPointsOwed()
 		{
 			//int playerIndex = playerNumber - 1;
+			const int p1Index = 0;
+			const int p2Index = 1;
+			const int p3Index = 2;
+			const int p4Index = 3;
 
 			for (int i = 0; i < betScoreP1.Length; i++) 
 			{
@@ -478,31 +482,43 @@ namespace Golf_Games
 				{
 					switch (j) {
 					case 0:
-						player1PointsOwed.OwedToPlayer2 += betScoreP1 [i].OwesToPlayer2;
-						player1PointsOwed.OwedToPlayer3 += betScoreP1 [i].OwesToPlayer3;
-						player1PointsOwed.OwedToPlayer4 += betScoreP1 [i].OwesToPlayer4;
-						player1PointsOwed.TotalOwed += (betScoreP1 [i].OwesToPlayer2 + betScoreP1 [i].OwesToPlayer3 + betScoreP1 [i].OwesToPlayer4);
+						player1PointsOwed.OwedToPlayer2 += betScoreP1 [i].owesToPlayerList [p2Index];
+						player1PointsOwed.OwedToPlayer3 += betScoreP1 [i].owesToPlayerList [p3Index];
+						player1PointsOwed.OwedToPlayer4 += betScoreP1 [i].owesToPlayerList [p4Index];
+						player1PointsOwed.TotalOwed += betScoreP1 [i].owesToPlayerList [p2Index] + betScoreP1 [i].owesToPlayerList [p3Index] + betScoreP1 [i].owesToPlayerList [p4Index];
 						break;
 
 					case 1:
-						player2PointsOwed.OwedToPlayer1 += betScoreP2 [i].OwesToPlayer1;
-						player2PointsOwed.OwedToPlayer3 += betScoreP2 [i].OwesToPlayer3;
-						player2PointsOwed.OwedToPlayer4 += betScoreP2 [i].OwesToPlayer4;
-						player2PointsOwed.TotalOwed += (betScoreP2 [i].OwesToPlayer1 + betScoreP2 [i].OwesToPlayer3 + betScoreP2 [i].OwesToPlayer4);
+						//player2PointsOwed.OwedToPlayer1 += betScoreP2 [i].OwesToPlayer1;
+						//player2PointsOwed.OwedToPlayer3 += betScoreP2 [i].OwesToPlayer3;
+						//player2PointsOwed.OwedToPlayer4 += betScoreP2 [i].OwesToPlayer4;
+						//player2PointsOwed.TotalOwed += (betScoreP2 [i].OwesToPlayer1 + betScoreP2 [i].OwesToPlayer3 + betScoreP2 [i].OwesToPlayer4);
+						player2PointsOwed.OwedToPlayer1 += betScoreP2 [i].owesToPlayerList [p1Index];
+						player2PointsOwed.OwedToPlayer3 += betScoreP2 [i].owesToPlayerList [p3Index];
+						player2PointsOwed.OwedToPlayer4 += betScoreP2 [i].owesToPlayerList [p4Index];
+						player2PointsOwed.TotalOwed += betScoreP2 [i].owesToPlayerList [p1Index] + betScoreP2 [i].owesToPlayerList [p3Index] + betScoreP2 [i].owesToPlayerList [p4Index];
 						break;
 
 					case 2:
-						player3PointsOwed.OwedToPlayer1 += betScoreP3 [i].OwesToPlayer1;
-						player3PointsOwed.OwedToPlayer2 += betScoreP3 [i].OwesToPlayer2;
-						player3PointsOwed.OwedToPlayer4 += betScoreP3 [i].OwesToPlayer4;
-						player3PointsOwed.TotalOwed += (betScoreP3 [i].OwesToPlayer1 + betScoreP3 [i].OwesToPlayer2 + betScoreP3 [i].OwesToPlayer4);
+//						player3PointsOwed.OwedToPlayer1 += betScoreP3 [i].OwesToPlayer1;
+//						player3PointsOwed.OwedToPlayer2 += betScoreP3 [i].OwesToPlayer2;
+//						player3PointsOwed.OwedToPlayer4 += betScoreP3 [i].OwesToPlayer4;
+//						player3PointsOwed.TotalOwed += (betScoreP3 [i].OwesToPlayer1 + betScoreP3 [i].OwesToPlayer2 + betScoreP3 [i].OwesToPlayer4);
+						player3PointsOwed.OwedToPlayer1 += betScoreP3 [i].owesToPlayerList [p1Index];
+						player3PointsOwed.OwedToPlayer2 += betScoreP3 [i].owesToPlayerList [p2Index];
+						player3PointsOwed.OwedToPlayer4 += betScoreP3 [i].owesToPlayerList [p4Index];
+						player3PointsOwed.TotalOwed += betScoreP3 [i].owesToPlayerList [p1Index] + betScoreP3 [i].owesToPlayerList [p2Index] + betScoreP3 [i].owesToPlayerList [p4Index];
 						break;
 
 					case 3:
-						player4PointsOwed.OwedToPlayer1 += betScoreP4 [i].OwesToPlayer1;
-						player4PointsOwed.OwedToPlayer2 += betScoreP4 [i].OwesToPlayer2;
-						player4PointsOwed.OwedToPlayer3 += betScoreP4 [i].OwesToPlayer3;
-						player4PointsOwed.TotalOwed += (betScoreP4 [i].OwesToPlayer1 + betScoreP4 [i].OwesToPlayer2 + betScoreP4 [i].OwesToPlayer3);
+//						player4PointsOwed.OwedToPlayer1 += betScoreP4 [i].OwesToPlayer1;
+//						player4PointsOwed.OwedToPlayer2 += betScoreP4 [i].OwesToPlayer2;
+//						player4PointsOwed.OwedToPlayer3 += betScoreP4 [i].OwesToPlayer3;
+//						player4PointsOwed.TotalOwed += (betScoreP4 [i].OwesToPlayer1 + betScoreP4 [i].OwesToPlayer2 + betScoreP4 [i].OwesToPlayer3);
+						player4PointsOwed.OwedToPlayer1 += betScoreP4 [i].owesToPlayerList [p1Index];
+						player4PointsOwed.OwedToPlayer2 += betScoreP4 [i].owesToPlayerList [p2Index];
+						player4PointsOwed.OwedToPlayer3 += betScoreP4 [i].owesToPlayerList [p3Index];
+						player4PointsOwed.TotalOwed += betScoreP4 [i].owesToPlayerList [p1Index] + betScoreP4 [i].owesToPlayerList [p2Index] + betScoreP4 [i].owesToPlayerList [p3Index];
 						break;
 
 					default:
