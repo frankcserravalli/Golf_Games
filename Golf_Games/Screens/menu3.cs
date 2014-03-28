@@ -9,8 +9,12 @@ namespace Golf_Games
 	{
 		public GameInfo gameInfo;
 		menu4 menu4Screen;
+		MenuNassau menuNassau;
+		MenuSkins menuSkins;
+		MenuWolf menuWolf;
+
 		string[] gameTypes;
-		GameMode mode;
+		//GameMode mode;
 
 		//These strings should probably be placed in another file.
 		string strokeInfo = "Stroke play, also known as medal play, " +
@@ -79,17 +83,60 @@ namespace Golf_Games
 
 
 			this.btnMenu3Next.TouchUpInside += (sender, e) => {
-				if (this.menu4Screen == null) {
-					this.menu4Screen = new menu4 ();
-				}
-					NSIndexPath selectedIndex = this.gameTypesTable.IndexPathForSelectedRow;
 
-					//mode = 
-					gameInfo.gameMode = (GameMode)selectedIndex.Row;
+				NSIndexPath selectedIndex = this.gameTypesTable.IndexPathForSelectedRow;
 
-					//Set the gameinfo for the next menu
+				//mode = 
+				gameInfo.gameMode = (GameMode)selectedIndex.Row;
+
+				//Set the gameinfo for the next menu
+				//menu4Screen.gameInfo = gameInfo;
+
+				//Determine which selection was chosen, and switch to the appropiate screen
+				switch(selectedIndex.Row)
+				{
+				case 0:
+					if (this.menu4Screen == null) {
+						this.menu4Screen = new menu4 ();
+					}
 					menu4Screen.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menu4Screen, true);
+					break;
+
+				case 1:
+					if (this.menuSkins == null) {
+						this.menuSkins = new MenuSkins ();
+					}
+					menuSkins.gameInfo = gameInfo;
+					this.NavigationController.PushViewController (this.menuSkins, true);
+					break;
+
+				case 2:
+					if (this.menuWolf == null) {
+						this.menuWolf = new MenuWolf ();
+					}
+					menuWolf.gameInfo = gameInfo;
+					this.NavigationController.PushViewController (this.menuWolf, true);
+					break;
+
+				case 3:
+					if (this.menuNassau == null) {
+						this.menuNassau = new MenuNassau ();
+					}
+					menuNassau.gameInfo = gameInfo;
+					this.NavigationController.PushViewController (this.menuNassau, true);
+					break;
+
+				default:
+					if (this.menu4Screen == null) {
+						this.menu4Screen = new menu4 ();
+					}
+					menu4Screen.gameInfo = gameInfo;
+					this.NavigationController.PushViewController (this.menu4Screen, true);
+					break;
+				}
+
+
 				
 
 

@@ -138,6 +138,19 @@
     <Compile Include="CustomKeyboardInput.cs" />
     <Compile Include="LineCollectionView.cs" />
     <Compile Include="GridCell.cs" />
+    <Compile Include="SkinsGame.cs" />
+    <Compile Include="Screens\MenuSkins.cs" />
+    <Compile Include="Screens\MenuSkins.designer.cs">
+      <DependentUpon>MenuSkins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MenuNassau.cs" />
+    <Compile Include="Screens\MenuNassau.designer.cs">
+      <DependentUpon>MenuNassau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MenuWolf.cs" />
+    <Compile Include="Screens\MenuWolf.designer.cs">
+      <DependentUpon>MenuWolf.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -150,6 +163,9 @@
     <InterfaceDefinition Include="Screens\menu4.xib" />
     <InterfaceDefinition Include="Screens\portrait.xib" />
     <InterfaceDefinition Include="Screens\start_screen.xib" />
+    <InterfaceDefinition Include="Screens\MenuSkins.xib" />
+    <InterfaceDefinition Include="Screens\MenuNassau.xib" />
+    <InterfaceDefinition Include="Screens\MenuWolf.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />

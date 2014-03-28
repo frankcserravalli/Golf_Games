@@ -86,6 +86,9 @@ namespace Golf_Games
 			//Add a border to the playerInfo and holeInfo view
 			viewPlayerInfo.Layer.BorderColor = UIColor.DarkGray.CGColor;
 			viewPlayerInfo.Layer.BorderWidth = 3.0f;
+			viewHoleInfo.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			viewHoleInfo.Layer.BorderWidth = 3.0f;
+			
 
 			//Button Next hole hit
 			this.btnNextHole.TouchUpInside += (sender, e) => {
@@ -100,13 +103,14 @@ namespace Golf_Games
 				UpdateInfo(1);
 			};
 
+			//TODO: The back button has been removed. So should this code at some point in time.
 			//Button Go back to setup is pressed
-			this.btnGoBack.TouchUpInside += (sender, e) => {
-
-				//Show the nav bar
-				NavigationController.SetNavigationBarHidden (false, false);
-				NavigationController.PopViewControllerAnimated(true);
-			};
+//			this.btnGoBack.TouchUpInside += (sender, e) => {
+//
+//				//Show the nav bar
+//				NavigationController.SetNavigationBarHidden (false, false);
+//				NavigationController.PopViewControllerAnimated(true);
+//			};
 
 			//Select the first player by default
 			tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
