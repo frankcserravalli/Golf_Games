@@ -68,7 +68,7 @@ namespace Golf_Games
 
 		//Holds the number of skins for the game.
 		public int NumSkins{ get; set; }
-
+		public int NumHoles{ get; set; }
 
 
 
@@ -99,14 +99,42 @@ namespace Golf_Games
 
 		}
 
+		//Currently, this function will add skins to holes toward the backend of the match. This will need to be revised most likely.
 		public void SetupProgressive(int skinValue, int numSkins)
 		{
 
+			//The holeGap should be between the range of 1 and 18
+			int holeGap = NumHoles - numSkins;
+			int skinIterator = 0;
+
+			for(int i = 0; i < NumHoles; i++)
+			{
+				if (i >= holeGap) 
+				{
+					HolePtValues [i] = skinValue + skinIterator;
+					skinIterator++;
+				}
+
+			}
+
 		}
 
-		public void SetupProgressiveHCP(int skinValue, int numSkins)
+		public void SetupProgressiveHCP(int skinValue, int numSkins, CurrentHole[] holes)
 		{
+			//The holeGap should be between the range of 1 and 18
+			int holeGap = NumHoles - numSkins;
+			int skinIterator = 0;
 
+
+			for(int i = 0; i < NumHoles; i++)
+			{
+				if (holes[i].hole_handicap <= numSkins)
+				{
+					HolePtValues [i] = skinValue + skinIterator;
+					skinIterator++;
+				}
+
+			}
 		}
 
 		public void SetupCustom()

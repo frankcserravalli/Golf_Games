@@ -115,6 +115,9 @@ namespace Golf_Games
 			//Select the first player by default
 			tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
 
+			//Set the label so that it displays the proper gamemode
+			labelGameMode.Text = gameInfo.gameMode;
+
 			//The done button for the betting view
 			this.btnDone.TouchUpInside += (sender, e) => {
 				//Hide the betting view

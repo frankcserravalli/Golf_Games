@@ -43,6 +43,9 @@ namespace Golf_Games
 		MonoTouch.UIKit.UIButton btnSandyPar { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelGameMode { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel lblHandicap { get; set; }
 
 		[Outlet]
@@ -101,6 +104,11 @@ namespace Golf_Games
 			if (btnEagle != null) {
 				btnEagle.Dispose ();
 				btnEagle = null;
+			}
+
+			if (btnGoBack != null) {
+				btnGoBack.Dispose ();
+				btnGoBack = null;
 			}
 
 			if (btnGreenie != null) {
@@ -183,9 +191,9 @@ namespace Golf_Games
 				viewSideBets = null;
 			}
 
-			if (btnGoBack != null) {
-				btnGoBack.Dispose ();
-				btnGoBack = null;
+			if (labelGameMode != null) {
+				labelGameMode.Dispose ();
+				labelGameMode = null;
 			}
 		}
 	}

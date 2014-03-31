@@ -38,6 +38,7 @@ namespace Golf_Games
 			//This is our array of skin modes
 			string[] tableItems;
 
+			gameInfo.scores.skinsGame.NumHoles = gameInfo.NumHoles;
 
 			//Row 0 is player 1
 			defaultRow = NSIndexPath.FromRowSection (0, 0);
@@ -65,10 +66,11 @@ namespace Golf_Games
 					break;
 
 				case 2:
-					gameInfo.scores.skinsGame.SetupProgressiveHCP (skinValues, totalSkins);
+					gameInfo.scores.skinsGame.SetupProgressiveHCP (skinValues, totalSkins, gameInfo.courseInfo.holes);
 					break;
 
 				case 3:
+					//Custom is not yet implemented
 					break;
 
 				default:

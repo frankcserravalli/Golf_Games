@@ -3,14 +3,14 @@ using MonoTouch.UIKit;
 
 namespace Golf_Games
 {
-	public enum GameMode
-	{
-		Strokes = 0,
-		Skins = 1,
-		Wolf = 2,
-		Nassau = 3,
-		Match = 4
-	};
+//	public enum GameMode
+//	{
+//		Strokes = 0,
+//		Skins = 1,
+//		Wolf = 2,
+//		Nassau = 3,
+//		Match = 4
+//	};
 
 	public class GameInfo
 	{
@@ -40,8 +40,10 @@ namespace Golf_Games
 		//Number of players
 		public int numPlayers;
 
-		//Game Mode
-		public GameMode gameMode;	//A finite range between 0 and some value.
+		//The name of the game mode
+		public string gameMode;
+		//public GameMode gameMode;	//A finite range between 0 and some value.
+
 
 		//Player scoring information
 		public Scores scores;
@@ -55,7 +57,7 @@ namespace Golf_Games
 		{
 			//TODO: The numPlayers variable needs to be handled later
 			numPlayers = 4;
-			gameMode = GameMode.Strokes;
+			//gameMode = GameMode.Strokes;
 			sideBets = false;
 
 			scores = new Scores ();
@@ -67,6 +69,9 @@ namespace Golf_Games
 			betCTP = 0;
 			betHOFF = 0;
 			scores.NumPlayers = numPlayers;
+
+			//By default, we are going to set NumHoles to 18
+			NumHoles = 18;
 		}
 
 
@@ -104,6 +109,9 @@ namespace Golf_Games
 			get{ return betHOFF; }
 			set{ betHOFF = value; }
 		}
+
+		public int NumHoles{ get; set; }
+
 
 	}
 }

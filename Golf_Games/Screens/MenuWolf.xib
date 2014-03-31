@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuWolf">
             <connections>
+                <outlet property="btnNext" destination="eGS-lN-Kdv" id="QKE-LT-KAk"/>
+                <outlet property="tablePlayers" destination="RSK-DO-ODc" id="afc-jw-Sli"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
