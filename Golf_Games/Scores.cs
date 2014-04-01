@@ -557,6 +557,7 @@ namespace Golf_Games
 
 		//Game modes
 		public SkinsGame skinsGame = new SkinsGame();
+		public WolfGame wolfGame = new WolfGame();
 
 		
 

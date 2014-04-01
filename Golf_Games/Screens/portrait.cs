@@ -6,6 +6,8 @@ namespace Golf_Games
 {
 	public partial class portrait : UIViewController
 	{
+		enum eGameMode {Strokes, Skins, Wolf, Nassau, Match};
+
 		landscape l_scorecard;
 		landscape_points_chart l_pts_chart;
 		landscape_score_view l_score_view;
@@ -49,6 +51,8 @@ namespace Golf_Games
 			//This is our array of Names and handicaps.
 			string[] tableItems;
 
+
+
 			//Row 0 is player 1
 			defaultRow = NSIndexPath.FromRowSection (0, 0);
 
@@ -76,6 +80,22 @@ namespace Golf_Games
 				break;
 
 			}
+			//As of right now, Wolf is the only game mode that has a different apperance.
+			if (gameInfo.gameModeNum == (int)eGameMode.Wolf) 
+			{
+				//Display who is the current wolf and the wolfs partner
+				if(gameInfo.scores.wolfGame.CurrentWolf >= 0 && gameInfo.scores.wolfGame.CurrentWolf < 4) 
+				{
+					tableItems[gameInfo.scores.wolfGame.CurrentWolf] += " (W)";
+				}
+
+				if(gameInfo.scores.wolfGame.CurrentWP >= 0 && gameInfo.scores.wolfGame.CurrentWP < 4) 
+				{
+					tableItems[gameInfo.scores.wolfGame.CurrentWolf] += " (WP)";
+				}
+			}
+
+
 			//string[] tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi, p4NameAndHandi };
 			table.Source = new TableSource (tableItems);
 			tablePlayers.Source = new TableSource (tableItems);
@@ -116,7 +136,7 @@ namespace Golf_Games
 			tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
 
 			//Set the label so that it displays the proper gamemode
-			labelGameMode.Text = gameInfo.gameMode;
+			labelGameMode.Text = gameInfo.gameModeStr;
 
 			//The done button for the betting view
 			this.btnDone.TouchUpInside += (sender, e) => {

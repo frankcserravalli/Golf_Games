@@ -122,7 +122,7 @@ namespace Golf_Games
 		public void SetupProgressiveHCP(int skinValue, int numSkins, CurrentHole[] holes)
 		{
 			//The holeGap should be between the range of 1 and 18
-			int holeGap = NumHoles - numSkins;
+			//int holeGap = NumHoles - numSkins;
 			int skinIterator = 0;
 
 

@@ -99,7 +99,8 @@ namespace Golf_Games
 					if (this.menu4Screen == null) {
 						this.menu4Screen = new menu4 ();
 					}
-					gameInfo.gameMode = gameTypes[0];
+					gameInfo.gameModeStr = gameTypes[0];
+					gameInfo.gameModeNum = 0;
 					menu4Screen.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menu4Screen, true);
 					break;
@@ -108,7 +109,8 @@ namespace Golf_Games
 					if (this.menuSkins == null) {
 						this.menuSkins = new MenuSkins ();
 					}
-					gameInfo.gameMode = gameTypes[1];
+					gameInfo.gameModeStr = gameTypes[1];
+					gameInfo.gameModeNum = 1;
 					menuSkins.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menuSkins, true);
 					break;
@@ -117,7 +119,8 @@ namespace Golf_Games
 					if (this.menuWolf == null) {
 						this.menuWolf = new MenuWolf ();
 					}
-					gameInfo.gameMode = gameTypes[2];
+					gameInfo.gameModeStr = gameTypes[2];
+					gameInfo.gameModeNum = 2;
 					menuWolf.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menuWolf, true);
 					break;
@@ -126,7 +129,8 @@ namespace Golf_Games
 					if (this.menuNassau == null) {
 						this.menuNassau = new MenuNassau ();
 					}
-					gameInfo.gameMode = gameTypes[3];
+					gameInfo.gameModeStr = gameTypes[3];
+					gameInfo.gameModeNum = 3;
 					menuNassau.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menuNassau, true);
 					break;
@@ -135,7 +139,8 @@ namespace Golf_Games
 					if (this.menu4Screen == null) {
 						this.menu4Screen = new menu4 ();
 					}
-					gameInfo.gameMode = gameTypes[0];
+					gameInfo.gameModeStr = gameTypes[0];
+					gameInfo.gameModeNum = 0;
 					menu4Screen.gameInfo = gameInfo;
 					this.NavigationController.PushViewController (this.menu4Screen, true);
 					break;

@@ -61,6 +61,9 @@ namespace Golf_Games
 				if (this.menu4Screen == null) {
 					this.menu4Screen = new menu4 ();
 				}
+				//Grab the selected player before moving on.
+				gameInfo.scores.wolfGame.CurrentWolf = tablePlayers.IndexPathForSelectedRow.Row;
+				menu4Screen.gameInfo = gameInfo;
 				this.NavigationController.PushViewController (this.menu4Screen, true);
 
 			};

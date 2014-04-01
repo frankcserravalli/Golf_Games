@@ -41,8 +41,9 @@ namespace Golf_Games
 		public int numPlayers;
 
 		//The name of the game mode
-		public string gameMode;
-		//public GameMode gameMode;	//A finite range between 0 and some value.
+		public string gameModeStr;
+		public int gameModeNum;
+
 
 
 		//Player scoring information

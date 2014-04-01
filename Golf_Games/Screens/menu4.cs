@@ -11,7 +11,7 @@ namespace Golf_Games
 	{
 		public GameInfo gameInfo;
 		public portrait portraitScreen;
-		menu4 menu4Screen;
+		//menu4 menu4Screen;
 		//CustomKeyboardInput customTxtBirdie;
 
 		public menu4 () : base ("menu4", null)
