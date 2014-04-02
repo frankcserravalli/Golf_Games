@@ -283,6 +283,7 @@ namespace Golf_Games
 				this.gameInfo.betSandyPar = System.Convert.ToInt32(txtSandyPar.Text);
 		}
 
+		//TODO: This function should probably be apart of a different cs file, as otheres need it.
 		private bool ScoreInputCheck(UITextField text, NSRange range, string str)
 		{
 			char character = 'a';
@@ -299,6 +300,7 @@ namespace Golf_Games
 			return false;
 		}
 
+		//TODO: This function should probably be apart of a different cs file, as otheres need it.
 		private void MoveViewPointValues(bool keyboardActive, int movementDistance)
 		{
 			const float movementDuration = 0.3f;

@@ -152,6 +152,7 @@
       <DependentUpon>MenuWolf.cs</DependentUpon>
     </Compile>
     <Compile Include="WolfGame.cs" />
+    <Compile Include="NassauGame.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
