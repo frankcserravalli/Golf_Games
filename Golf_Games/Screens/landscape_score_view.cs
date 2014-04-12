@@ -49,7 +49,7 @@ namespace Golf_Games
 		{
 			switch (gameInfo.numPlayers) 
 			{
-				case 1:
+			case 1:
 				//Hide players 2 through 4 infos
 				labelPlayer2.Hidden = true;
 				labelPlayer3.Hidden = true;
@@ -69,6 +69,9 @@ namespace Golf_Games
 				gridPlayer2Upper.Hidden = true;
 				gridPlayer3Upper.Hidden = true;
 				gridPlayer4Upper.Hidden = true;
+				labelP2OutBet.Hidden = true;
+				labelP3OutBet.Hidden = true;
+				labelP4OutBet.Hidden = true;
 
 
 				break;
@@ -87,6 +90,8 @@ namespace Golf_Games
 				gridPlayer4Lower.Hidden = true;
 				gridPlayer3Upper.Hidden = true;
 				gridPlayer4Upper.Hidden = true;
+				labelP3OutBet.Hidden = true;
+				labelP4OutBet.Hidden = true;
 				break;
 
 				case 3:
@@ -97,6 +102,7 @@ namespace Golf_Games
 				labelP4Total.Hidden = true;
 				gridPlayer4Lower.Hidden = true;
 				gridPlayer4Upper.Hidden = true;
+				labelP4OutBet.Hidden = true;
 				break;
 
 				case 4:
@@ -311,15 +317,7 @@ namespace Golf_Games
 			labelP3Total.Text = (p3In + p3Out).ToString ("+#;-#;0");
 			labelP4Total.Text = (p4In + p4Out).ToString ("+#;-#;0");
 
-			//Set all labels to resize if they dont fit.
-//			labelP1In.AdjustsFontSizeToFitWidth = true;
-//			labelP1Out.AdjustsFontSizeToFitWidth = true;
-//			labelP2In.AdjustsFontSizeToFitWidth = true;
-//			labelP2Out.AdjustsFontSizeToFitWidth = true;
-//			labelP3In.AdjustsFontSizeToFitWidth = true;
-//			labelP3Out.AdjustsFontSizeToFitWidth = true;
-//			labelP4In.AdjustsFontSizeToFitWidth = true;
-//			labelP4Out.AdjustsFontSizeToFitWidth = true;
+
 		}
 
 
@@ -351,6 +349,8 @@ namespace Golf_Games
 			gameInfo.scores.BetSandyPar = gameInfo.BetSandyPar;
 
 			gameInfo.scores.AddSideBetPointsToList();
+			gameInfo.scores.AddStrokeCountsToList ();
+
 
 			//This loop calls an important function that calculates the bets and winnings
 			//for (int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
@@ -358,6 +358,32 @@ namespace Golf_Games
 
 			//This is the new way of calculating the bets
 			gameInfo.scores.BetsCalculationAllHoles ();
+
+
+
+			switch (gameInfo.gameModeNum) 
+			{
+			case 0:
+				//Strokes
+				break;
+
+			case 1:
+				//Skins
+				break;
+
+			case 2:
+				//Wolf
+				break;
+
+			case 3:
+				//Nassau
+				break;
+
+			case 4:
+				//Match play
+				break;
+
+			}
 		}
 	}
 }

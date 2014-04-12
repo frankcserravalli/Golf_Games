@@ -61,6 +61,9 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelP1Out { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP1OutBet { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelP1Total { get; set; }
 
 		[Outlet]
@@ -68,6 +71,9 @@ namespace Golf_Games
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP2Out { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelP2OutBet { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP2Total { get; set; }
@@ -79,6 +85,9 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelP3Out { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP3OutBet { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelP3Total { get; set; }
 
 		[Outlet]
@@ -86,6 +95,9 @@ namespace Golf_Games
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP4Out { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelP4OutBet { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP4Total { get; set; }
@@ -127,11 +139,6 @@ namespace Golf_Games
 				gridHoleBottom9 = null;
 			}
 
-			if (gridHoleUpper9 != null) {
-				gridHoleUpper9.Dispose ();
-				gridHoleUpper9 = null;
-			}
-
 			if (gridHoleHandi1 != null) {
 				gridHoleHandi1.Dispose ();
 				gridHoleHandi1 = null;
@@ -140,6 +147,11 @@ namespace Golf_Games
 			if (gridHoleHandi2 != null) {
 				gridHoleHandi2.Dispose ();
 				gridHoleHandi2 = null;
+			}
+
+			if (gridHoleUpper9 != null) {
+				gridHoleUpper9.Dispose ();
+				gridHoleUpper9 = null;
 			}
 
 			if (gridPar1 != null) {
@@ -192,6 +204,81 @@ namespace Golf_Games
 				gridPlayer4Upper = null;
 			}
 
+			if (labelP1In != null) {
+				labelP1In.Dispose ();
+				labelP1In = null;
+			}
+
+			if (labelP1Out != null) {
+				labelP1Out.Dispose ();
+				labelP1Out = null;
+			}
+
+			if (labelP1Total != null) {
+				labelP1Total.Dispose ();
+				labelP1Total = null;
+			}
+
+			if (labelP2In != null) {
+				labelP2In.Dispose ();
+				labelP2In = null;
+			}
+
+			if (labelP2Out != null) {
+				labelP2Out.Dispose ();
+				labelP2Out = null;
+			}
+
+			if (labelP2Total != null) {
+				labelP2Total.Dispose ();
+				labelP2Total = null;
+			}
+
+			if (labelP3In != null) {
+				labelP3In.Dispose ();
+				labelP3In = null;
+			}
+
+			if (labelP3Out != null) {
+				labelP3Out.Dispose ();
+				labelP3Out = null;
+			}
+
+			if (labelP3Total != null) {
+				labelP3Total.Dispose ();
+				labelP3Total = null;
+			}
+
+			if (labelP4In != null) {
+				labelP4In.Dispose ();
+				labelP4In = null;
+			}
+
+			if (labelP4Out != null) {
+				labelP4Out.Dispose ();
+				labelP4Out = null;
+			}
+
+			if (labelP4Total != null) {
+				labelP4Total.Dispose ();
+				labelP4Total = null;
+			}
+
+			if (labelParIn != null) {
+				labelParIn.Dispose ();
+				labelParIn = null;
+			}
+
+			if (labelParOut != null) {
+				labelParOut.Dispose ();
+				labelParOut = null;
+			}
+
+			if (labelParTotal != null) {
+				labelParTotal.Dispose ();
+				labelParTotal = null;
+			}
+
 			if (labelPlayer1 != null) {
 				labelPlayer1.Dispose ();
 				labelPlayer1 = null;
@@ -212,79 +299,9 @@ namespace Golf_Games
 				labelPlayer4 = null;
 			}
 
-			if (labelParOut != null) {
-				labelParOut.Dispose ();
-				labelParOut = null;
-			}
-
-			if (labelParIn != null) {
-				labelParIn.Dispose ();
-				labelParIn = null;
-			}
-
-			if (labelParTotal != null) {
-				labelParTotal.Dispose ();
-				labelParTotal = null;
-			}
-
-			if (labelP1Out != null) {
-				labelP1Out.Dispose ();
-				labelP1Out = null;
-			}
-
-			if (labelP2Out != null) {
-				labelP2Out.Dispose ();
-				labelP2Out = null;
-			}
-
-			if (labelP3Out != null) {
-				labelP3Out.Dispose ();
-				labelP3Out = null;
-			}
-
-			if (labelP4Out != null) {
-				labelP4Out.Dispose ();
-				labelP4Out = null;
-			}
-
-			if (labelP1In != null) {
-				labelP1In.Dispose ();
-				labelP1In = null;
-			}
-
-			if (labelP2In != null) {
-				labelP2In.Dispose ();
-				labelP2In = null;
-			}
-
-			if (labelP3In != null) {
-				labelP3In.Dispose ();
-				labelP3In = null;
-			}
-
-			if (labelP4In != null) {
-				labelP4In.Dispose ();
-				labelP4In = null;
-			}
-
-			if (labelP1Total != null) {
-				labelP1Total.Dispose ();
-				labelP1Total = null;
-			}
-
-			if (labelP2Total != null) {
-				labelP2Total.Dispose ();
-				labelP2Total = null;
-			}
-
-			if (labelP3Total != null) {
-				labelP3Total.Dispose ();
-				labelP3Total = null;
-			}
-
-			if (labelP4Total != null) {
-				labelP4Total.Dispose ();
-				labelP4Total = null;
+			if (scrollView != null) {
+				scrollView.Dispose ();
+				scrollView = null;
 			}
 
 			if (viewBottom9 != null) {
@@ -297,9 +314,24 @@ namespace Golf_Games
 				viewUpper9 = null;
 			}
 
-			if (scrollView != null) {
-				scrollView.Dispose ();
-				scrollView = null;
+			if (labelP1OutBet != null) {
+				labelP1OutBet.Dispose ();
+				labelP1OutBet = null;
+			}
+
+			if (labelP2OutBet != null) {
+				labelP2OutBet.Dispose ();
+				labelP2OutBet = null;
+			}
+
+			if (labelP3OutBet != null) {
+				labelP3OutBet.Dispose ();
+				labelP3OutBet = null;
+			}
+
+			if (labelP4OutBet != null) {
+				labelP4OutBet.Dispose ();
+				labelP4OutBet = null;
 			}
 		}
 	}

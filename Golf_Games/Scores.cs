@@ -53,159 +53,18 @@ namespace Golf_Games
 			}
 		}
 
-		//TODO: This has become an obsolete function that has been replaced by BetsCalculationAllHoles(). Consider removing it in the future.
-//		public void CalculateWinnings(int holeIndex)
-//		{
-//			List<bool[]> allPlayersSwitches = new List<bool[]> (); 
-//			//List<int> allPlayersValues = new List<int> ();
-//
-//			bool[] betSwitchesP1 = betScoreP1 [holeIndex].GetSideBetSwitches ();
-//			bool[] betSwitchesP2 = betScoreP2 [holeIndex].GetSideBetSwitches ();
-//			bool[] betSwitchesP3 = betScoreP3 [holeIndex].GetSideBetSwitches ();
-//			bool[] betSwitchesP4 = betScoreP4 [holeIndex].GetSideBetSwitches ();
-//
-//			PlayerHoleSideBetInfo playerHSBI = new PlayerHoleSideBetInfo ();
-//
-//			bool[] currentBet = new bool[4];
-//
-//			int betWinnerCount = 0;
-//			int tempWinnings = 0;
-//			int tempTotalWinnings = 0;
-//			int[] valuesForSwitch = new int[4];
-//
-//			allPlayersSwitches.Add (betSwitchesP1);
-//			allPlayersSwitches.Add (betSwitchesP2);
-//			allPlayersSwitches.Add (betSwitchesP3);
-//			allPlayersSwitches.Add (betSwitchesP4);
-//
-//			//Calculate who gets what based on the switches and the point values that were inserted
-//			for (int playerIndex = 0; playerIndex < NumPlayers; playerIndex++) 
-//			{
-//				switch (playerIndex) 
-//				{
-//					case 0:
-//					playerHSBI = betScoreP1[holeIndex];
-//					break;
-//
-//					case 1:
-//					playerHSBI = betScoreP2[holeIndex];
-//					break;
-//
-//					case 2:
-//					playerHSBI = betScoreP3[holeIndex];
-//					break; 
-//
-//					case 3:
-//					playerHSBI = betScoreP4[holeIndex];
-//					break;
-//				}
-//
-//				//Clear the playerHSBI object so it starts fresh
-//				playerHSBI.ClearAll ();
-//
-//				//Cycle through all the switches for that player
-//				for (int i = 0; i < betSwitchesP1.Length; i++) {
-//					//Reset the betwinnercount
-//					betWinnerCount = 0;
-//
-//					for (int j = 0; j < NumPlayers; j ++) {
-//						currentBet [j] = allPlayersSwitches [j] [i];
-//						if (currentBet [j] == true) {
-//							//This value can help determine how much a player recieves or loses.
-//							betWinnerCount++;
-//						}
-//						
-//					}
-//
-//					//compare all switches and decide winnings
-//					//0 - Birdie
-//					//1 - CTP
-//					//2 - Eagle
-//					//3 - Greenie
-//					//4 - HOFF
-//					//5 - SandyPar
-//
-//
-//					switch (i) {
-//					case 0:
-//						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetBirdie);
-//						playerHSBI.BirdieWinnings = tempWinnings;
-//						break; 
-//					case 1:
-//						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetCTP);
-//						playerHSBI.CTPWinnings = tempWinnings;
-//						break; 
-//					case 2:
-//						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetEagle);
-//						playerHSBI.EagleWinnings = tempWinnings;
-//						break; 
-//					case 3:
-//						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetGreenie);
-//						playerHSBI.GreenieWinnings = tempWinnings;
-//						break; 
-//					case 4:
-//						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetHOFF);
-//						playerHSBI.HOFFWinnings = tempWinnings;
-//						break; 
-//					case 5:
-//						tempWinnings = DetermineWinningsForSwitch (holeIndex, currentBet [playerIndex], betWinnerCount, BetSandyPar);
-//						playerHSBI.SandyParWinnings = tempWinnings;
-//						break; 
-//
-//					default:
-//						tempWinnings = 0;
-//						break;
-//					}
-//
-//					//Used to determine who owes what
-//					valuesForSwitch = DetermineValuesForSwitch (betWinnerCount, currentBet, tempWinnings);
-//
-//					//TODO: May want to consider putting the OwesToPlayer members inside a list in the playerHSBI class.
-//					//Set the OwesToPlayer members.
-//					playerHSBI.OwesToPlayer1 += valuesForSwitch [0];
-//					playerHSBI.OwesToPlayer2 += valuesForSwitch [1];
-//					playerHSBI.OwesToPlayer3 += valuesForSwitch [2];
-//					playerHSBI.OwesToPlayer4 += valuesForSwitch [3];
-//
-//
-//
-//
-//					//The winnings in temp winnings are added to the total winnings for that bet. Total winnings is what should be displayed on screen for that hole.
-//					tempTotalWinnings = tempTotalWinnings + tempWinnings;
-//
-//
-//					switch (playerIndex) 
-//					{
-//						case 0:
-//							betScoreP1[holeIndex] = playerHSBI;
-//							break;
-//
-//						case 1:
-//							betScoreP2[holeIndex] = playerHSBI;
-//							break;
-//
-//						case 2:
-//							betScoreP3[holeIndex] = playerHSBI;
-//							break; 
-//
-//						case 3:
-//							betScoreP4[holeIndex] = playerHSBI;
-//							break;
-//					}
-//
-//
-//				}
-//				playerHSBI.TotalWinnings = tempTotalWinnings;
-//
-//
-//
-//				//Reset tempTotalWinnings
-//				tempTotalWinnings = 0;
-//
-//			}
-//			
-//
-//		}
+		public void AddStrokeCountsToList()
+		{
+			if (strokeCountList.Count == 0) 
+			{
+				strokeCountList.Add (strokeCountP1);
+				strokeCountList.Add (strokeCountP2);
+				strokeCountList.Add (strokeCountP3);
+				strokeCountList.Add (strokeCountP4);
+			}
+		}
+
+
 
 		//Methods
 
@@ -338,73 +197,38 @@ namespace Golf_Games
 			return playerTempValue;
 		}
 
-		//Old obsolete function, schedule to remove it.
-//		public int DetermineWinningsForSwitch(int holeIndex,bool currentBet, int betWinnerCount, int pointValue)
+//		//A method used to calculate the values betting wins/losses for the bottom nine. This method is intended primarily for Nassau.
+//		public int CalculateTotalBetsLower(int playerIndex)
 //		{
-//
-//			int winnings = 0;
-//
-//			if (betWinnerCount != NumPlayers && betWinnerCount != 0) 
+//			for (int i = 0; i < NumPlayers; i++) 
 //			{
-//				if (currentBet == true) 
-//				{	//If the player has won the current bet 
-//					//if betwinnercount is odd
-//					if (betWinnerCount % 2 != 0)
-//						winnings = pointValue * (NumPlayers - betWinnerCount);
-//					else 
-//					{
-//						winnings = pointValue;
-//					}
 //
-//				}
-//				else 
-//				{ //If the currentBet is a loss
-//					//if betwinnercount is odd
-//					if (betWinnerCount % 2 != 0)
-//						winnings = (pointValue * betWinnerCount) * -1;
-//					else 
-//					{
-//						winnings = pointValue * -1;
-//					}
-//				}
-//
-//				 
 //			}
-//
-//
-//
-//			return winnings;
 //		}
 
-		//Obsolete function. Schedule to delete
-//		public int[] DetermineValuesForSwitch(int betWinnerCount, bool[] winners, int winnings)
-//		{
-//			int[] players = new int[4];
-//			int betLoserCount = NumPlayers - betWinnerCount;
-//
-//			//Set all values to 0;
-//			foreach (int element in players) 
-//			{
-//				players[element] = 0;
-//			}
-//
-//			for (int index = 0; index < winners.Length; index++) 
-//			{
-//				//If current player is a winner in that bet
-//				if (winners [index] == true) 
-//				{
-//					players [index] = winnings / betWinnerCount;
-//				} 
-//				else
-//				{
-//					//You are a loser
-//					players [index] = (winnings / betLoserCount) * - 1;
-//				}
-//
-//
-//			}
-//			return players;
-//		}
+		//A method used to calculate the stroke count for the bottom nine.
+		public int CalculateTotalStrokesLower(int playerIndex)
+		{
+			int totalStrokes = 0;
+
+			for (int i = 0; i < 9; i++) 
+			{
+				totalStrokes += strokeCountList [playerIndex] [i];
+			}
+			return totalStrokes;
+		}
+
+		//A method used to calculate the stroke count for the upper nine.
+		public int CalculateTotalStrokesUpper(int playerIndex)
+		{
+			int totalStrokes = 0;
+
+			for (int i = 9; i < 18; i++) 
+			{
+				totalStrokes += strokeCountList [playerIndex] [i];
+			}
+			return totalStrokes;
+		}
 
 
 		//Setters and Getters
@@ -549,11 +373,14 @@ namespace Golf_Games
 		public int BetCTP{ get; set; }
 		public int BetHOFF{ get; set; }
 
+
 		//List for side bet point values
 		public List<int> sideBetList = new List<int> ();
 
 		//List for betScores
 		public List<PlayerHoleSideBetInfo[]> betScoreList = new List<PlayerHoleSideBetInfo[]> ();
+
+		public List<int[]> strokeCountList = new List<int[]> ();
 
 		//Game modes
 		public SkinsGame skinsGame = new SkinsGame();
