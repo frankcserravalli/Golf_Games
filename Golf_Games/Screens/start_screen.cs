@@ -11,6 +11,8 @@ namespace Golf_Games
 	public partial class start_screen : UIViewController
 	{
 		menu1 menu1Screen;
+
+		//This game info object will be passed down through on each navigationController push. There should only be one new Gameinfo line.
 		GameInfo gameInfo = new GameInfo();
 
 
