@@ -197,14 +197,7 @@ namespace Golf_Games
 			return playerTempValue;
 		}
 
-//		//A method used to calculate the values betting wins/losses for the bottom nine. This method is intended primarily for Nassau.
-//		public int CalculateTotalBetsLower(int playerIndex)
-//		{
-//			for (int i = 0; i < NumPlayers; i++) 
-//			{
-//
-//			}
-//		}
+
 
 		//A method used to calculate the stroke count for the bottom nine.
 		public int CalculateTotalStrokesLower(int playerIndex)

@@ -377,6 +377,7 @@ namespace Golf_Games
 
 			case 3:
 				//Nassau
+				SetupNassauMode ();
 				break;
 
 			case 4:
@@ -385,6 +386,37 @@ namespace Golf_Games
 
 			}
 		}
+
+		public void SetupNassauMode()
+		{
+			const int player1Index = 0;
+			const int player2Index = 1;
+			const int player3Index = 2;
+			const int player4Index = 3;
+
+			//Set the holes for a Nassau game
+			gameInfo.scores.nassauGame.SetNumHoles (gameInfo.NumHoles);
+			//Calculate the bets based on strokes
+			gameInfo.scores.nassauGame.CalculateHoleBets (gameInfo.scores.strokeCountList, gameInfo.numPlayers);
+			//Set the labels 
+			labelP1OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player1Index).ToString();
+			labelP2OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player2Index).ToString();
+			labelP3OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player3Index).ToString();
+			labelP4OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player4Index).ToString();
+
+		}
+
+		public void SetupSkinsMode()
+		{
+
+		}
+
+		public void SetupWolfMode()
+		{
+
+		}
+
+
 	}
 }
 

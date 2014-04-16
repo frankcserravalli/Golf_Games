@@ -57,7 +57,6 @@ namespace Golf_Games
 		private int[] p4HoleWins = new int[18];
 		private List<int[]> playerHoleWins = new List<int[]> ();
 
-		//Data members
 
 
 		//Methods
@@ -73,10 +72,17 @@ namespace Golf_Games
 			set{ playerHoleWins = value; }
 		}
 
-		//This function will take in an array and look for the lowest value.
-		private Tuple<int, bool> LowestInArrayCheck(int[] values)
+		public void SetNumHoles(int holes)
 		{
-			bool tie = false;
+			NumHoles = holes;
+		}
+
+
+		//This function will take in an array and look for the lowest value.
+		private Tuple<int, int> LowestInArrayCheck(int[] values)
+		{
+			//Default the hole result to a win.
+			int result = (int)HoleResult.Win;
 			int lowestValueIndex = 0; // Set the lowest index to the first index.
 
 
@@ -85,14 +91,26 @@ namespace Golf_Games
 				if(values[i] < values[lowestValueIndex] && values[i] != 0)
 					lowestValueIndex = i;
 
-				if (values [i] == values[lowestValueIndex] && values[i] != 0)
-					tie = true;
+
 			}
 
+			//Check lowest value for a tie
+			for (int i = 0; i < values.Length; i++) 
+			{
+				if (i != lowestValueIndex) 
+				{
+					if (values [i] == values [lowestValueIndex] && values [lowestValueIndex] != 0)
+						result = (int)HoleResult.Tie;
+				}
+
+			}
+			//If the lowestValueIndex value is 0, then the array was all zeros.
+			if (values [lowestValueIndex] == 0)
+				result = (int)HoleResult.Loss;
 
 			//indexAndTie.Item1 = lowestValueIndex;
 			//indexAndTie.Item2 = tie;
-			var indexAndTie = new Tuple <int, bool> (lowestValueIndex, tie);
+			var indexAndTie = new Tuple <int, int> (lowestValueIndex, result);
 
 			return indexAndTie;
 			
@@ -102,7 +120,7 @@ namespace Golf_Games
 		public void CalculateHoleBets(List<int[]> strokeList, int numPlayers)
 		{
 			int[] strokesForHole = new int[4];
-			Tuple<int, bool> indexAndTie;
+			Tuple<int, int> indexAndTie;
 
 			//The stroke list should have the same amount of players in the game
 		
@@ -120,13 +138,49 @@ namespace Golf_Games
 				//Perform a lowest check on this hole
 				indexAndTie = LowestInArrayCheck (strokesForHole);
 
-				if (indexAndTie.Item2 == false)
-					playerHoleWins [indexAndTie.Item1] [j] = (int)HoleResult.Win;
-				else
-					playerHoleWins [indexAndTie.Item1] [j] = (int)HoleResult.Tie;
+
+				playerHoleWins [indexAndTie.Item1] [j] = indexAndTie.Item2;
+				//if (indexAndTie.Item2 == (int)HoleResult.Win)
+				//	playerHoleWins [indexAndTie.Item1] [j] = (int)HoleResult.Win;
+				//else
+				//	playerHoleWins [indexAndTie.Item1] [j] = (int)HoleResult.Tie;
 
 			}
 
+
+		}
+
+		//This function will add up all the points a player won in the lower 9 holes and return it.
+		public int AddUpPointsLower(int playerIndex)
+		{
+			const int maxHoles = 9;
+			int totalPoints = 0;
+
+
+			for (int i = 0; i < maxHoles; i++) 
+			{
+				if (playerHoleWins [playerIndex] [i] == 1)
+					totalPoints++;
+			}
+
+			return totalPoints;
+
+		}
+
+		//This function will add up all the points a player won in the lower 9 holes and return it.
+		public int AddUpPointsUpper(int playerIndex)
+		{
+			const int startHole = 9;
+			const int maxHoles = 18;
+			int totalPoints = 0;
+
+			for (int i = startHole; i < maxHoles; i++) 
+			{
+				if (playerHoleWins [playerIndex] [i] == 1)
+					totalPoints++;
+			}
+
+			return totalPoints;
 
 		}
 	}
