@@ -234,13 +234,28 @@ namespace Golf_Games
 			string[] strScoreP4 = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 			string[] strScoreP4Upper = new string[] {"0","0","0","0","0","0","0","0","0" }; //9 entries
 
+			List<string[]> strScores = new List<string[]>();
+			strScores.Add (strScoreP1);
+			strScores.Add (strScoreP1Upper);
+			strScores.Add (strScoreP2);
+			strScores.Add (strScoreP2Upper);
+			strScores.Add (strScoreP3);
+			strScores.Add (strScoreP3Upper);
+			strScores.Add (strScoreP4);
+			strScores.Add (strScoreP4Upper);
+
 			//Here is where the betting scores for each hole needs to be calculated
 			UpdateBetScores ();
+
+
+
+
 
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP1, totalWinningsP1);
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP2, totalWinningsP2);
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP3, totalWinningsP3);
 			ConvertWinningsToIntArray (gameInfo.scores.betScoreP4, totalWinningsP4);
+
 
 			SetupGridPlayer (strScoreP1, 0, totalWinningsP1);
 			SetupGridPlayer (strScoreP1Upper, 9, totalWinningsP1);
@@ -250,6 +265,34 @@ namespace Golf_Games
 			SetupGridPlayer (strScoreP3Upper, 9, totalWinningsP3);
 			SetupGridPlayer (strScoreP4, 0, totalWinningsP4);
 			SetupGridPlayer (strScoreP4Upper, 9, totalWinningsP4);
+
+
+			//This should have different results depending on the game thats been selected. Each case should call its own specific function.
+			switch (gameInfo.gameModeNum) 
+			{
+				case 0:
+				//Strokes
+				break;
+
+				case 1:
+				//Skins
+				break;
+
+				case 2:
+				//Wolf
+				break;
+
+				case 3:
+				//Nassau
+				SetupNassauMode (strScores);
+				break;
+
+				case 4:
+				//Match play
+				break;
+
+
+			}
 
 
 			SetupRow (strScoreP1, gridPlayer1Lower);
@@ -351,49 +394,22 @@ namespace Golf_Games
 			gameInfo.scores.AddSideBetPointsToList();
 			gameInfo.scores.AddStrokeCountsToList ();
 
-
-			//This loop calls an important function that calculates the bets and winnings
-			//for (int holeIndex = 0; holeIndex < maxHoles; holeIndex++)
-				//gameInfo.scores.CalculateWinnings (holeIndex);
-
 			//This is the new way of calculating the bets
 			gameInfo.scores.BetsCalculationAllHoles ();
 
-
-
-			switch (gameInfo.gameModeNum) 
-			{
-			case 0:
-				//Strokes
-				break;
-
-			case 1:
-				//Skins
-				break;
-
-			case 2:
-				//Wolf
-				break;
-
-			case 3:
-				//Nassau
-				SetupNassauMode ();
-				break;
-
-			case 4:
-				//Match play
-				break;
-
-			}
 		}
 
-		public void SetupNassauMode()
+		public void SetupNassauMode(List<string[]> strScores)
 		{
 			const int player1Index = 0;
 			const int player2Index = 1;
 			const int player3Index = 2;
 			const int player4Index = 3;
 
+			const int nine = 9;
+			const int holeEighteen = 18;
+
+			int playerIndex = 0;
 			//Set the holes for a Nassau game
 			gameInfo.scores.nassauGame.SetNumHoles (gameInfo.NumHoles);
 			//Calculate the bets based on strokes
@@ -403,6 +419,32 @@ namespace Golf_Games
 			labelP2OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player2Index).ToString();
 			labelP3OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player3Index).ToString();
 			labelP4OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player4Index).ToString();
+
+			//This loop is intended to add the extra string on the tail end. Each element in strScores is for 9 holes.
+			for (int i = 0; i < gameInfo.numPlayers * 2; i++) 
+			{
+
+				for (int j = 0; j < nine; j++) 
+				{
+					if (gameInfo.scores.nassauGame.PlayerHoleWins [playerIndex] [j] == 1)
+						strScores [i] [j] = strScores [i] [j] + "/" + "1";
+					else
+						strScores [i] [j] = strScores [i] [j] + "/" + "0";
+				}
+
+				//This moves to the upper nine of strScores
+				i++;
+
+				for (int j = 0; j < nine; j++) 
+				{
+					if (gameInfo.scores.nassauGame.PlayerHoleWins [playerIndex] [j] == 1)
+						strScores [i] [j] = strScores [i] [j] + "/" + "1";
+					else
+						strScores [i] [j] = strScores [i] [j] + "/" + "0";
+				}
+				playerIndex++;
+
+			}
 
 		}
 
