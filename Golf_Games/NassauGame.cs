@@ -138,13 +138,7 @@ namespace Golf_Games
 				//Perform a lowest check on this hole
 				indexAndTie = LowestInArrayCheck (strokesForHole);
 
-
 				playerHoleWins [indexAndTie.Item1] [j] = indexAndTie.Item2;
-				//if (indexAndTie.Item2 == (int)HoleResult.Win)
-				//	playerHoleWins [indexAndTie.Item1] [j] = (int)HoleResult.Win;
-				//else
-				//	playerHoleWins [indexAndTie.Item1] [j] = (int)HoleResult.Tie;
-
 			}
 
 

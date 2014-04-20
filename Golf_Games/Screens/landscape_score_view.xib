@@ -21,18 +21,22 @@
                 <outlet property="gridPlayer4Lower" destination="GiN-bk-Aha" id="tCp-OP-HQP"/>
                 <outlet property="gridPlayer4Upper" destination="Pnj-S2-D65" id="cf8-50-6Ly"/>
                 <outlet property="labelP1In" destination="ZhD-FX-qXF" id="z3l-ny-AOI"/>
+                <outlet property="labelP1InBet" destination="b8i-y3-ObC" id="E1g-J0-tVN"/>
                 <outlet property="labelP1Out" destination="c7F-3N-IY9" id="kFf-8a-gXK"/>
                 <outlet property="labelP1OutBet" destination="NVd-UY-9nc" id="J3A-4x-uFM"/>
                 <outlet property="labelP1Total" destination="lTb-fy-n7N" id="mVd-dG-8Tc"/>
                 <outlet property="labelP2In" destination="CP7-hg-S51" id="X5R-xP-ra0"/>
+                <outlet property="labelP2InBet" destination="rSY-qD-Kju" id="eaY-Ul-owk"/>
                 <outlet property="labelP2Out" destination="70U-pZ-PQ1" id="vCM-lC-3Xv"/>
                 <outlet property="labelP2OutBet" destination="jBI-fY-hnY" id="6AS-yo-bF4"/>
                 <outlet property="labelP2Total" destination="Y05-Uv-m0B" id="Oxx-gN-hij"/>
                 <outlet property="labelP3In" destination="nuT-dH-afw" id="LU3-yR-6Cn"/>
+                <outlet property="labelP3InBet" destination="MkN-u8-E95" id="raS-eh-rdN"/>
                 <outlet property="labelP3Out" destination="G2z-v9-aLA" id="ZWR-dp-EEe"/>
                 <outlet property="labelP3OutBet" destination="5gh-pm-O3G" id="BhF-vN-emW"/>
                 <outlet property="labelP3Total" destination="9hz-Cp-UzM" id="06N-mO-eVu"/>
                 <outlet property="labelP4In" destination="ZHK-j9-u5X" id="QdM-Mn-jow"/>
+                <outlet property="labelP4InBet" destination="NrR-KZ-jsm" id="cy1-DF-OiN"/>
                 <outlet property="labelP4Out" destination="A9J-HA-ly7" id="i41-Kn-HnA"/>
                 <outlet property="labelP4OutBet" destination="aDC-0c-Y2p" id="BkZ-2z-xkk"/>
                 <outlet property="labelP4Total" destination="Fve-fi-Bfl" id="NoQ-Lv-pNK"/>
@@ -115,7 +119,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="R3l-jI-esZ">
-                            <rect key="frame" x="0.0" y="0.0" width="299" height="256"/>
+                            <rect key="frame" x="0.0" y="0.0" width="302" height="256"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8qo-Z6-09v">
@@ -240,25 +244,25 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NVd-UY-9nc">
-                                    <rect key="frame" x="278" y="125" width="21" height="21"/>
+                                    <rect key="frame" x="281" y="125" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jBI-fY-hnY">
-                                    <rect key="frame" x="278" y="154" width="21" height="21"/>
+                                    <rect key="frame" x="281" y="154" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5gh-pm-O3G">
-                                    <rect key="frame" x="278" y="182" width="21" height="21"/>
+                                    <rect key="frame" x="281" y="182" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aDC-0c-Y2p">
-                                    <rect key="frame" x="278" y="211" width="21" height="21"/>
+                                    <rect key="frame" x="281" y="211" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
@@ -284,7 +288,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZhD-FX-qXF">
-                                    <rect key="frame" x="262" y="125" width="29" height="21"/>
+                                    <rect key="frame" x="262" y="125" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
@@ -326,7 +330,7 @@
                                     <cells/>
                                 </collectionView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZHK-j9-u5X">
-                                    <rect key="frame" x="262" y="211" width="29" height="21"/>
+                                    <rect key="frame" x="262" y="211" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
@@ -344,7 +348,7 @@
                                     <cells/>
                                 </collectionView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CP7-hg-S51">
-                                    <rect key="frame" x="262" y="154" width="29" height="21"/>
+                                    <rect key="frame" x="262" y="154" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
@@ -386,7 +390,7 @@
                                     <cells/>
                                 </collectionView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nuT-dH-afw">
-                                    <rect key="frame" x="262" y="182" width="29" height="21"/>
+                                    <rect key="frame" x="262" y="182" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
@@ -424,6 +428,30 @@
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fve-fi-Bfl">
                                     <rect key="frame" x="327" y="212" width="25" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b8i-y3-ObC">
+                                    <rect key="frame" x="285" y="125" width="21" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rSY-qD-Kju">
+                                    <rect key="frame" x="285" y="154" width="21" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MkN-u8-E95">
+                                    <rect key="frame" x="285" y="182" width="21" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NrR-KZ-jsm">
+                                    <rect key="frame" x="285" y="211" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>

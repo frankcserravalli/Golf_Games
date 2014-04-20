@@ -58,6 +58,9 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelP1In { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP1InBet { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelP1Out { get; set; }
 
 		[Outlet]
@@ -68,6 +71,9 @@ namespace Golf_Games
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP2In { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelP2InBet { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP2Out { get; set; }
@@ -82,6 +88,9 @@ namespace Golf_Games
 		MonoTouch.UIKit.UILabel labelP3In { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UILabel labelP3InBet { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel labelP3Out { get; set; }
 
 		[Outlet]
@@ -92,6 +101,9 @@ namespace Golf_Games
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP4In { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel labelP4InBet { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel labelP4Out { get; set; }
@@ -214,6 +226,11 @@ namespace Golf_Games
 				labelP1Out = null;
 			}
 
+			if (labelP1OutBet != null) {
+				labelP1OutBet.Dispose ();
+				labelP1OutBet = null;
+			}
+
 			if (labelP1Total != null) {
 				labelP1Total.Dispose ();
 				labelP1Total = null;
@@ -227,6 +244,11 @@ namespace Golf_Games
 			if (labelP2Out != null) {
 				labelP2Out.Dispose ();
 				labelP2Out = null;
+			}
+
+			if (labelP2OutBet != null) {
+				labelP2OutBet.Dispose ();
+				labelP2OutBet = null;
 			}
 
 			if (labelP2Total != null) {
@@ -244,6 +266,11 @@ namespace Golf_Games
 				labelP3Out = null;
 			}
 
+			if (labelP3OutBet != null) {
+				labelP3OutBet.Dispose ();
+				labelP3OutBet = null;
+			}
+
 			if (labelP3Total != null) {
 				labelP3Total.Dispose ();
 				labelP3Total = null;
@@ -257,6 +284,11 @@ namespace Golf_Games
 			if (labelP4Out != null) {
 				labelP4Out.Dispose ();
 				labelP4Out = null;
+			}
+
+			if (labelP4OutBet != null) {
+				labelP4OutBet.Dispose ();
+				labelP4OutBet = null;
 			}
 
 			if (labelP4Total != null) {
@@ -314,24 +346,24 @@ namespace Golf_Games
 				viewUpper9 = null;
 			}
 
-			if (labelP1OutBet != null) {
-				labelP1OutBet.Dispose ();
-				labelP1OutBet = null;
+			if (labelP1InBet != null) {
+				labelP1InBet.Dispose ();
+				labelP1InBet = null;
 			}
 
-			if (labelP2OutBet != null) {
-				labelP2OutBet.Dispose ();
-				labelP2OutBet = null;
+			if (labelP2InBet != null) {
+				labelP2InBet.Dispose ();
+				labelP2InBet = null;
 			}
 
-			if (labelP3OutBet != null) {
-				labelP3OutBet.Dispose ();
-				labelP3OutBet = null;
+			if (labelP3InBet != null) {
+				labelP3InBet.Dispose ();
+				labelP3InBet = null;
 			}
 
-			if (labelP4OutBet != null) {
-				labelP4OutBet.Dispose ();
-				labelP4OutBet = null;
+			if (labelP4InBet != null) {
+				labelP4InBet.Dispose ();
+				labelP4InBet = null;
 			}
 		}
 	}

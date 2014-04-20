@@ -67,13 +67,14 @@ namespace Golf_Games
 
 			label.Frame = frame;
 			label.Center = ContentView.Center;
-			label.Font = UIFont.FromName ("Helvetica-Bold", 15f);
+
+			label.Font = UIFont.FromName ("Helvetica-Bold", 15f);	
 			label.AdjustsFontSizeToFitWidth = true;
 
 
 			//TODO: There needs to be size that fits all. This may need to be dynamic.
 			//Original value was 0.7, 0.7
-			label.Transform = CGAffineTransform.MakeScale (0.7f, 0.7f);	
+			label.Transform = CGAffineTransform.MakeScale (0.9f, 0.9f);	//Originally .7f for both values. A new value of .9 is used to show up better.
 
 			ContentView.AddSubview (label);
 		}

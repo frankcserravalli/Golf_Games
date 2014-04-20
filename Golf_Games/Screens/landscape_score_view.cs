@@ -407,7 +407,7 @@ namespace Golf_Games
 			const int player4Index = 3;
 
 			const int nine = 9;
-			const int holeEighteen = 18;
+			const int eighteen = 18;
 
 			int playerIndex = 0;
 			//Set the holes for a Nassau game
@@ -419,6 +419,12 @@ namespace Golf_Games
 			labelP2OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player2Index).ToString();
 			labelP3OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player3Index).ToString();
 			labelP4OutBet.Text = gameInfo.scores.nassauGame.AddUpPointsLower (player4Index).ToString();
+
+			labelP1InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player1Index).ToString ();
+			labelP2InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player2Index).ToString ();
+			labelP3InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player3Index).ToString ();
+			labelP4InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player4Index).ToString ();
+
 
 			//This loop is intended to add the extra string on the tail end. Each element in strScores is for 9 holes.
 			for (int i = 0; i < gameInfo.numPlayers * 2; i++) 
@@ -437,7 +443,7 @@ namespace Golf_Games
 
 				for (int j = 0; j < nine; j++) 
 				{
-					if (gameInfo.scores.nassauGame.PlayerHoleWins [playerIndex] [j] == 1)
+					if (gameInfo.scores.nassauGame.PlayerHoleWins [playerIndex] [j+nine] == 1)
 						strScores [i] [j] = strScores [i] [j] + "/" + "1";
 					else
 						strScores [i] [j] = strScores [i] [j] + "/" + "0";
