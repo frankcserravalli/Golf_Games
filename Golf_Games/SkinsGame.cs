@@ -11,6 +11,9 @@ namespace Golf_Games
 		ProgressiveHCP = 2,
 		Custom = 3
 	};
+
+	enum HoleResult{Loss, Win, Tie};
+
 	public class SkinsGame
 	{
 		public SkinsGame ()
@@ -139,6 +142,69 @@ namespace Golf_Games
 
 		public void SetupCustom()
 		{
+
+		}
+
+		public void CalculatePushes(List<int[]> strokeCountList)
+		{
+			const int maxHoles = 18;
+			const int numPlayers = 4;
+
+			int[] values = new int[] { 0, 0, 0, 0 };
+			Tuple<int, int> indexAndTie;
+
+			for(int i = 0; i < maxHoles; i++)
+			{
+				for (int j = 0; j < values.Length; j++)
+					values [j] = strokeCountList [j] [i];
+
+				indexAndTie = LowestInArrayCheck (values);
+
+				if (indexAndTie.Item2 == (int)HoleResult.Tie && i < (maxHoles - 1)) 
+				{
+					//Push the skin to the next hole. Take the the values that have been previously pushed as well if any.
+					HolePushValues [i + 1] = holePtValues [i] + holePushValues [i];
+				}
+			}
+
+		}
+
+		//This function will take in an array and look for the lowest value.
+		//Duplicated from NassauGame
+		private Tuple<int, int> LowestInArrayCheck(int[] values)
+		{
+			//Default the hole result to a win.
+			int result = (int)HoleResult.Win;
+			int lowestValueIndex = 0; // Set the lowest index to the first index.
+
+
+			for (int i = 0; i < values.Length; i++) 
+			{
+				if(values[i] < values[lowestValueIndex] && values[i] != 0)
+					lowestValueIndex = i;
+
+
+			}
+
+			//Check lowest value for a tie
+			for (int i = 0; i < values.Length; i++) 
+			{
+				if (i != lowestValueIndex) 
+				{
+					if (values [i] == values [lowestValueIndex] && values [lowestValueIndex] != 0)
+						result = (int)HoleResult.Tie;
+				}
+
+			}
+			//If the lowestValueIndex value is 0, then the array was all zeros.
+			if (values [lowestValueIndex] == 0)
+				result = (int)HoleResult.Loss;
+
+			//indexAndTie.Item1 = lowestValueIndex;
+			//indexAndTie.Item2 = tie;
+			var indexAndTie = new Tuple <int, int> (lowestValueIndex, result);
+
+			return indexAndTie;
 
 		}
 

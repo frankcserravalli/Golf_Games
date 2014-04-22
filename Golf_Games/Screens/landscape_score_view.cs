@@ -139,7 +139,7 @@ namespace Golf_Games
 			SetupParStrings (strHolePars, strHolePars2);
 			SetupHoleHandiStrings (strHoleHandis, strHoleHandis2);
 
-			SetupPlayerGrids ();
+
 
 			SetupInOutLabels ();
 
@@ -150,6 +150,8 @@ namespace Golf_Games
 			SetupRow (strHolenumbers2, gridHoleUpper9);
 			SetupRow (strHoleHandis2, gridHoleHandi2);
 			SetupRow (strHolePars2, gridPar2);
+
+			SetupPlayerGrids ();	//Originally placed right before SetupInOutLabels
 
 			//SetupBottom9 ();
 			//SetupHoleHandi ();
@@ -276,7 +278,8 @@ namespace Golf_Games
 
 				case 1:
 				//Skins
-				break;
+					SetupSkinsMode (strScores);
+					break;
 
 				case 2:
 				//Wolf
@@ -284,8 +287,8 @@ namespace Golf_Games
 
 				case 3:
 				//Nassau
-				SetupNassauMode (strScores);
-				break;
+					SetupNassauMode (strScores);
+					break;
 
 				case 4:
 				//Match play
@@ -409,6 +412,11 @@ namespace Golf_Games
 			const int nine = 9;
 			const int eighteen = 18;
 
+			int p1TotalBet = 0;
+			int p2TotalBet = 0;
+			int p3TotalBet = 0;
+			int p4TotalBet = 0;
+
 			int playerIndex = 0;
 			//Set the holes for a Nassau game
 			gameInfo.scores.nassauGame.SetNumHoles (gameInfo.NumHoles);
@@ -424,6 +432,16 @@ namespace Golf_Games
 			labelP2InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player2Index).ToString ();
 			labelP3InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player3Index).ToString ();
 			labelP4InBet.Text = gameInfo.scores.nassauGame.AddUpPointsUpper (player4Index).ToString ();
+
+			p1TotalBet = gameInfo.scores.nassauGame.AddUpPointsLower (player1Index) + gameInfo.scores.nassauGame.AddUpPointsUpper (player1Index);
+			p2TotalBet = gameInfo.scores.nassauGame.AddUpPointsLower (player2Index) + gameInfo.scores.nassauGame.AddUpPointsUpper (player2Index);
+			p3TotalBet = gameInfo.scores.nassauGame.AddUpPointsLower (player3Index) + gameInfo.scores.nassauGame.AddUpPointsUpper (player3Index);
+			p4TotalBet = gameInfo.scores.nassauGame.AddUpPointsLower (player4Index) + gameInfo.scores.nassauGame.AddUpPointsUpper (player4Index);
+
+			labelP1TotalBet.Text = p1TotalBet.ToString ();
+			labelP2TotalBet.Text = p2TotalBet.ToString ();
+			labelP3TotalBet.Text = p3TotalBet.ToString ();
+			labelP4TotalBet.Text = p4TotalBet.ToString ();
 
 
 			//This loop is intended to add the extra string on the tail end. Each element in strScores is for 9 holes.
@@ -454,9 +472,45 @@ namespace Golf_Games
 
 		}
 
-		public void SetupSkinsMode()
+		//The parameter strScores contains a list of all 4 players even if theres less than 4 playing.
+		public void SetupSkinsMode(List<string[]> strScores)
 		{
+			//Used to offset for the gap between in the lower and upper nine.
+			const int nine = 9;
+			const string skinsHoleValue = "Skin Value";
 
+			//string[] strHolenumbers1 = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; // 9 holes lower 
+			//string[] strHolenumbers2 = new string[] { "10", "11", "12", "13", "14", "15", "16", "17", "18" }; // 9 holes upper
+			string[] strSkinHolePts1 = new string[9];
+			string[] strSkinHolePts2 = new string[9];
+
+			//Calculate where pushes exist on the holes.
+			gameInfo.scores.skinsGame.CalculatePushes (gameInfo.scores.strokeCountList);
+
+
+			for (int i = 0; i < strSkinHolePts1.Length; i++) 
+			{
+				strSkinHolePts1 [i] = gameInfo.scores.skinsGame.HolePtValues [i].ToString ();
+
+				//If theres an extra push value to the hole, be sure to append it.
+				if (gameInfo.scores.skinsGame.HolePushValues [i] > 0)
+					strSkinHolePts1 [i] = strSkinHolePts1 [i] + "+" + gameInfo.scores.skinsGame.HolePushValues [i];
+			}
+
+			//Upper grid
+			for (int i = 0; i < strSkinHolePts2.Length; i++) 
+			{
+				strSkinHolePts2 [i] = gameInfo.scores.skinsGame.HolePtValues [i+nine].ToString ();
+
+				//If theres an extra push value to the hole, be sure to append it.
+				if (gameInfo.scores.skinsGame.HolePushValues [i+nine] > 0)
+					strSkinHolePts2 [i] = strSkinHolePts2 [i] + "+" + gameInfo.scores.skinsGame.HolePushValues [i+nine];
+			}
+
+			//The par grid holds the point value of each skin. This may not be the best approach, but it works for now.
+			SetupRow (strSkinHolePts1, gridPar1);
+			SetupRow (strSkinHolePts2, gridPar2);
+			labelPar.Text = skinsHoleValue;
 		}
 
 		public void SetupWolfMode()
