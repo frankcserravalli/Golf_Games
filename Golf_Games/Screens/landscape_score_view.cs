@@ -511,6 +511,9 @@ namespace Golf_Games
 			SetupRow (strSkinHolePts1, gridPar1);
 			SetupRow (strSkinHolePts2, gridPar2);
 			labelPar.Text = skinsHoleValue;
+			labelParOut.Text = gameInfo.scores.skinsGame.AddUpSkins (1, 9).ToString ();
+			labelParIn.Text = gameInfo.scores.skinsGame.AddUpSkins (10, 18).ToString ();
+
 		}
 
 		public void SetupWolfMode()

@@ -208,6 +208,21 @@ namespace Golf_Games
 
 		}
 
+		//Simply insert a range of your starting and end hole, and this function will add up the skin values for those holes.
+		public int AddUpSkins(int startHole, int endHole)
+		{
+			int total = 0;
+
+
+			for (int i = (startHole - 1); i < endHole; i++)
+			{
+				total += holePtValues [i];
+			}
+
+			return total;
+		}
+
+
 
 	}
 }
