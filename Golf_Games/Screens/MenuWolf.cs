@@ -26,6 +26,10 @@ namespace Golf_Games
 		{
 			base.ViewDidLoad ();
 
+			NSIndexPath defaultRow = new NSIndexPath();
+			//Row 0 is player 1
+			defaultRow = NSIndexPath.FromRowSection (0, 0);
+
 			string[] players;
 
 			switch (gameInfo.numPlayers) 
@@ -54,6 +58,9 @@ namespace Golf_Games
 
 			//Populate the table with the players
 			tablePlayers.Source = new TableSource (players);
+
+			//Select the first player by default
+			tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
 
 			//Button Next hit
 			this.btnNext.TouchUpInside += (sender, e) => 

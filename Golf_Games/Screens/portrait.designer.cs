@@ -13,6 +13,12 @@ namespace Golf_Games
 	partial class portrait
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton btnAddWPNo { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnAddWPYes { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton btnBirdie { get; set; }
 
 		[Outlet]
@@ -78,6 +84,9 @@ namespace Golf_Games
 		[Outlet]
 		MonoTouch.UIKit.UIView viewSideBets { get; set; }
 
+		[Outlet]
+		MonoTouch.UIKit.UIView viewWolfAddWP { get; set; }
+
 		[Action ("actnBtnBets:")]
 		partial void actnBtnBets (MonoTouch.Foundation.NSObject sender);
 
@@ -136,6 +145,11 @@ namespace Golf_Games
 				btnSandyPar = null;
 			}
 
+			if (labelGameMode != null) {
+				labelGameMode.Dispose ();
+				labelGameMode = null;
+			}
+
 			if (lblHandicap != null) {
 				lblHandicap.Dispose ();
 				lblHandicap = null;
@@ -191,9 +205,19 @@ namespace Golf_Games
 				viewSideBets = null;
 			}
 
-			if (labelGameMode != null) {
-				labelGameMode.Dispose ();
-				labelGameMode = null;
+			if (viewWolfAddWP != null) {
+				viewWolfAddWP.Dispose ();
+				viewWolfAddWP = null;
+			}
+
+			if (btnAddWPYes != null) {
+				btnAddWPYes.Dispose ();
+				btnAddWPYes = null;
+			}
+
+			if (btnAddWPNo != null) {
+				btnAddWPNo.Dispose ();
+				btnAddWPNo = null;
 			}
 		}
 	}

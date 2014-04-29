@@ -19,9 +19,9 @@ namespace Golf_Games
 			playerWinnings.Add (p3Winnings);
 			playerWinnings.Add (p4Winnings);
 
-			CurrentWolf = 0;
+			//CurrentWolf = 0;
 			//CurrentWP is set to -1 showing that there is no wolf partner to begin with. A valid range will be 0 through 3.
-			CurrentWP = -1;
+			//CurrentWP = -1;
 		}
 
 
@@ -35,9 +35,12 @@ namespace Golf_Games
 
 		//Properties
 		public int NumHoles{ get; set; }
-		public int CurrentWolf { get; set; }
-		public int CurrentWP{ get; set; }
+		public int CurrentWolf{ get; set; }
+		//public int CurrentWP{ get; set; }
 		public int NumWolves{ get; set; }
+
+		//public bool[] CurrentWolves = new bool[4]{false, false, false, false};
+		public bool[] CurrentWPs = new bool[4]{false, false, false, false};
 
 		//Methods
 		public List<int[]> PlayerWinnings

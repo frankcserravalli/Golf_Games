@@ -80,23 +80,14 @@ namespace Golf_Games
 				break;
 
 			}
+
 			//As of right now, Wolf is the only game mode that has a different apperance.
 			if (gameInfo.gameModeNum == (int)eGameMode.Wolf) 
 			{
-				//Display who is the current wolf and the wolfs partner
-				if(gameInfo.scores.wolfGame.CurrentWolf >= 0 && gameInfo.scores.wolfGame.CurrentWolf < 4) 
-				{
-					tableItems[gameInfo.scores.wolfGame.CurrentWolf] += " (W)";
-				}
-
-				if(gameInfo.scores.wolfGame.CurrentWP >= 0 && gameInfo.scores.wolfGame.CurrentWP < 4) 
-				{
-					tableItems[gameInfo.scores.wolfGame.CurrentWolf] += " (WP)";
-				}
+				WolfGame (tableItems);
 			}
 
 
-			//string[] tableItems = new string[] { p1NameAndHandi, p2NameAndHandi, p3NameAndHandi, p4NameAndHandi };
 			table.Source = new TableSource (tableItems);
 			tablePlayers.Source = new TableSource (tableItems);
 
@@ -146,15 +137,54 @@ namespace Golf_Games
 				SaveSideBettingSelections();
 				//Reset the the betting buttom images
 				ResetBetButtons();
-				//Enable the table for user interaction
-				tablePlayers.UserInteractionEnabled = true;
-				//Select next player
-				SelectNextPlayer();
+
+
+
+				//If it is a wolf game, we need to ask if this player is the wolfs partner.
+				if(gameInfo.gameModeNum == (int)eGameMode.Wolf) 
+					viewWolfAddWP.Hidden = false;
+				else
+				{
+					//Enable the table for user interaction
+					tablePlayers.UserInteractionEnabled = true;
+					SelectNextPlayer();
+				}
 			};
 
+			//The yes button for the Wolf Partner query view.
+			this.btnAddWPYes.TouchUpInside += (sender, e) => {
+
+				//Set the current player as a WP
+				gameInfo.scores.wolfGame.CurrentWPs[tablePlayers.IndexPathForSelectedRow.Row] = true;
+				//Redraw the W and WPs for the players.
+				UpdateWPs(tableItems);
+
+				//Hide the view
+				viewWolfAddWP.Hidden = true;
+				//Enable the table for user interaction
+				tablePlayers.UserInteractionEnabled = true;
+				SelectNextPlayer();
+			
+			};
+
+			//The yes button for the Wolf Partner query view.
+			this.btnAddWPNo.TouchUpInside += (sender, e) => {
+				//Set the current player as a WP
+				gameInfo.scores.wolfGame.CurrentWPs[tablePlayers.IndexPathForSelectedRow.Row] = false;
+				//Redraw the W and WPs for the players.
+				UpdateWPs(tableItems);
+
+				//Hide the view
+				viewWolfAddWP.Hidden = true;
+				//Enable the table for user interaction
+				tablePlayers.UserInteractionEnabled = true;
+				SelectNextPlayer();
+
+			};
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
+
 
 		//We need a way to move to Landscape view when the screen is rotated
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
@@ -285,7 +315,13 @@ namespace Golf_Games
 				viewSideBets.Hidden = false;
 			}
 			else
-				SelectNextPlayer();	//Select the next player after inputting the score
+			{
+				//Wolf Partner query
+				if(gameInfo.gameModeNum == (int)eGameMode.Wolf) 
+					viewWolfAddWP.Hidden = false;
+
+				//SelectNextPlayer();	//Select the next player after inputting the score
+			}
 		}
 
 		public void UpdateInfo(int holeDirection)
@@ -513,6 +549,63 @@ namespace Golf_Games
 
 			selectNewRow = NSIndexPath.FromRowSection (currentSelection, 0);
 			tablePlayers.SelectRow (selectNewRow, false, UITableViewScrollPosition.None);
+		}
+
+		private void WolfGame(string[] tableItems)
+		{
+			UIImage highlighted = new UIImage("gg_greenbutton_highlighted.png");
+			UIImage normal = new UIImage("gg_greenbutton.png");
+
+			//Display who is the current wolf and the wolfs partner
+			if(gameInfo.scores.wolfGame.CurrentWolf >= 0 && gameInfo.scores.wolfGame.CurrentWolf < 4) 
+			{
+				tableItems[gameInfo.scores.wolfGame.CurrentWolf] += " (W)";
+			}
+
+			for (int i = 0; i < gameInfo.numPlayers; i++) 
+			{
+				if(gameInfo.scores.wolfGame.CurrentWPs[i] == true) 
+				{
+					tableItems[i] += " (WP)";
+				}
+			}
+
+
+
+		}
+
+		private void UpdateWPs(string[] tableItems)
+		{
+			for (int i = 0; i < gameInfo.numPlayers; i++) 
+			{
+				if(gameInfo.scores.wolfGame.CurrentWPs[i] == true) 
+				{
+					if(tableItems[i].IndexOf("(WP)") < 1)	//IndexOf returns -1 if not found, 0 if empty string.
+						tableItems[i] += " (WP)";
+				}
+
+				if (gameInfo.scores.wolfGame.CurrentWPs [i] == false) 
+				{
+					tableItems[i] = RemoveStringFromEnd (tableItems [i], " (WP)");	//Remove the (WP) on the end if it exists.
+				}
+			}
+
+			table.Source = new TableSource (tableItems);
+			tablePlayers.Source = new TableSource (tableItems);
+		}
+
+		private string RemoveStringFromEnd(string str, string suffix)
+		{
+			if (str.EndsWith (suffix)) 
+			{
+				return str.Substring (0, str.Length - suffix.Length);
+			}
+			else 
+			{
+				return str;
+			}
+
+
 		}
 
 
