@@ -35,8 +35,9 @@ namespace Golf_Games
 
 		//Properties
 		public int NumHoles{ get; set; }
+
+		//The CurrentWolf should be consider as an index.
 		public int CurrentWolf{ get; set; }
-		//public int CurrentWP{ get; set; }
 		public int NumWolves{ get; set; }
 
 		//public bool[] CurrentWolves = new bool[4]{false, false, false, false};

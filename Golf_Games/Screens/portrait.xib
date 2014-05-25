@@ -6,8 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="portrait">
             <connections>
-                <outlet property="btnAddWPNo" destination="YHv-tj-6bZ" id="Fs3-nM-XGO"/>
-                <outlet property="btnAddWPYes" destination="Wd1-hD-Fj6" id="6U7-L1-WHy"/>
                 <outlet property="btnBirdie" destination="80" id="97"/>
                 <outlet property="btnCTP" destination="83" id="100"/>
                 <outlet property="btnDone" destination="86" id="95"/>
@@ -15,6 +13,10 @@
                 <outlet property="btnGreenie" destination="81" id="98"/>
                 <outlet property="btnHOFF" destination="84" id="101"/>
                 <outlet property="btnNextHole" destination="10" id="58"/>
+                <outlet property="btnP1ToggleWP" destination="2QM-rv-7N3" id="B8v-e5-jgb"/>
+                <outlet property="btnP2ToggleWP" destination="ydG-4a-FVc" id="rEz-kl-jKb"/>
+                <outlet property="btnP3ToggleWP" destination="P4S-sD-B88" id="pXV-Gv-ZP5"/>
+                <outlet property="btnP4ToggleWP" destination="FCn-Nu-pxp" id="Ydj-iD-o6R"/>
                 <outlet property="btnPrevHole" destination="55" id="59"/>
                 <outlet property="btnSandyPar" destination="79" id="96"/>
                 <outlet property="labelGameMode" destination="4Dr-uq-eEm" id="vgm-Pb-KBR"/>
@@ -30,7 +32,6 @@
                 <outlet property="viewHoleInfo" destination="49" id="54"/>
                 <outlet property="viewPlayerInfo" destination="47" id="48"/>
                 <outlet property="viewSideBets" destination="78" id="87"/>
-                <outlet property="viewWolfAddWP" destination="R8B-ob-gZv" id="TcE-vc-diE"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -271,6 +272,38 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2QM-rv-7N3">
+                            <rect key="frame" x="206" y="26" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="WP" backgroundImage="gg_greenbutton.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ydG-4a-FVc">
+                            <rect key="frame" x="206" y="60" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="WP" backgroundImage="gg_greenbutton.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P4S-sD-B88">
+                            <rect key="frame" x="206" y="94" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="WP" backgroundImage="gg_greenbutton.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FCn-Nu-pxp">
+                            <rect key="frame" x="206" y="128" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="WP" backgroundImage="gg_greenbutton.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
@@ -414,44 +447,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view hidden="YES" contentMode="scaleToFill" id="R8B-ob-gZv">
-                    <rect key="frame" x="-6" y="322" width="326" height="158"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wd1-hD-Fj6">
-                            <rect key="frame" x="6" y="38" width="162" height="84"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="Yes" backgroundImage="gg_greenbutton.png">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YHv-tj-6bZ">
-                            <rect key="frame" x="164" y="38" width="162" height="84"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="No" backgroundImage="gg_greenbutton.png">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Wolf Pack?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hcy-UA-jV8">
-                            <rect key="frame" x="98" y="9" width="138" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
+        <image name="gg_greenbutton.png" width="155" height="29"/>
         <image name="gg_greenbutton.png" width="155" height="29"/>
         <image name="gg_greenbutton.png" width="155" height="29"/>
         <image name="gg_greenbutton.png" width="155" height="29"/>

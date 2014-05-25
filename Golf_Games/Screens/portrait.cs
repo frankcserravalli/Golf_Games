@@ -2,6 +2,9 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.Collections.Generic;
+
+
 namespace Golf_Games
 {
 	public partial class portrait : UIViewController
@@ -24,6 +27,16 @@ namespace Golf_Games
 		private bool selectedEagle = false;
 		private bool selectedCTP = false;
 		private bool selectedHOFF = false;
+
+		//These are the flags for the wolf WP button toggles.
+		private bool selectedWPP1 = false;
+		private bool selectedWPP2 = false;
+		private bool selectedWPP3 = false;
+		private bool selectedWPP4 = false;
+		UIImage highlighted = new UIImage("gg_greenbutton_highlighted.png");
+		UIImage normal = new UIImage("gg_greenbutton.png");
+
+
 
 		public portrait () : base ("portrait", null)
 		{
@@ -51,7 +64,12 @@ namespace Golf_Games
 			//This is our array of Names and handicaps.
 			string[] tableItems;
 
-
+			//List of WP buttons for Wolf gamemode
+			List<UIButton> btnToggleWPList = new List<UIButton> ();
+			btnToggleWPList.Add (btnP1ToggleWP);
+			btnToggleWPList.Add (btnP2ToggleWP);
+			btnToggleWPList.Add (btnP3ToggleWP);
+			btnToggleWPList.Add (btnP4ToggleWP);
 
 			//Row 0 is player 1
 			defaultRow = NSIndexPath.FromRowSection (0, 0);
@@ -84,6 +102,17 @@ namespace Golf_Games
 			//As of right now, Wolf is the only game mode that has a different apperance.
 			if (gameInfo.gameModeNum == (int)eGameMode.Wolf) 
 			{
+
+
+				//Show WP buttons based on number of players.
+				for (int i = 0; i < gameInfo.numPlayers; i++) 
+				{
+					//If the player is the main wolf, keep his WP button hidden.
+					if(i != gameInfo.scores.wolfGame.CurrentWolf)
+						btnToggleWPList [i].Hidden = false;
+				}
+
+				//Setup the wolf game
 				WolfGame (tableItems);
 			}
 
@@ -103,6 +132,15 @@ namespace Golf_Games
 
 			//Button Next hole hit
 			this.btnNextHole.TouchUpInside += (sender, e) => {
+				//If a wolf game, update the proper buttons
+				if(gameInfo.gameModeNum == (int)eGameMode.Wolf && currentHoleNum < 18)
+				{
+					WolfHoleForward(btnToggleWPList);
+					UpdateWPs(tableItems);
+					tablePlayers.ReloadData();
+
+				}
+
 				//UpdateInfo with the Next Hole flag set.
 				UpdateInfo(0);
 
@@ -110,6 +148,12 @@ namespace Golf_Games
 
 			//Button Previous hole hit
 			this.btnPrevHole.TouchUpInside += (sender, e) => {
+				if(gameInfo.gameModeNum == (int)eGameMode.Wolf && currentHoleNum > 1)
+				{
+					WolfHoleBackward(btnToggleWPList);
+					UpdateWPs(tableItems);
+					tablePlayers.ReloadData();
+				}
 				//UpdateInfo with the Previous Hole flag set.
 				UpdateInfo(1);
 			};
@@ -139,51 +183,72 @@ namespace Golf_Games
 				ResetBetButtons();
 
 
+				//Enable the table for user interaction
+				tablePlayers.UserInteractionEnabled = true;
+				SelectNextPlayer();
 
-				//If it is a wolf game, we need to ask if this player is the wolfs partner.
-				if(gameInfo.gameModeNum == (int)eGameMode.Wolf) 
-					viewWolfAddWP.Hidden = false;
+			};
+
+
+
+			this.btnP1ToggleWP.TouchUpInside += (sender, e) => 
+			{
+				const int wpIndex = 0;
+
+				selectedWPP1 = !selectedWPP1;
+
+				if(selectedWPP1 == true)
+					btnP1ToggleWP.SetBackgroundImage(highlighted, UIControlState.Normal);
 				else
-				{
-					//Enable the table for user interaction
-					tablePlayers.UserInteractionEnabled = true;
-					SelectNextPlayer();
-				}
-			};
+					btnP1ToggleWP.SetBackgroundImage(normal, UIControlState.Normal);
 
-			//The yes button for the Wolf Partner query view.
-			this.btnAddWPYes.TouchUpInside += (sender, e) => {
-
-				//Set the current player as a WP
-				gameInfo.scores.wolfGame.CurrentWPs[tablePlayers.IndexPathForSelectedRow.Row] = true;
-				//Redraw the W and WPs for the players.
-				UpdateWPs(tableItems);
-
-				//Hide the view
-				viewWolfAddWP.Hidden = true;
-				//Enable the table for user interaction
-				tablePlayers.UserInteractionEnabled = true;
-				SelectNextPlayer();
-			
-			};
-
-			//The yes button for the Wolf Partner query view.
-			this.btnAddWPNo.TouchUpInside += (sender, e) => {
-				//Set the current player as a WP
-				gameInfo.scores.wolfGame.CurrentWPs[tablePlayers.IndexPathForSelectedRow.Row] = false;
-				//Redraw the W and WPs for the players.
-				UpdateWPs(tableItems);
-
-				//Hide the view
-				viewWolfAddWP.Hidden = true;
-				//Enable the table for user interaction
-				tablePlayers.UserInteractionEnabled = true;
-				SelectNextPlayer();
+				//Flip the bool in CurrentWPs
+				gameInfo.scores.wolfGame.CurrentWPs[wpIndex] = !gameInfo.scores.wolfGame.CurrentWPs[wpIndex];
 
 			};
+			this.btnP2ToggleWP.TouchUpInside += (sender, e) => 
+			{
+				const int wpIndex = 1;
 
-			// Perform any additional setup after loading the view, typically from a nib.
-		}
+				selectedWPP2 = !selectedWPP2;
+
+				if(selectedWPP2 == true)
+					btnP2ToggleWP.SetBackgroundImage(highlighted, UIControlState.Normal);
+				else
+					btnP2ToggleWP.SetBackgroundImage(normal, UIControlState.Normal);
+
+				//Flip the bool in CurrentWPs
+				gameInfo.scores.wolfGame.CurrentWPs[wpIndex] = !gameInfo.scores.wolfGame.CurrentWPs[wpIndex];
+			};
+			this.btnP3ToggleWP.TouchUpInside += (sender, e) => 
+			{
+				const int wpIndex = 2;
+
+				selectedWPP3 = !selectedWPP3;
+
+				if(selectedWPP3 == true)
+					btnP3ToggleWP.SetBackgroundImage(highlighted, UIControlState.Normal);
+				else
+					btnP3ToggleWP.SetBackgroundImage(normal, UIControlState.Normal);
+
+				//Flip the bool in CurrentWPs
+				gameInfo.scores.wolfGame.CurrentWPs[wpIndex] = !gameInfo.scores.wolfGame.CurrentWPs[wpIndex];
+			};
+			this.btnP4ToggleWP.TouchUpInside += (sender, e) => 
+			{
+				const int wpIndex = 3;
+
+				selectedWPP4 = !selectedWPP4;
+
+				if(selectedWPP4 == true)
+					btnP4ToggleWP.SetBackgroundImage(highlighted, UIControlState.Normal);
+				else
+					btnP4ToggleWP.SetBackgroundImage(normal, UIControlState.Normal);
+
+				//Flip the bool in CurrentWPs
+				gameInfo.scores.wolfGame.CurrentWPs[wpIndex] = !gameInfo.scores.wolfGame.CurrentWPs[wpIndex];
+			};
+		}//End of viewDidLoad()
 
 
 		//We need a way to move to Landscape view when the screen is rotated
@@ -317,10 +382,10 @@ namespace Golf_Games
 			else
 			{
 				//Wolf Partner query
-				if(gameInfo.gameModeNum == (int)eGameMode.Wolf) 
-					viewWolfAddWP.Hidden = false;
+//				if(gameInfo.gameModeNum == (int)eGameMode.Wolf) 
+//					viewWolfAddWP.Hidden = false;
 
-				//SelectNextPlayer();	//Select the next player after inputting the score
+				SelectNextPlayer();	//Select the next player after inputting the score
 			}
 		}
 
@@ -551,10 +616,13 @@ namespace Golf_Games
 			tablePlayers.SelectRow (selectNewRow, false, UITableViewScrollPosition.None);
 		}
 
+		//This function sets up the wolf game by populating the player table appropiately and appending (w) and (wp) where neccesary.
 		private void WolfGame(string[] tableItems)
 		{
 			UIImage highlighted = new UIImage("gg_greenbutton_highlighted.png");
 			UIImage normal = new UIImage("gg_greenbutton.png");
+
+
 
 			//Display who is the current wolf and the wolfs partner
 			if(gameInfo.scores.wolfGame.CurrentWolf >= 0 && gameInfo.scores.wolfGame.CurrentWolf < 4) 
@@ -574,19 +642,31 @@ namespace Golf_Games
 
 		}
 
+		//Goes through and updates the player table deciding who is WP and who isnt.
 		private void UpdateWPs(string[] tableItems)
 		{
 			for (int i = 0; i < gameInfo.numPlayers; i++) 
 			{
-				if(gameInfo.scores.wolfGame.CurrentWPs[i] == true) 
-				{
-					if(tableItems[i].IndexOf("(WP)") < 1)	//IndexOf returns -1 if not found, 0 if empty string.
-						tableItems[i] += " (WP)";
-				}
+				//Disabling these 2 if statements for the time being. We really dont need to show WP in text when we have buttons.
+//				if(gameInfo.scores.wolfGame.CurrentWPs[i] == true) 
+//				{
+//					if(tableItems[i].IndexOf("(WP)") < 1)	//IndexOf returns -1 if not found, 0 if empty string.
+//						tableItems[i] += " (WP)";
+//				}
+//
+//				if (gameInfo.scores.wolfGame.CurrentWPs [i] == false) 
+//				{
+//					tableItems[i] = RemoveStringFromEnd (tableItems [i], " (WP)");	//Remove the (WP) on the end if it exists.
+//				}
 
-				if (gameInfo.scores.wolfGame.CurrentWPs [i] == false) 
+				if (gameInfo.scores.wolfGame.CurrentWolf == i) 
 				{
-					tableItems[i] = RemoveStringFromEnd (tableItems [i], " (WP)");	//Remove the (WP) on the end if it exists.
+					if (tableItems [i].IndexOf ("(W)") < 1)	//IndexOf returns -1 if not found, 0 if empty string.
+						tableItems [i] += " (W)";
+				}
+				if (gameInfo.scores.wolfGame.CurrentWolf != i) 
+				{
+					tableItems[i] = RemoveStringFromEnd (tableItems [i], " (W)");	//Remove the (WP) on the end if it exists.
 				}
 			}
 
@@ -608,6 +688,66 @@ namespace Golf_Games
 
 		}
 
+		private void WolfResetWPBtns()
+		{
+			btnP1ToggleWP.SetBackgroundImage (normal, UIControlState.Normal);
+			btnP2ToggleWP.SetBackgroundImage (normal, UIControlState.Normal);
+			btnP3ToggleWP.SetBackgroundImage (normal, UIControlState.Normal);
+			btnP4ToggleWP.SetBackgroundImage (normal, UIControlState.Normal);
+
+			selectedWPP1 = false;
+			selectedWPP2 = false;
+			selectedWPP3 = false;
+			selectedWPP4 = false;
+		}
+
+		private void WolfHoleForward(List<UIButton> ListWPBtns)
+		{
+			WolfResetWPBtns ();
+
+			if (gameInfo.scores.wolfGame.CurrentWolf < (gameInfo.numPlayers - 1)) {
+				//Iterate to the next player down
+				gameInfo.scores.wolfGame.CurrentWolf++;
+			} 
+			else 
+			{
+				gameInfo.scores.wolfGame.CurrentWolf = 0;
+			}
+
+			for (int i = 0; i < gameInfo.numPlayers; i++) 
+			{
+				if (i == gameInfo.scores.wolfGame.CurrentWolf) {
+					//Hide the button for the Current wolf
+					ListWPBtns [i].Hidden = true;
+				} else
+					ListWPBtns [i].Hidden = false;
+			}
+
+
+		}
+		private void WolfHoleBackward(List<UIButton> ListWPBtns)
+		{
+			WolfResetWPBtns ();
+
+			if (gameInfo.scores.wolfGame.CurrentWolf > 0) {
+				//Iterate to the last player
+				gameInfo.scores.wolfGame.CurrentWolf--;
+			} 
+			else 
+			{
+				gameInfo.scores.wolfGame.CurrentWolf = gameInfo.numPlayers - 1;
+			}
+
+			for (int i = 0; i < gameInfo.numPlayers; i++) 
+			{
+				if (i == gameInfo.scores.wolfGame.CurrentWolf) {
+					//Hide the button for the Current wolf
+					ListWPBtns [i].Hidden = true;
+				} else
+					ListWPBtns [i].Hidden = false;
+			}
+
+		}
 
 	}
 }

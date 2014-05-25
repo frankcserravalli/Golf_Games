@@ -43,6 +43,18 @@ namespace Golf_Games
 		MonoTouch.UIKit.UIButton btnNextHole { get; set; }
 
 		[Outlet]
+		MonoTouch.UIKit.UIButton btnP1ToggleWP { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnP2ToggleWP { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnP3ToggleWP { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton btnP4ToggleWP { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton btnPrevHole { get; set; }
 
 		[Outlet]
@@ -95,6 +107,16 @@ namespace Golf_Games
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnAddWPNo != null) {
+				btnAddWPNo.Dispose ();
+				btnAddWPNo = null;
+			}
+
+			if (btnAddWPYes != null) {
+				btnAddWPYes.Dispose ();
+				btnAddWPYes = null;
+			}
+
 			if (btnBirdie != null) {
 				btnBirdie.Dispose ();
 				btnBirdie = null;
@@ -210,14 +232,24 @@ namespace Golf_Games
 				viewWolfAddWP = null;
 			}
 
-			if (btnAddWPYes != null) {
-				btnAddWPYes.Dispose ();
-				btnAddWPYes = null;
+			if (btnP1ToggleWP != null) {
+				btnP1ToggleWP.Dispose ();
+				btnP1ToggleWP = null;
 			}
 
-			if (btnAddWPNo != null) {
-				btnAddWPNo.Dispose ();
-				btnAddWPNo = null;
+			if (btnP2ToggleWP != null) {
+				btnP2ToggleWP.Dispose ();
+				btnP2ToggleWP = null;
+			}
+
+			if (btnP3ToggleWP != null) {
+				btnP3ToggleWP.Dispose ();
+				btnP3ToggleWP = null;
+			}
+
+			if (btnP4ToggleWP != null) {
+				btnP4ToggleWP.Dispose ();
+				btnP4ToggleWP = null;
 			}
 		}
 	}

@@ -1,27 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/Screens/MenuSkins.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Golf_Games/Screens/portrait.cs">
     <Files>
+      <File FileName="Golf_Games/Screens/menu1.cs" Line="18" Column="4" />
       <File FileName="Golf_Games/Screens/menu2.cs" Line="65" Column="4" />
-      <File FileName="Golf_Games/Screens/menu3.cs" Line="79" Column="4" />
-      <File FileName="Golf_Games/Screens/menu4.cs" Line="117" Column="32" />
-      <File FileName="Golf_Games/Screens/MenuSkins.cs" Line="81" Column="5" />
-      <File FileName="Golf_Games/Screens/MenuNassau.cs" Line="60" Column="4" />
-      <File FileName="Golf_Games/Screens/portrait.cs" Line="96" Column="5" />
-      <File FileName="Golf_Games/Screens/MenuWolf.cs" Line="53" Column="4" />
+      <File FileName="Golf_Games/Screens/menu3.cs" Line="47" Column="36" />
+      <File FileName="Golf_Games/Screens/menu4.cs" Line="257" Column="8" />
+      <File FileName="Golf_Games/Screens/MenuSkins.cs" Line="84" Column="4" />
+      <File FileName="Golf_Games/Screens/MenuNassau.cs" Line="66" Column="6" />
+      <File FileName="Golf_Games/Screens/portrait.cs" Line="170" Column="53" />
+      <File FileName="Golf_Games/Screens/MenuWolf.cs" Line="63" Column="79" />
       <File FileName="Golf_Games/Courses/Courses.xml" Line="1" Column="1" />
       <File FileName="Golf_Games/Main.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/TableSource.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/LineCollectionView.cs" Line="34" Column="5" />
-      <File FileName="Golf_Games/Screens/landscape.cs" Line="17" Column="49" />
-      <File FileName="Golf_Games/Screens/landscape_score_view.cs" Line="1" Column="1" />
-      <File FileName="Golf_Games/Screens/landscape_points_chart.cs" Line="137" Column="1" />
-      <File FileName="Golf_Games/GameInfo.cs" Line="45" Column="26" />
-      <File FileName="Golf_Games/Scores.cs" Line="563" Column="3" />
-      <File FileName="Golf_Games/CurrentCourseInfo.cs" Line="16" Column="18" />
-      <File FileName="Golf_Games/SkinsGame.cs" Line="143" Column="4" />
-      <File FileName="Golf_Games/WolfGame.cs" Line="31" Column="42" />
-      <File FileName="Golf_Games/NassauGame.cs" Line="33" Column="89" />
+      <File FileName="Golf_Games/Screens/landscape_score_view.cs" Line="515" Column="80" />
+      <File FileName="Golf_Games/Scores.cs" Line="326" Column="7" />
+      <File FileName="Golf_Games/CurrentCourseInfo.cs" Line="1" Column="1" />
+      <File FileName="Golf_Games/NassauGame.cs" Line="8" Column="3" />
+      <File FileName="Golf_Games/SkinsGame.cs" Line="211" Column="120" />
+      <File FileName="Golf_Games/WolfGame.cs" Line="43" Column="70" />
+      <File FileName="Golf_Games/Screens/start_screen.cs" Line="27" Column="4" />
+      <File FileName="Golf_Games/GameInfo.cs" Line="6" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,7 +27,7 @@
           <Node name="Golf_Games" expanded="True">
             <Node name="Courses" expanded="True" />
             <Node name="Screens" expanded="True">
-              <Node name="MenuNassau.cs" selected="True" />
+              <Node name="portrait.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -48,7 +46,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/jeffdoud/Projects/Golf_Games/Golf_Games/CustomKeyboardInput.cs" line="19" column="1" />
-      <Breakpoint file="/Users/jeffdoud/Projects/Golf_Games/Golf_Games/Screens/landscape.cs" line="32" column="1" />
+      <Breakpoint file="/Users/jeffdoud/Projects/Golf_Games/Golf_Games/Screens/menu1.cs" line="51" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
