@@ -36,6 +36,7 @@ namespace Golf_Games
 		UIImage highlighted = new UIImage("gg_greenbutton_highlighted.png");
 		UIImage normal = new UIImage("gg_greenbutton.png");
 
+		private int currentSelectedPlayer = 0;
 
 
 		public portrait () : base ("portrait", null)
@@ -137,8 +138,10 @@ namespace Golf_Games
 				{
 					WolfHoleForward(btnToggleWPList);
 					UpdateWPs(tableItems);
+					currentSelectedPlayer = tablePlayers.IndexPathForSelectedRow.Row;
 					tablePlayers.ReloadData();
-
+					defaultRow = NSIndexPath.FromRowSection (currentSelectedPlayer, 0);
+					tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
 				}
 
 				//UpdateInfo with the Next Hole flag set.
@@ -152,7 +155,10 @@ namespace Golf_Games
 				{
 					WolfHoleBackward(btnToggleWPList);
 					UpdateWPs(tableItems);
+					currentSelectedPlayer = tablePlayers.IndexPathForSelectedRow.Row;
 					tablePlayers.ReloadData();
+					defaultRow = NSIndexPath.FromRowSection (currentSelectedPlayer, 0);
+					tablePlayers.SelectRow (defaultRow, false, UITableViewScrollPosition.None);
 				}
 				//UpdateInfo with the Previous Hole flag set.
 				UpdateInfo(1);
